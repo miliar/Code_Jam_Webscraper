@@ -1,0 +1,1 @@
+print "\n".join("Case #%d: %s"%(c+1,(lambda(ts,T):reduce(lambda x,y:min(x,(-y)%T),ts,T))((lambda ts:(ts,abs(reduce(lambda x,y:__import__("fractions").gcd(x,y-ts[0]),ts,0))))(map(int,raw_input().split()[1:]))))for c in xrange(input()))

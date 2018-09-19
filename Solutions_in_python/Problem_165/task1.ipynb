@@ -1,0 +1,242 @@
+{
+ "metadata": {
+  "name": "",
+  "signature": "sha256:ca5c3011aaa1ce9a543b328f64d246e32ac23857b9c4cd50e91911d4bf2a259f"
+ },
+ "nbformat": 3,
+ "nbformat_minor": 0,
+ "worksheets": [
+  {
+   "cells": [
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "def count_row(row_len, ship_len):\n",
+      "    # 1) hit first\n",
+      "    score = row_len // ship_len\n",
+      "    # 2) check around\n",
+      "    # if multiplier \n",
+      "    if row_len % ship_len == 0:\n",
+      "        score += ship_len-1\n",
+      "    else: # we will miss one\n",
+      "        score += ship_len\n",
+      "        \n",
+      "    return score"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 15
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "def case():\n",
+      "    global f\n",
+      "    # read Smax\n",
+      "    line = (f.readline()).split()\n",
+      "    R = int(line[0])\n",
+      "    C = int(line[1])\n",
+      "    W = int(line[2])\n",
+      "    \n",
+      "    return count_row(C, W) * R"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 19
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "task = \"T1Big\"\n",
+      "f = open('input'+task+'.txt', 'r')\n",
+      "n_tests = int(f.readline())\n",
+      "result = []\n",
+      "for i in range(n_tests):\n",
+      "    res = case()\n",
+      "    result.append(\"Case #\"+str(i+1)+\": \"+str(res))\n",
+      "f.close()"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 22
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "result"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 23,
+       "text": [
+        "['Case #1: 3',\n",
+        " 'Case #2: 7',\n",
+        " 'Case #3: 8',\n",
+        " 'Case #4: 6',\n",
+        " 'Case #5: 7',\n",
+        " 'Case #6: 8',\n",
+        " 'Case #7: 5',\n",
+        " 'Case #8: 5',\n",
+        " 'Case #9: 8',\n",
+        " 'Case #10: 7',\n",
+        " 'Case #11: 7',\n",
+        " 'Case #12: 6',\n",
+        " 'Case #13: 3',\n",
+        " 'Case #14: 6',\n",
+        " 'Case #15: 4',\n",
+        " 'Case #16: 6',\n",
+        " 'Case #17: 9',\n",
+        " 'Case #18: 8',\n",
+        " 'Case #19: 6',\n",
+        " 'Case #20: 2',\n",
+        " 'Case #21: 7',\n",
+        " 'Case #22: 4',\n",
+        " 'Case #23: 4',\n",
+        " 'Case #24: 5',\n",
+        " 'Case #25: 10',\n",
+        " 'Case #26: 5',\n",
+        " 'Case #27: 6',\n",
+        " 'Case #28: 10',\n",
+        " 'Case #29: 6',\n",
+        " 'Case #30: 4',\n",
+        " 'Case #31: 4',\n",
+        " 'Case #32: 6',\n",
+        " 'Case #33: 5',\n",
+        " 'Case #34: 4',\n",
+        " 'Case #35: 5',\n",
+        " 'Case #36: 3',\n",
+        " 'Case #37: 1',\n",
+        " 'Case #38: 5',\n",
+        " 'Case #39: 10',\n",
+        " 'Case #40: 4',\n",
+        " 'Case #41: 6',\n",
+        " 'Case #42: 6',\n",
+        " 'Case #43: 6',\n",
+        " 'Case #44: 9',\n",
+        " 'Case #45: 8',\n",
+        " 'Case #46: 2',\n",
+        " 'Case #47: 5',\n",
+        " 'Case #48: 3',\n",
+        " 'Case #49: 9',\n",
+        " 'Case #50: 5',\n",
+        " 'Case #51: 9',\n",
+        " 'Case #52: 5',\n",
+        " 'Case #53: 5',\n",
+        " 'Case #54: 6',\n",
+        " 'Case #55: 7']"
+       ]
+      }
+     ],
+     "prompt_number": 23
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "# write to file\n",
+      "fout = open('output'+task+'.txt', 'w')\n",
+      "for line in result:\n",
+      "    print(line)\n",
+      "    fout.write(line+'\\n')\n",
+      "fout.close()"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Case #1: 3\n",
+        "Case #2: 7\n",
+        "Case #3: 8\n",
+        "Case #4: 6\n",
+        "Case #5: 7\n",
+        "Case #6: 8\n",
+        "Case #7: 5\n",
+        "Case #8: 5\n",
+        "Case #9: 8\n",
+        "Case #10: 7\n",
+        "Case #11: 7\n",
+        "Case #12: 6\n",
+        "Case #13: 3\n",
+        "Case #14: 6\n",
+        "Case #15: 4\n",
+        "Case #16: 6\n",
+        "Case #17: 9\n",
+        "Case #18: 8\n",
+        "Case #19: 6\n",
+        "Case #20: 2\n",
+        "Case #21: 7\n",
+        "Case #22: 4\n",
+        "Case #23: 4\n",
+        "Case #24: 5\n",
+        "Case #25: 10\n",
+        "Case #26: 5\n",
+        "Case #27: 6\n",
+        "Case #28: 10\n",
+        "Case #29: 6\n",
+        "Case #30: 4\n",
+        "Case #31: 4\n",
+        "Case #32: 6\n",
+        "Case #33: 5\n",
+        "Case #34: 4\n",
+        "Case #35: 5\n",
+        "Case #36: 3\n",
+        "Case #37: 1\n",
+        "Case #38: 5\n",
+        "Case #39: 10\n",
+        "Case #40: 4\n",
+        "Case #41: 6\n",
+        "Case #42: 6\n",
+        "Case #43: 6\n",
+        "Case #44: 9\n",
+        "Case #45: 8\n",
+        "Case #46: 2\n",
+        "Case #47: 5\n",
+        "Case #48: 3\n",
+        "Case #49: 9\n",
+        "Case #50: 5\n",
+        "Case #51: 9\n",
+        "Case #52: 5\n",
+        "Case #53: 5\n",
+        "Case #54: 6\n",
+        "Case #55: 7\n"
+       ]
+      }
+     ],
+     "prompt_number": 24
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 24
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [],
+     "language": "python",
+     "metadata": {},
+     "outputs": []
+    }
+   ],
+   "metadata": {}
+  }
+ ]
+}
