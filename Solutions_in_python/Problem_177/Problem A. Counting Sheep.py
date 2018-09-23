@@ -1,69 +1,26 @@
 
-nums = {}
+def check_digit(num2):
+    global digit
+    lis = []
+    strnum = str(num2)
+    for i in strnum:
+        if int(i) not in digit:
+            digit += [int(i)]
+            #print(lis)
 
-def addNums(n):
-    digits = list(str(n))
-    for k in digits:
-        nums[str(k)] = 1
-
-def isFallAsleep():
-    for i in range(10):
-        if not str(i) in nums:
-            return False
-    return True
-
-
-def solve(n):
-    nums.clear()
-    if n == 0:
-        return False
-    for i in range(1, 101):
-        multiply = n * i
-        addNums(multiply)
-        rst = isFallAsleep()
-        if rst == True:
-            return multiply
-    return False
-
-
-def main():
-    #inputFile = "A-small-attempt0.in"
-    inputFile = "A-large.in"
-    outFile = inputFile + ".out"
-
-    inpf = open(inputFile, "r")
-    outf = open(outFile, "w")
-
-    testCase = int(inpf.readline())
-    for case in range(testCase):
-        #n = [int(x) for x in inpf.readline().strip().split(' ')]
-        n = int(inpf.readline())
-        rst = solve(n)
-
-        if rst == False:
-            result = 'Case #{}: INSOMNIA\n'.format(case+1)
-        else:
-            result = 'Case #{}: {}\n'.format(case+1,  rst)
-        #print n
-        print result,
-        outf.write(result)
-    inpf.close()
-    outf.close()
-
-def main2():
-    case = 0
-    n = 1256
-    rst = solve(n)
-    if rst == False:
-        result = 'Case #{}: INSOMNIA\n'.format(case+1)
-    else:
-        result = 'Case #{}: {}\n'.format(case+1,  rst)
-    print n
-    print result,
-
-
-if __name__ == "__main__":
-    main()
-    #main2()
-
-
+def count_sheep(num):
+    i = 1
+    global digit
+    digit = []
+    if num == 0:
+        return "INSOMNIA"
+    while 1:
+        check_digit(num*i)
+        #print(digit)
+        if sorted(digit) == [0,1,2,3,4,5,6,7,8,9]:
+            return num*i
+        i+=1
+    
+    
+for i in range(int(input())):
+    print("Case #"+str(i+1)+": "+str(count_sheep(int(input()))))

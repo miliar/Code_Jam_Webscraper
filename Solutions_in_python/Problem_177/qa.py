@@ -1,20 +1,18 @@
-import sys
+def solve(T, N):
+    seen = set()
+    x = N
+    for _ in xrange(10000000):
+        for c in str(x):
+            seen.add(c)
+        if len(seen) == 10:
+            print "Case #{}: {}".format(T, x)
+            return
+        x += N
+    print "Case #{}: {}".format(T, "INSOMNIA")
 
-numCases = input()
-for case in range( 1, numCases + 1 ):
-  nOrig = input()
-  seen = set()
 
-  n = 0
-  if nOrig > 0:
-    while len(seen) < 10:
-      n = n + nOrig
-      nStr = str(n)
-      for a in nStr:
-        seen.add(int(a))
-
-  output = n
-  if output == 0:
-    output = "INSOMNIA"
-
-  print 'Case #' + str( case ) + ': ' + str( output )
+if __name__ == '__main__':
+    T = int(raw_input())
+    for i in xrange(1, T + 1):
+        line = raw_input().split()
+        solve(i, int(line[0]))

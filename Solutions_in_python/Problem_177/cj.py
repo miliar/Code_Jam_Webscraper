@@ -1,36 +1,46 @@
-# raw_input() reads a string with a line of input, stripping the '\n' (newline) at the end.
-# This is all you need for most Google Code Jam problems.
+t=long(raw_input())
+x=t
+ans=[]
+
 
 import sys
-from sets import Set
 
-path_input=sys.argv[1]
-path_output = sys.argv[2]
-#print path_input
-#print path_output
 
-_input = open(path_input,"r")
-_output = open(path_output,"w")
+	
+def calc(num,mp,i):
 
-to_see = Set(range(0,10))
+	a=[]
+	while mp!=10:
+		fx=num*i
+		fx=str(fx)
+		
+		for p in range(0,len(fx)):
 
-t = int(_input.readline())  # read a line with a single integer
-for i in xrange(1, t + 1):
-    #n, m = [int(s) for s in _input.readline().split(" ")]  # read a list of integers, 2 in this case
-    n = int(_input.readline())
-    if (n==0): 
-        res = "INSOMNIA"
-    else:
-        _length=0
-        j=0
-        seen_numbers=Set([])
-        while(_length<10):
-            j+=1
-            new_seen_numbers=Set([int(k) for k in list(str(j*n))])
-            seen_numbers=seen_numbers.union(new_seen_numbers)
-            _length = len(to_see&seen_numbers)
-        res=j*n
-    _output.write("Case #{}: {}\n".format(i, res))
-_output.close()
-_input.close()
-    # check out .format's specification for more formatting options
+			a.append(int(fx[p]))
+		cc=0
+		for m in range(0,10):
+			if a.count(m)>0:
+				cc+=1
+		mp=cc
+		i=i+1
+	return fx
+
+
+	
+while t>0:
+	n=long(raw_input())
+	if n==0:
+		ans.append('INSOMNIA')
+	else:
+		m=calc(n,0,1)
+	
+		ans.append(m)
+	t=t-1
+for out in range(1,x+1):
+	sys.stdout.write('Case #')
+	print out,
+	sys.stdout.write(': ')
+	print (ans[out-1])
+	
+
+

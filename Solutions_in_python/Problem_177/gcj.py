@@ -1,28 +1,28 @@
-#!/usr/bin/env python3
+import argparse
 
-import os
-import sys
-import importlib
-import time
 
-def main():
-    letter = sys.argv[1]
-    dataset = sys.argv[2]
-    attempt = '-' + sys.argv[3] if len(sys.argv) > 3 else ''
+def solve(i, number):
+    if number == 0:
+        answer = 'INSOMNIA'
+    else:
+        nums = set([])
+        j = 1
+        while len(nums) < 10:
+            nums = nums.union(set(str(number * j)))
+            j += 1
+        answer = number * (j - 1)
+    print 'Case #{}: {}'.format(i, answer)
 
-    solution = importlib.import_module("problem-{0}".format(letter))
 
-    filename = '{0}-{1}{2}'.format(letter, dataset, attempt)
-    with open(filename + '.in', 'r') as infile:
-        with open(filename + '.out', 'w') as outfile:
-            before = time.monotonic()
-            t = int(infile.readline())
-            for i in range(t):
-                print("Case " + str(i))
-                outfile.write('Case #{0}: '.format(i + 1))
-                solution.solve(infile, outfile)
-            delta = time.monotonic() - before
-            print("All test cases finished in {0} ms.".format(delta * 1000))
+def main(input_file):
+    with file(input_file, 'r') as f:
+        test_cases = int(f.readline())
+        for i in xrange(test_cases):
+            solve(i + 1, int(f.readline()))
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description='Google Code Jam solution.')
+    parser.add_argument('input_file', help='Input file.')
+
+    args = parser.parse_args()
+    main(args.input_file)

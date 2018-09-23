@@ -1,25 +1,32 @@
-from sys import stdin
-from itertools import count
+import argparse
 
-test_cases = int(raw_input())
+parser = argparse.ArgumentParser()
 
-for i, N in enumerate(stdin):
-    print "Case #%d:"%(i + 1),
+parser.add_argument('-i', '--input', help="input_file")
+parser.add_argument('-o', '--output', help="output_file")
+args = parser.parse_args()
 
-    digits = set()
-    repeating = 0
-    for j in count(1):
-        case = str(int(N) * j)
+def solve(data):
+  n = int(data[0])
+  if n == 0:
+    return "INSOMNIA"
+  seen = set()
+  for i in xrange(1, 1000):
+    num = i * n
+    for c in str(num):
+      seen.add(c)
+    if len(seen) == 10:
+      return num
+  print "Failed at %s" % n
+  return "INSOMNIA"
 
-        digits_before = len(digits)
-        digits.update(case)
+with open(args.input, 'r') as inf, open(args.output, 'w') as outf:
+  n = int(inf.next())
+  c = 0
+  for line in inf:
+    c += 1
+    ans = solve(line.strip().split())
+    print >> outf, "Case #%s: %s" % (c, ans)
+    n -= 1
 
-        repeating += int(digits_before == len(digits))
-        if len(digits) >= 10:
-            print case
-            break
-
-        if repeating >= 1000:
-            print "INSOMNIA"
-            break
-
+assert n == 0

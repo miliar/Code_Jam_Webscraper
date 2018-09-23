@@ -1,51 +1,54 @@
-#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Apr  8 10:57:22 2016
 
-def fctand(a, b):
-	return a and b
+@author: tluquet
+"""
 
-def solve_case(num_a):
-	if num_a == 0:
-		return "INSOMNIA"
+import sys 
 
-	dicl = [False, False, False, False, False, False, False, False, False, False]
+OUTPUT_FILE = "outPbA.txt"
 
-	i = 1
-	num = num_a
-
-	while True:
-#		print "x"
-		for c in str(num):
-#			print c
-			dicl[int(c)] = True
-		
-		if reduce(fctand, dicl):
-			return num
-		
-		i += 1
-		num = i * num_a			
-				
-
-def main(argv):
-
-	fout_name = argv[1].split(".")[0] + ".out"
-	fout = open(fout_name, "w")
-
-	fin = open(argv[1])
-	nb_cases = int(fin.readline())
-
-
-	for case_no in range(1, nb_cases+1):
-		
-#		print "--", case_no
-
-		init_num = int(fin.readline())
-		# Have read all stuff for this case:
-		fout.write( "Case #{}: {}\n".format(case_no, solve_case(init_num)))
-
-	fout.close()
-	fin.close()
-	
-
-import sys
+def main():
+    if (len(sys.argv) != 2):
+        print "Error while reading argv1"        
+        return 0     
+    f = open(sys.argv[1],'r')
+    
+    # I/O Lists  init
+    inList = []
+    outList = []
+    
+    #Read from input 
+    nbLines = int(f.readline())
+    print nbLines
+    for l in xrange(nbLines):
+        line = int(f.readline())
+        inList.append(line)
+    print inList
+    
+    #Now find the results and put it in outList
+    for N in inList:
+        digList = []
+        count = N
+        it = 1 
+        if(N == 0):
+            outList.append("INSOMNIA")
+        else:
+            while len(digList) != 10 :             
+                count = it*N
+                for digit in str(count) :               
+                    if digit not in digList:
+                        digList.append(digit)
+                it += 1
+            outList.append(str(count))  
+                
+    outFile = open(OUTPUT_FILE,'w+')
+    i = 1
+    for res in outList:
+        print "Case #" + str(i) + ": " + res
+        outFile.write("Case #" + str(i)+ ": " + res + '\n')
+        i+=1 
+    
 if __name__ == "__main__":
-    main(sys.argv)
+    main()

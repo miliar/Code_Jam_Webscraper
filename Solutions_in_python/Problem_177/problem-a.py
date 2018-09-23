@@ -1,24 +1,30 @@
-import math
+def count_digits(number, res):
+  digits = str(number)
+  for digit in digits:
+    res[int(digit)] |= 1
 
-data = open("A-large.in").read().split()
-n = data[0]
-data = map(int, data[1:])
-answ = []
+def break_condition(res):
+  return all(res)
 
-for t in data:
-    num = [0]*10
-    if t == 0:
-        answ.append('INSOMNIA')
+if __name__ == "__main__":
+  import fileinput
+  f = fileinput.input()
+
+  total_test_cases = int(f.readline())
+  for tc in range(1, total_test_cases+1):
+    number = int(f.readline())
+    res = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+    if (number == 0):
+      print 'Case #%d: INSOMNIA' % tc
     else:
-        mul = 1
-        while not all(num):
-            g = t*mul
-            while g > 0:
-                num[g%10] = 1
-                g /= 10
-            mul += 1
-        answ.append((mul-1)*t)
+      factor = 2
+      count_digits(number, res)
+      new_number = 1
+      while not break_condition(res):
+        new_number = number * factor
+        factor += 1
+        count_digits(new_number, res)
 
-with open("A-large.out", 'w') as f:
-    for i,o in enumerate(answ):
-        f.write("Case #{}: {}\n".format(i+1, o))
+      print 'Case #%d: %d' % (tc, new_number)
+

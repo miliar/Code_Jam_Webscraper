@@ -1,21 +1,43 @@
-def sheep_count(n):
-    if n == 0:
-        return 'INSOMNIA'
-    numbers = set(['0','1','2','3','4','5','6','7','8','9'])
-    counted_numbers = set([])
-    count = 1
-    m = 0
-    while counted_numbers != numbers:
-        m += n
-        counted_numbers |= set(list(str(m)))
-    return str(m)
-        
-def formatted_output(index, final_count):
-    return 'Case #' + str(index) + ': ' + final_count
+# print('sheep counter...')
 
+input_file = 'A0small.in'
 
-t = int(raw_input())  # read a line with a single integer
-for i in range(1, t + 1):
-    n = int(raw_input())  # read a list of integers, 2 in this case
-    print formatted_output(i, sheep_count(n))
-    # check out .format's specification for more formatting options
+first_line = True
+
+count = -1
+
+for line in open(input_file, 'r'):
+    count += 1
+    if first_line:
+        num_tests = int(line)
+        first_line = False
+    else:
+        base = int(line)
+
+        digits = '0123456789'
+
+        max_limit = 1000000
+
+        for i in xrange(1,1000000):
+            integer = i*base
+            string = str(integer)
+            # print('string: %s' % (string,))
+            for j in xrange(0,len(digits)):
+                if j >= len(digits):
+                    break
+                if digits[j] in string:
+                    # print('found %s' % (digits[j]))
+                    digits = digits[:j] + digits[j+1:]
+
+            for j in xrange(0,len(digits)):
+                if j >= len(digits):
+                    break
+                if digits[j] in string:
+                    # print('found %s' % (digits[j]))
+                    digits = digits[:j] + digits[j+1:]
+
+            if len(digits) <= 0:
+                print('Case #%d: %s' % (count, string,))
+                break
+            elif i == max_limit-1:
+                print('Case #%d: INSOMNIA' % (count,))

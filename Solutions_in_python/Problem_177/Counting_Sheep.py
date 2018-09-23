@@ -1,32 +1,34 @@
-file_strings = []
-with open("counting_sheep.txt") as data_file:
-    for line in data_file:
-        file_strings.append(int(line.strip()))
+from array import array
 
-test_case_number = file_strings[0]
-file_strings.pop(0)
+file_read = open('A-small-attempt0.in', 'r')
+file_write = open('output.in', 'w')
 
-output_results = []
+p = file_read.readline()
 
-for i in range(len(file_strings)):
-    number = file_strings[i]
-    length_of_num = int(len(str(number)))
-    seen_numbers = []
+for i in range(int(p)):
+	value = file_read.readline()
+	increment = 1
+	file_write.write("Case #"+str(i+1)+":")
 
-    if number == 0:
-        print("Case #{}: INSOMNIA".format(i + 1))
-        continue
+	if int(value) == 0:
+		file_write.write(" INSOMNIA\n")
+	else:
+		a = array("c")
+		
+		while (1):
+			value1 = str(int(value) * increment)
+			length = len(value1)
+			for j in range(length):
+				sigle_char = value1[j]
+				# print "sigle_char"+str(sigle_char)
+				if sigle_char in a:
+					print ''
+				else:
+					# print 'value ist : '+str(sigle_char)
+					a.append(sigle_char)
 
-    seen = False
-    for j in range(1, (10**(length_of_num + 1) + 1)):
+			if len(a) == 10:
+				file_write.write(" "+str(value1)+"\n")
+				break
 
-        temp_num_str = str(j * number)
-        for char in temp_num_str:
-            if char not in seen_numbers:
-                seen_numbers.append(char)
-        if len(seen_numbers) == 10:
-            print("Case #{}: {}".format(i + 1, temp_num_str))
-            seen = True
-            break
-    if seen is False:
-        print("Case #{}: INSOMNIA".format(i + 1))
+			increment = increment + 1

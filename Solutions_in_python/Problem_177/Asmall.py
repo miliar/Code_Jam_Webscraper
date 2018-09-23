@@ -1,37 +1,36 @@
-from read import read
+def update_digits_seen(n, s):
+    while n > 0:
+        digit = n % 10
+        s.add(digit)
+        n //= 10
 
-def calc(T):
-    # print(T)
-    if T == 0:
-        return 'INSOMNIA'
-    tmpT = str(T)
-    nums = dict({(str(x), 0) for x in range(10)})
-    i = 1
-    while True:
-        # print('\t', T)
-        # print('\t\t', nums)
-        for c in list(tmpT):
-            nums[c] = 1
-        if len(list(filter(lambda x:x==0, nums.values()))) == 0:
-            return tmpT
-        i += 1
-        tmpT = str(i * int(T))
+def solve(n):
+    count = 1
+    current_number = n
+    last_number = None
 
+    digits = set()
 
-def main():
-    # infile = read('A-small-attempt2.in')
-    infile = read('A-large.in')
-    def it():
-        return next(infile)
-    N = int(it())
-    with open('A_large_output.txt', 'w') as outfile:
-        for _ in range(N):
-            num = it()
-            ans = calc(int(num))
-            outfile.write('Case #{}: {}'.format(_+1, ans))
-            outfile.write('\n')
-            print('{} -> Case #{}: {}'.format(num, _+1, ans))
+    while last_number != current_number:
+        update_digits_seen(current_number, digits)
+
+        if digits == set(range(0, 10)):
+            return current_number
+
+        last_number = current_number
+        count += 1
+        current_number = n * count
+
+    return "INSOMNIA"
 
 
-if __name__ == '__main__':
-    main()
+input_file = open("A-large.in", 'r')
+lines = input_file.readlines()
+
+output_file = open("Asmall.out", 'w')
+
+input_size = int(lines[0])
+for idx in range(1, input_size+1):
+    input_num = int(lines[idx])
+    line = "Case #{}: {}\n".format(idx, solve(input_num))
+    output_file.write(line)

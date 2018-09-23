@@ -1,29 +1,25 @@
-import fileinput
+def readLine(): return int(raw_input())
 
-i = 0
-num_cases = -1
-for line in fileinput.input():
-    if (i == 0):
-        num_cases = int(line)
-    else:
-        n = int(line)
-        if (n == 0):
-            print "Case #" + str(i) +": INSOMNIA"  
-        else:
-            nums_found = {}
-            j = 1
-            while (True):
-                result = j * n
-                temp = result
-                while (temp > 0):
-                    current = temp%10
-                    if not(current in nums_found):
-                        nums_found[current] = True
-                    temp/=10
-                j += 1
-                if (len(nums_found.keys()) >= 10):
-                    print "Case #" + str(i) + ": " + str(result)
-                    break
-    i+=1
-    if (i > num_cases):
-        break
+T = readLine()
+
+for t in range(T):
+
+    N = readLine()
+
+    if N == 0:
+        print 'Case #%i:' % (t + 1), 'INSOMNIA'
+        continue
+
+    results = [0]*10
+
+    for n in range(1, 201):
+        num = N*n
+
+        while num:
+            results[num%10] = 1
+            num //= 10
+
+        if sum(results) == 10:
+            print 'Case #%i:' % (t + 1), n * N
+            break
+

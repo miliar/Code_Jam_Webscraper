@@ -1,23 +1,25 @@
-#!/usr/bin/env python
 import sys
 
-MAX_ITERATIONS = 10*1000*1000
+def get_number(n):
+    if n == 0: return "INSOMNIA"
+    digits = set()
+    i = 1
+    while True:
+        for d in str(i*n):
+            digits.add(d)
+            if len(digits)==10:
+                return i*n
+        i+=1
 
-def find_sleep_number(N):
-	if N == 0:
-		return "INSOMNIA"
-	digits = set()
-	i = 0
-	while len(digits) < 10:
-		i += 1
-		digits.update(str(N*i))
-		if i > MAX_ITERATIONS:
-			return "INSOMNIA"
-	return N*i
-	
-lines = [l.strip() for l in sys.stdin.readlines()]
-T = int(lines[0])
-assert(T == len(lines)-1)
-for i in range(1, T+1):
-	N = int(lines[i])
-	sys.stdout.write("Case #{}: {}\n".format(i, find_sleep_number(N)))
+
+g = open("out.txt" or sys.argv[2] , 'w')
+
+with open(sys.argv[1]) as f:
+    tests = map(lambda x: long(x.strip()),f.readlines())[1:]
+    i = 0
+    for test in tests:
+        i+=1
+        s  = "Case #{0}: {1}".format(i, get_number(test))
+        print(s)
+        g.write(s+"\n")
+g.close()

@@ -1,77 +1,44 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Apr 08 19:06:53 2016
-
-@author: caiyi
-"""
-
-"""
-counting sheep
-"""
-def write_res(file_name, res):
-    with open(file_name,'w') as f:
-        res_str = ''
-        for i in range(len(res[:-1])):
-            res_str += "Case #{}: ".format(i+1)+ str(res[i])+'\n'
-        res_str += "Case #{}: ".format(i+2) + str(res[-1])
-        f.write(res_str)
 
 
-def func(num):
-    """
-    return the last number before sleep, if never stop, return INSOMNIA
-    """
-    S = set([str(i) for i in range(10)])
-    i = 1
-    
-    flag = 0
-    #n = num
-    while i < 100000:
-        n  = i * num
-        #print n
-        for l in str(n):
-            if l in S:
-                S.remove(l)
-        if len(S) == 0:
-            flag = 1
-            break
-        i += 1
-        
-        if (n > 2**31 - 1) and i > 100 :
-            break
+def split_int_set(num):
+	nums = str(num)
+	nums = list(nums)
+	nums = [int(x) for x in nums]
+	nums = set(nums)
+	return nums
 
-        
-    if flag == 1:
-        return n
-    else:
-        return "INSOMNIA"
-    
-#l = [0,1,2,11,1692]
-#for i in l:
-#    #print i
-#    print func(i)
+def sleep_count(input):
+	nums_seen = set([])
+	nums_req = set([0,1,2,3,4,5,6,7,8,9])
 
+	count = 0
 
-#l = [0,1,2,11,1692]
+	while(nums_req != nums_seen):
+		count = count + 1
+		nums_seen = nums_seen.union(split_int_set(count*input))
+		
 
-with open('A-large.in') as f:
-    str1 = f.read()
-    l = [int(ch) for ch in str1.strip().split('\n')[1:]]
-    
-res = []
-for num in l:    
-    #num = int(ch)
-    print "the num", num
-    
-    tmp = func(num)
-    print 'the result ', tmp
-    #print tmp
-    res.append(tmp)
-    
-write_res('res_A_large.txt', res)
-        
-    
-    
+	return count*input;
 
-    
-    
+inputs = []
+
+f = open('p_a.txt', 'r')
+
+for line in f:
+    inputs.append(int(line))
+
+f.close()
+
+del inputs[0]
+
+counter = 1
+
+fx = open('outfile', 'w')
+
+for i in inputs:
+	if i == 0:
+		fx.write("Case #"+str(counter)+": INSOMNIA\n")
+	else:
+		fx.write("Case #"+str(counter)+": "+str(sleep_count(i))+"\n")
+	counter = counter + 1
+

@@ -1,21 +1,34 @@
-infile = open('A-large.in', 'r')
-outfile = open('sheep_results.txt', 'w')
-T = int(infile.readline())
+#!/usr/bin/python3
 
-for i in range(T):
-	result = 'Case #' + str(i+1) + ': '
-	N = int(infile.readline())
-	if N != 0:
-		nums = set()
-		j = 0
-		while len(nums) < 10:
-			j += 1
-			for n in str(j*N):
-				nums.add(n)
-		result += str(j*N)
-	else:
-		result += 'INSOMNIA'
-	outfile.write(result + '\n')
+import sys;
 
-infile.close()
-outfile.close()
+def add_digits(number, digits):
+    while number > 0:
+        digits.add(number % 10)
+        number = number // 10
+
+def have_all_digits(digits):
+    return digits == {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+
+def get_last_number(number):
+#    import pdb; pdb.set_trace()
+    digits = set()
+    counter = number
+    lastNumber = number
+    while True:
+        add_digits(counter, digits)
+        if have_all_digits(digits):
+            return counter
+        lastNumber = counter
+        counter += number
+        if lastNumber == counter:
+            return "INSOMNIA"
+
+
+        
+if __name__ == "__main__":
+    with open(sys.argv[1]) as infile:
+        numCases = int(infile.readline())
+        for i in range(1, numCases+1):
+            print("Case #{}: {}".format(i, get_last_number(int(infile.readline()))))

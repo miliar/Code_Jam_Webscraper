@@ -1,39 +1,47 @@
-#!/usr/bin/python
-
 import sys
 
-def processCase(case):
-	# *** BEGIN CODE PROCESSING CASE ***
+def last_num(num, j):
+    if num == 0:
+        print "Case #%d: INSOMNIA" % (j)
+        return
+        
+    results = [0] * 10
+    counter = 0
+    i = 1
+    N = abs(num)
+    
+    while True:                    
+        N = num * i
+        n = N
+        
+        while n > 0:
+            digit = n % 10
+            n = n / 10
+            if results[digit] == 0:
+                counter += 1
+            results[digit] += 1
+            
+        if counter == 10:
+            print "Case #%d: %d" % (j, N)
+            return       
+        i += 1
+              
 
-	N = int(case)
-	if N==0:
-		return "INSOMNIA"
-	digits=set()
-	it=1
-	while True:
-		Ns=str(N*it)
-		for digit in Ns:
-			digits.add(digit)
-			if len(digits)==10:
-				return Ns
-		it += 1
+def main():
+    if len(sys.argv) != 1:
+        sys.exit('Usage: python program.py < input')
+    
+    i = 1
+    maximum = int(sys.stdin.readline())
+    
+    for l in sys.stdin:
+        if i > maximum:
+            break
+            
+        num = int(l)
+        last_num(num, i)
+        i += 1
+    return
 
-
-	# *** END CODE PROCESSING CASE ***
-	return 
-
-def readCase(case):
-
-	# *** BEGIN CODE READING CASE ***
-	caseInput=sys.stdin.readline()
-		
-	# *** END CODE READING CASE ***
-
-	solution=processCase(caseInput)
-	print "Case #"+str(case)+": "+solution
-
-cases=int(sys.stdin.readline())
-
-for case in range(cases):
-	readCase(case+1)
-
+if __name__ == '__main__':
+    main()

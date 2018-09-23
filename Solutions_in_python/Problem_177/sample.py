@@ -1,30 +1,54 @@
-import sys
+l=[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
+status = False
 
-inf = sys.argv[1]
+def clearOut():
+	for j in range(len(l)):
+		l[j]=-1
 
-f = open(inf, 'rU')
-outf = open(inf + ".out", 'w')
+def addToArr(d):
+	if l[d] is -1:
+		l[d]=d
 
-T = int(f.readline())
-for t in xrange(T):
-    N  = int(f.readline())
-    if N == 0:
-        outf.write("Case #{0}: INSOMNIA\n".format(t+1))
-        continue
+def chkResult():
+	status = True
+	for j in l:
+		if j is -1:
+			status=False;
+			break
+	return status
+		
 
-    seen = {}
-    i = 1
-    n = 0
-    while True:
-        n = N * i
-        i += 1
-        for c in str(n):
-            seen[c] = True
-        if len(seen) == 10:
-            break
+fout=open('out.txt','w')
 
-    outf.write("Case #{0}: {1}\n".format(t+1, n))
+with open("A-large.in", 'r', encoding = 'utf-8') as f:
+	T = int(f.readline())
+	for t in range(T):
+		N=int(f.readline())
+		status = False
+		if N is 0:
+			fout.write('Case #'+str(t+1)+': INSOMNIA\n')
+		else:
+			clearOut()
+			cycle=1
+			n= N
+			while(status is False):
+				r=n
+				while(n>0):
+					d=n%10
+					addToArr(int(d))
+					n=int(n/10)					
+				status = chkResult()
+				cycle=cycle+1
+				n=N*cycle
+			fout.write('Case #'+str(t+1)+': '+str(r)+'\n')
+fout.close()
+print('done')
 
 
-f.close()
-outf.close()
+	
+			
+				
+				
+				
+			
+		

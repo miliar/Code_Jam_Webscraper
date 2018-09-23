@@ -1,16 +1,28 @@
+fp_in = open('A-large.in', 'r')
+fp_out = open('qual-a-largeout.txt', 'w')
 
-with open('A-large.in') as input:
-    with open('qual-a-big-ans.txt', 'w') as out:
-        tests = int(input.readline())
-        for t in range(tests):
-            out.write('Case #{0}: '.format(t + 1))
-            cur = n = int(input.readline())
-            if n == 0:
-                out.write('INSOMNIA\n')
-                continue
-            mark = set()
-            while len(mark) != 10:
-                for ch in str(cur):
-                    mark.add(ch)
-                cur += n
-            out.write(str(cur - n) + '\n')
+def process_case(case):
+	case = case.strip()
+	n = int(case)
+	if (n == 0):
+		return 'INSOMNIA'
+	counts = { str(x) : 0 for x in range(0,10) }
+	m = 1
+	while True:
+		mn = n * m
+		for digit in str(mn):
+			counts[digit] = 1
+		if sum(counts.itervalues()) == 10:
+			return mn
+		m += 1
+
+
+case_num = 1
+cases = fp_in.readlines()
+for case in cases[1:]:
+	output_str = "Case #{0}: {1}\n".format(case_num, process_case(case))
+	# print(output_str)
+	fp_out.write(output_str)
+	case_num = case_num + 1
+fp_in.close()
+fp_out.close()

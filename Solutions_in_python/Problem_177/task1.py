@@ -1,24 +1,18 @@
-import sys
+rf = open('A-large.in', 'r')
+wf = open('A-large.out', 'w')
 
-def solve(n):
-    if n == 0:
-        return 'INSOMNIA'
-    seen = set(str(n))
-    last, counter = n, 1
-    while len(seen) < 10:
-        counter += 1
-        last = counter * n
-        seen |= set(str(last))
-    return last
-    
-def main(inFile):
-    with open(inFile) as inp, open(inFile.replace('.in', '.out'), 'w') as out:
-        T = int(inp.readline().strip())
-        for t in xrange(T):
-            N = int(inp.readline().strip())
-            out.write('Case #%d: %s\n' % (t + 1, solve(N)))
+cases = int(rf.readline())
 
-if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        sys.exit('Usage: %s input.in' % sys.argv[0])
-    main(sys.argv[1])
+for case in range(1, cases + 1):
+	digits = [False] * 10
+	n = int(rf.readline())
+	if n == 0:
+		wf.write('Case #%s: INSOMNIA\n' % case)
+		continue
+	for i in range(1, 999999):
+		cur = n * i
+		for c in str(cur):
+			digits[int(c)] = True
+		if all(digits):
+			wf.write('Case #%s: %s\n' % (case, cur))
+			break

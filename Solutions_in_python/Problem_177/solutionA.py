@@ -1,32 +1,35 @@
-def getInput(path):
-    f = open(path)
-    lines = f.readlines()
-    f.close()
-    return lines
+
+def sheepCount(n):
+	if n == 0:
+		return "INSOMNIA"
+	for i in xrange(1,100):
+		N = i*n
+		[setN.add(int(j)) for j in str(N)]
+		if len(setN) == 10:
+			return str(N)
+	return "INSOMNIA"
 
 
-def print_ouput():
-    lines = getInput("inputA.txt")
-    no_cases = int(lines[0].strip())
-    case = 1
-    while case <= no_cases:
-        sol = get_solution(lines[case])
-        print "Case #{0}: {1}".format(case, sol)
-        case += 1
+# raw_input() reads a string with a line of input, stripping the '\n' (newline) at the end.
+# This is all you need for most Google Code Jam problems.
+
+# t = int(raw_input())  # read a line with a single integer
+# for i in xrange(1, t + 1):
+#   n = raw_input()
+#   setN = set()
+#   print "Case #{}: {} ".format(i, sheepCount(int(n)))
+#   # check out .format's specification for more formatting options
+
+readFile = "A-large.in"
+
+with open(readFile) as r, open("./output.out", "w") as w:
+	i = 0
+	t = r.readline()
+	print "number of counts ", t
+	for n in r:
+		setN = set()
+		i += 1
+		w.write("Case #"+str(i)+": "+sheepCount(int(n))+"\n")
 
 
-def get_solution(num):
-    num = int(num)
-    if num == 0:
-        return "INSOMNIA"
-    done_map = {str(x): 0 for x in xrange(0, 10)}
-    present_num = num
-    while True:
-        for digit in str(present_num):
-            done_map[digit] = 1
-        if all(done_map.values()) is True:
-            return present_num
-        present_num += num
 
-
-print_ouput()

@@ -1,22 +1,27 @@
-import sys
+def sheep(number):
 
-filename = sys.argv[1]
+	my_list = []
+	counter = 1
+	
+	if number == 0:
+		return "Insomnia"
+	else:
+		while len(my_list) < 10:
+			#print len(my_list)
+			newnumber = number*counter
+			number_str = str(newnumber)
+			for digit in number_str:
+				if not digit in my_list:
+					#print counter
+					my_list.append(digit)
+			counter = counter + 1
+		return newnumber
+				
 
-f = open(filename)
-cases = int(f.readline())
-
-
-for case in range(0, cases):
-    N = int(f.readline().strip())
-
-    if (N == 0):
-        print('Case #%d: INSOMNIA' % (case+1))
-        continue
-    
-    i = 1
-    allDigits = set([str(d) for d in  range(10)])
-    while allDigits:
-        allDigits.difference_update(set(str(N*i)))
-        i += 1
-
-    print('Case #%d: %d' % (case+1, N * (i-1)) )
+# print sheep(1692)
+with open("A-large.in", "r+") as input:
+	file_list = input.readlines()
+with open("output_file.txt","w") as output:
+	for i in range (1,len(file_list)):
+		a = sheep(int(file_list[i]))
+		output.write("Case #" + str(i) + ": " + str(a) + "\n")

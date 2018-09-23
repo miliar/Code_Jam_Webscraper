@@ -1,13 +1,24 @@
-import fileinput
+#!/usr/bin/env python
+#
+# Lars Lindgren <chrono@eeky.net>
+#
+import sys
 
-cases = [int(c) for c in list(fileinput.input())[1:]]
-for i, n in enumerate(cases):
-    result = "INSOMNIA"
-    if n != 0:
-        cur_n = n
-        seen_digits = set()
-        while len(seen_digits) < 10:
-            result = cur_n
-            seen_digits |= set([int(x) for x in str(cur_n)])
-            cur_n += n
-    print("Case #{}: {}".format(i + 1, result))
+def count_sheep(n):
+	if n == 0:
+		return 'INSOMNIA'
+	count = 1
+	seen = set()
+	while True:
+		d = n * count
+		seen = seen.union(set(map(int, str(d))))
+		if len(seen) == 10:
+			return d
+		count += 1
+
+filename = sys.argv[1]
+fin = open(filename, 'r')
+cases = int(fin.readline())
+for c in xrange(1, cases + 1):
+	n = int(fin.readline())
+	print 'Case #%d: %s' % (c, count_sheep(n))

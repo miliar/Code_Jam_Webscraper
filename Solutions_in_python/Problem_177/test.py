@@ -1,26 +1,18 @@
-def parse(N):
-    if N == 0:
+
+def search(n):
+    if n is 0:
         return "INSOMNIA"
-    else:
-        i = 1
-        toDo = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-        while len(toDo) != 0:
-            for letter in str(N*i):
-                try:
-                    toDo.remove(int(letter))
-                except:
-                    pass
-            i = i + 1
-        return str((i-1)*N)
+    N = n
+    dset = set()
+    count = 0
+    while len(dset) != 10:
+        [dset.add(c) for c in str(N)]
+        count += 1
+        N += n
 
-numbers = []
+    return N - n
 
-with open("/tmp/input.txt", "r") as f:
-    for line in f:
-        numbers.append(int(line.strip("\n")))
-
-numbers = numbers[1:]
-i = 1
-for number in numbers:
-    print("Case #"+str(i)+": "+parse(number))
-    i = i+1
+if __name__ == '__main__':
+    N = input()
+    for i in range(N):
+        print "Case #{0}:".format(i+1), search(input())

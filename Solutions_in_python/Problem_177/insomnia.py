@@ -1,35 +1,26 @@
-
-inp = open('input.in', 'r')
-outp = open('output.out', 'w')
-
-t = int(inp.readline().rstrip())
-count = 0
-N = 0
-
-for i in range(t):
-	seen = [0,0,0,0,0,0,0,0,0,0]
-   	n = inp.readline().rstrip()
-	count += 1   	
-	if(n == '0'): 
-      		outp.write("Case #" + str(count) + ": INSOMNIA" +  "\n")
-        else:
-		l = int(n)
-		N = l
-		flag = 0
-		while(flag == 0):
-			m = map(int, str(N))
-			for j in m:
-				if(seen[int(j)] == 0):
-					seen[int(j)] = 1
-
-				if(sum(seen) == 10):
-					outp.write("Case #" + str(count) +": " + str(N) + "\n")
-					flag = 1 
-					break;
-        		N += l
-			
-
-outp.close()
-inp.close()
+def insomnia(n,f):
+    if n == 0:
+        f.write("INSOMNIA\n")       
+    else:
+        d = {}
+        counter = 0
+        while len(d.keys())< 10:
+            counter += n
+            workspace = counter
+            while workspace > 0:
+                if(workspace%10) not in d.keys():
+                    d[(workspace%10)] = ""
+                workspace = workspace/10
+        f.write(str(counter)+"\n")
+                
 
 
+f = open('A-large.in')
+lines = f.readlines()
+x = int(lines[0].strip())
+f = open('result.txt', 'a')
+for r in range(1,x+1,1):
+    
+    f.write ("Case #" + str(r) + ": ")
+    insomnia (int(lines[r].strip()),f)
+f.close()

@@ -1,22 +1,33 @@
-#!/usr/bin/python
-import sets
 import sys
 
-f = open(sys.argv[1], 'r')
-N = int(f.readline())
-for i in range(0, N):
-    num = int (f.readline())
-    if 0 == num:
-        print "Case #" + str(i+1) + ": INSOMNIA"
-    else:
-	s = set()
-	p = 1
-        num1 = 0
-	while len(s) < 10:
-            num1 = num * p
-	    for l in str(num1):
-                if int(l) not in s:
-	       	    s.add(int(l))
-	    p = p + 1
-        print "Case #" + str(i+1) + ": " + str(num1)
+print 'Number of arg:', len(sys.argv)
 
+f = open(sys.argv[1], 'r')
+p = open(sys.argv[2], 'w')
+
+noInput = f.readline()
+caseNr = 0
+
+for line in f:
+    caseNr = caseNr + 1
+    match = [0,1,2,3,4,5,6,7,8,9]
+	
+    line = int(line)
+    workingLine = line
+	
+    while match:
+        for a in list(str(workingLine)):
+            if int(a) in match:
+                match.remove(int(a))
+
+        workingLine = workingLine + line
+
+        if (workingLine+line) == line:
+            workingLine = "INSOMNIA"
+            match = []
+
+    if not workingLine == "INSOMNIA":
+        workingLine = workingLine-line
+
+    print 'Case #%i: %s' %(caseNr, workingLine)
+    p.write('Case #%i: %s\n' % (caseNr, workingLine))

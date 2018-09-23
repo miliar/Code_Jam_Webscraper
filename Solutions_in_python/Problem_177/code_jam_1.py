@@ -1,22 +1,30 @@
+#! /usr/bin/python3
 
-import sys
-data = map(int,sys.stdin.readlines())
-n = data[0]
-data = data[1:]
-def add_digits(x,d):
-    while x > 0:
-        d.add(x%10)
-        x = x /10
+class Problem:
+    def __init__(self, nb_inputs):
+        self.inputs = nb_inputs
+        self.tests = [0] * nb_inputs
 
-for (i,x) in enumerate(data):
-    sseen = set()
-    digits = set()
-    p = x
-    while( p not in sseen and len(digits) != 10):
-        sseen.add(p)
-        add_digits(p,digits)
-        p += x
-    if p in sseen and len(digits) != 10:
-        print "Case #{0}: INSOMNIA".format(i+1)
-    else:
-        print "Case #{0}: {1}".format(i+1,p-x)
+def parse():
+    nb_inputs = int(input())
+    a = Problem(nb_inputs)
+    for i in range(nb_inputs):
+        a.tests[i] = int(input())
+    return a
+
+def solve():
+    input_set = parse()
+    for i in range(input_set.inputs):
+        tmp = input_set.tests[i]
+        arr = [False]*10
+        for z in range(1, 10000):
+            for indice in str(tmp*z):
+                arr[int(indice)] = True
+            if arr == [True]*10:
+                print("Case #{}: {}".format(i + 1, tmp*z))
+                break
+        if z == 9999:
+            print("Case #{}: INSOMNIA".format(1))
+
+if __name__ == '__main__':
+    solve()

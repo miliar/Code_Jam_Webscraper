@@ -1,25 +1,26 @@
-#!/usr/bin/python
-# vi: set fileencoding=utf-8 :
+#!/usr/bin/env python
 
-'''
-Google code jam 2015 qualification round
-A: counting sheep
-'''
-
-def last_number(N):
-    if N <= 0:
-        return 'INSOMNIA'
-    seen = {}
-    number = N
-    while len(seen) < 10:
-        digits = str(number)
-        for d in digits:
-            seen[d] = True
-        number += N
-    return number - N
+import os,sys
 
 
-T = int(raw_input())
-for case_number in range(1, T + 1):
-    N = int(raw_input())
-    print 'Case #%d: %s' % (case_number, last_number(N))
+def solve(n):
+    if n == 0:
+        return "INSOMNIA"
+
+    s = set(str(n))
+    i = 1
+    while len(s) < 10:
+        i += 1
+        s = s.union(set(str(i * n)))
+    return i * n
+
+lines = sys.stdin.readlines()
+t = int(lines.pop(0))
+
+for i in xrange(t):
+    n = int(lines[i])
+    #print (n)
+    print("Case #" + str(i+1) + ": " + str(solve(n)))
+
+
+

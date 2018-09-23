@@ -1,13 +1,18 @@
-N = int(input())
-for I in range(1, N+1):
-    n = int(input())
+t=int(raw_input())
+for i in xrange(t):
+    n = int(raw_input())
     if n == 0:
-        result = 'INSOMNIA'
+        ans = "INSOMNIA"
     else:
-        digits_seen = set()
-        i = 1
-        while len(digits_seen) is not 10:
-            digits_seen = digits_seen.union(set(str(i*n)))
-            i += 1
-        result = (i-1)*n    
-    print("Case #%d: %s" % (I, str(result)))
+        ans = 0
+        c,flag = 1, True
+        number = set()
+        while flag:
+            temp = str(n*c)
+            for j in temp:
+                number.add(int(j))
+            if len(number) == 10:
+                flag = False
+                ans = temp
+            c+=1
+    print 'Case #{}: {}'.format(i+1, ans)

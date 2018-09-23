@@ -1,41 +1,25 @@
+T=int(raw_input())
 
-def checkDict():
-	global digitsDict
-	for digit in digitsDict:
-		if digitsDict[digit] == False:
-			return False
-	return True
+for i in range(T):
+    p=i+1
+    L=[]
+    M=[]
+    n=(raw_input())
+    o=0
+    for j in range(1,11111):
 
-def main():
-	global digitsDict
-	global INPUT_NO
-	global VAR_NO
-	if INPUT_NO == 0:
-		return "INSOMNIA"
-	while 1:
-		for digit in str(VAR_NO):
-			digitsDict[int(digit)] = True
-		if checkDict():
-			break
-		VAR_NO +=  INPUT_NO
-	return str(VAR_NO)
+        m=str(j*int(n))
 
-f = open('A-large.in', 'r')
-lineCounter = 1
-results = ""
-init = True
-for line in f:
-	if init == True:
-		init = False
-		continue
-	INPUT_NO = int(line[:-1])
-	VAR_NO = INPUT_NO
-	digitsDict = {1:False,2:False,3:False,4:False,5:False,6:False,7:False,8:False,9:False,0:False}
-	results += "Case #" + str(lineCounter) + ": " + main() + "\n"
-	lineCounter += 1
-f.close()
-w = open('results.txt','w')
-w.write(results)
-w.close()
+        x=list(m)
+        L=L+x
+        S=set(L)
+        M=sorted(list(S))
+        if(M==['0','1','2','3','4','5','6','7','8','9']):
+            o= m
+            break
+        elif(M==['0']):
+            o="INSOMNIA"
+            break
 
+    print "Case #%s: %s" %(p,o)
 

@@ -1,35 +1,46 @@
-def main():
-	file_name = 'A-large.in'
-	f = open(file_name , 'r')
-	lines = f.read().splitlines()
-	test_cases = int(lines[0])
-	result = ''
-	for i in xrange(1, test_cases + 1):
-		line = lines[i].strip()
-		n = int(lines[i])
-		nn = n
-		if n == 0:
-			r = "Case #" + str(i) + ": " + 'INSOMNIA' + '\n'
-		else:
-			digits = list(set([a for a in line]))
-			flag = False
-			y = 1
-			if len(digits) == 10:
-				flag = True
-			while not flag:
-				y += 1
-				nn = y * n
-				digits.extend([e for e in str(nn)])
-				#print n,y, nn, digits
-				digits = list(set(digits))
-				if len(digits) == 10:
-					flag = True
-			r = "Case #" + str(i) + ": " + str(nn) + '\n'
-		result += r
-	print result
-	#print max_y
-	f = open('q1.out', 'w')
-	f.write(result)
-	f.close()
-if __name__ == '__main__':
-	main()
+'''
+Created on Apr 10, 2016
+
+@author: apple
+'''
+
+
+    
+def getLastNum(initNum):
+    if initNum == 0:
+        return "INSOMNIA"
+    numSet = set()
+    i = 1
+    while(len(numSet)!=10):
+        numSet |= getDigitByNum(initNum*i)
+        i += 1
+    
+    return initNum*(i-1)
+
+def getDigitByNum(num):
+    numSet = set()
+    while(num // 10 != 0) :
+        numSet.add(num % 10)
+        num = num//10
+    numSet.add(num%10)
+    return numSet
+
+def formatPrint(res):
+    print("Case %i")
+    
+
+totalNum = int(raw_input())
+formatString = "Case #%d: %s"
+
+for i in xrange(1, totalNum+1):
+    num = int(raw_input())
+    print formatString % (i, getLastNum(num))
+    
+
+    
+#     if not firstFlag:
+#         firstFlag = True
+#         continue
+#     print formatString % (count, getLastNum(int(line)))
+#     count += 1
+    

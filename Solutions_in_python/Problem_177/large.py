@@ -1,26 +1,29 @@
-fid = open('input.txt')
-T = fid.readline().strip()
-fout = open('output.txt','w')
 
-#This should return a string, to deal with INSOMNIA output
-def steps(N):
-    #The only way to get insomnia is with 0
-    if N==0:
+def getOutput(N):
+    if N == 0:
         return "INSOMNIA"
-    i = 1
-    score = [0]*10
-    while sum(score)<10:
-        for d in str(i*N):
-            score[int(d)] = 1
-        i = i + 1
-    return str((i-1)*N)
+    digitToBeSeen = ['0','1','2','3','4','5','6','7','8','9']
+    ans = N
+    multipliar = 2
+    while True:
+        removeDigits(digitToBeSeen,ans)
+        if len(digitToBeSeen) == 0:
+            return ans
+        ans = N *multipliar
+        multipliar = multipliar+1
+
+def removeDigits(digitToBeSeen,ans):
+    strAns = str(ans)
+    for c in strAns:
+        try:
+            digitToBeSeen.remove(c)
+        except ValueError:
+            pass
+    
+T = int(input())  # read a line with a single integer
+for i in range(1, T + 1):
+    N = long(input()) 
+    output = getOutput(N)
+    print "Case #{}: {}".format(i, output)
 
 
-
-for i,line in enumerate(fid):
-    line = line.strip()
-    if len(line)==0:
-        continue
-    N = int(line)
-    out = steps(N)
-    fout.write('Case #%d: %s\n' % (i+1, out))

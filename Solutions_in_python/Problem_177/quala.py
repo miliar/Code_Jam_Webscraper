@@ -1,53 +1,29 @@
-"""Qualification round - problem A"""
+def count(num):
+    res = set()
+    for c in str(num):
+        res.add(c)
+    return res
 
-FILE_BASE = "A-large"
-
-def read_file():
-    """reads file into list of puzzles"""
-    with open(FILE_BASE + ".in") as file:
-        cases = int(file.readline())
-        puzzles = []
-        for _ in range(cases):
-            puzzles.append(int(file.readline()))
-        return puzzles
-
-
-def write_file(results):
-    """writes results to file"""
-    with open(FILE_BASE + ".out", "w+") as file:
-        row = 1
-        for result in results:
-            file.write("Case #{0}: {1}\n".format(row, result))
-            row += 1
-
-def solve(number):
-    """solve single puzzle"""
-    if number == 0:
+def solve(n):
+    if n == 0:
         return "INSOMNIA"
     else:
-        seen_digits = set()
+        digits = set()
         i = 1
-        n = 0
-        while len(seen_digits) < 10:
-            n = number * i
-            seen_digits = seen_digits.union(digits(n))
+        while len(digits) < 10:
+            digits |= count(i*n)
             i += 1
-        return n
+        return (i-1)*n
 
+filename = input("Enter filename: ")
+file = open(filename, 'r')
 
-def digits(number):
-    """set of digits for given number"""
-    return set([int(i) for i in str(number)])
+outfile = open(filename.replace('in','out'), 'w')
 
-
-print(solve(0))
-print(solve(1))
-print(solve(2))
-print(solve(11))
-print(solve(1692))
-
-PUZZLES = read_file()
-RESULTS = [solve(number) for number in PUZZLES]
-
-write_file(RESULTS)
-
+t = int(file.readline().strip())
+for i in range(t):
+    n = int(file.readline().strip())
+    outfile.write("Case #{}: {}\n".format(i+1, solve(n)))
+    
+file.close()
+outfile.close()

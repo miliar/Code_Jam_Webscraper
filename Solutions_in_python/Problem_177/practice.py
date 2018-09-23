@@ -1,29 +1,40 @@
-t = int(raw_input())  # read a line with a single integer
-result = ""
+def Bleatrix(N):
+  digits = []
+  temp = N
+  size = 0
+  i = 1
+  while(size != 10):
+    last = i * N
+    if(temp == 0):
+          return 0
 
-def getDigits(n):
-    result = []
-    if n == 0:
-        return [0]
-    while n > 0:
-        result.append(n%10)
-        n = n/10
-    return result
+    if(digits.__contains__(temp%10) == False):
+        digits.append(temp%10)
 
+    size = 0
+    for x in range(0, 10):
+      if(digits.__contains__(x) == True):
+        size += 1
+      else:
+        break
+    temp = temp // 10
+    if(temp  == 0):
+        i += 1
+        temp = i * N
+  return last
 
-for i in xrange(1, t + 1):
-  n =  int(raw_input())
-  if n == 0:
-      result = result +  "Case #{}: INSOMNIA\n".format(i)
+freader = open("A-large.in", "r")
+fwriter = open("output.out", "w")
+
+t = freader.readline()
+
+for i in range(1, int(t) + 1):
+  t = freader.readline()
+  if(int(t) == 0):
+    fwriter.write("Case #{}: {}\n".format(i, "INSOMNIA"))
+
   else:
-      a = set()
-      new_n = n
-      while len(a) < 10:
-          digits_in_n = getDigits(new_n)
-          [a.add(d) for d in digits_in_n]
-          new_n = new_n + n
-      result =  result + "Case #{}: {}\n".format(i, new_n - n)
+    fwriter.write("Case #{}: {}\n".format(i, Bleatrix(int(t))))
 
-file_name = "output.txt"
-text_file = open(file_name, "w")
-text_file.write(result)
+fwriter.close()
+freader.close()

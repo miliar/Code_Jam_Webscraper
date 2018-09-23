@@ -1,23 +1,25 @@
-def CountingSheep(n):
-    if n:
-        last_number = 0
-        counted_digit = [0]*10
-        while(counted_digit != [1]*10):
-            last_number += n
-            strn = '%d' % last_number
-            for item in strn:
-                counted_digit[int(item)] = 1
-        return last_number
-    else:
-        return 'INSOMNIA'
+# your code goes here
+import numpy as np
+import sys
+T = input()
+out = [0,0,0,0,0,0,0,0,0,0]
+des = [1,1,1,1,1,1,1,1,1,1]
+tmp = 0
+tmpn = 0
 
-
-
-# input() reads a string with a line of input, stripping the '\n' (newline) at the end.
-# This is all you need for most Google Code Jam problems.
-t = int(input())  # read a line with a single integer
-for i in range(1, t + 1):
-	n = int(input())  # read a list of integers
-	s = CountingSheep(n)
-	print("Case #{}: {} ".format(i, s))
-  # check out .format's specification for more formatting options
+for i in range(T):
+	N = input()
+	tmpn = N
+	j = 1
+	if(N==0):
+		sys.stdout.write('Case #'+str(i+1)+': INSOMNIA\n')
+	else:
+		out = [0,0,0,0,0,0,0,0,0,0]
+		while (out!=des):
+			tmpn = j*N
+			K= map(int,str(tmpn))
+			for l in range(len(K)):
+				out[K[l]] = 1
+			tmp = K
+			j+=1
+		sys.stdout.write('Case #'+str(i+1)+': '+str(tmpn)+'\n')

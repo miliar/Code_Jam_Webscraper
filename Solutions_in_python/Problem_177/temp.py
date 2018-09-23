@@ -1,22 +1,21 @@
-def digits(n):
-    ret = set()
-    while n > 0:
-        ret.add(n % 10)
-        n /= 10
-    return ret
-
-
-def compute(n):
-    if n == 0:
+s = set(str(i) for i in range(10))
+INPUT_FILE = "input.file"
+OUTPUT_FILE = "output.file"
+def calculate(input_):
+    if input_ == 0:
         return "INSOMNIA"
-    seen = set(digits(n))
-    mul = 1
-    while len(seen) < 10:
-        mul += 1
-        seen.update(digits(n * mul))
-    return mul * n
+    n = 1
+    s2 = s.copy()
+    while True:
+        cur = n*input_
+        s2.difference_update(str(cur))
+        if not s2:
+            return cur
+        n += 1
 
-t = int(raw_input())
-for i in range(1, t + 1):
-    n = int(raw_input())
-    print "Case #{}: {}".format(i, compute(n))
+with open(INPUT_FILE, "r") as f, open(OUTPUT_FILE, "w") as o:
+    case_num = 0
+    next(f)
+    for line in f:
+        case_num += 1
+        o.write("Case #{}: {}\n".format(case_num, calculate(int(line))))

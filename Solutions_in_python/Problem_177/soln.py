@@ -1,42 +1,31 @@
-import sys
+#!/usr/local/bin python
 
-#inp = sys.stdin
-inp = open("A-large.in","r")
-outp = open("out","w")
-#outp = sys.stdout
-def read_inp():
-    return inp.readline().strip()
+t = int(raw_input())
+ns = []
 
-T = int(read_inp())
+for i in range(t):
+    ns.append(int(raw_input()))
 
-for t in xrange(1,T+1):
-    N0 = int(read_inp())
-    
-    seen = [False]*10
-    numbers = set()
-    
-    sleep = False
-    N = N0
-    while N not in numbers:
-        numbers.add(N)
-        q = N
-        seen[q%10] = True
-        while True:
-            q = int(q/10)
-            if q == 0:
-                break
-            seen[q%10] = True
-        for s in seen:
-            if not s: break
-        else:
-            sleep =True
+for i in range(len(ns)):
+    known_numbers = []
+
+    j = 0
+    while True:
+        j += 1
+        p = str(j * ns[i])
+        ret = 0
+        if p == '0':
+            ret == 1
+            p = "INSOMNIA"
             break
-        N += N0                    
-    
-    if not sleep:
-        ans = 'INSOMNIA'
-    else:
-        ans = N
-    outp.write("Case #%d: %s\n"%(t,ans))
+        for c in p:
+            if int(c) not in known_numbers:
+                known_numbers.append(int(c))
+                known_numbers.sort()
+                if known_numbers == [0,1,2,3,4,5,6,7,8,9]:
+                    ret = 1
+                    break
+            if ret == 1: break
+        if ret == 1: break
+    print 'Case #{0}: {1}'.format(i+1, p)
 
-outp.close()

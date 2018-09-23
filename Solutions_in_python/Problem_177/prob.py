@@ -1,36 +1,27 @@
-input_file = open("A-large.in", 'r')
-from time import sleep
+#!/usr/bin/python3
 
-l = input_file.readline()
-
-for ix, num in enumerate(input_file):
-	print "Case #" + str(ix + 1) + ": ",
-	num = num.strip()
-
-	if num == '0':
-		print "INSOMNIA"
-		continue
-
-	i = 1
-	cur = num
-	seen = dict()
-
-	# print "the number is", cur
-
-	while True:
-		for d in list(cur): 
-			seen[d] = True
-		# print seen
-
-		if len(seen) == 10:
-			print cur
-			break
-
-		i = i + 1
-		cur = str(int(num) * i)
-		# sleep(0.2)
+cases = int(input())
 
 
+def answer(case, a):
+    print("Case #{}: {}".format(case + 1, a))
+
+for case in range(cases):
+    digits = {}
+    n = int(input())
+    if n == 0:
+        answer(case, 'INSOMNIA')
+        continue
+    i = 1
+    while True:
+        for each in str(n*i):
+            digits[each] = 0
+        # print(digits)
+        if len(digits) == 10:
+            answer(case, n*i)
+            break
+        else:
+            i += 1
 
 
 

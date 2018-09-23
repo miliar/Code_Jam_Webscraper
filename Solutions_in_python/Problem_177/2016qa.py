@@ -1,20 +1,23 @@
-import sys
-import itertools
-sys.setrecursionlimit(10000)
-
-tc = int(sys.stdin.readline().strip())
-
-for tmp_tc in xrange(tc):
-  [ N ] = map(lambda x: int(x), sys.stdin.readline().strip().split(' '))
-  ds = [ False ] * 10
-  if N == 0:
-    res = "INSOMNIA"
-  else:
-    res = N
-    while True:
-      for c in str(res):
-        ds[int(c)] = True
-      if sum(ds) == 10: break
-      res += N
-  print "Case #%d: %s" % (1+tmp_tc, str(res))
-
+from sets import Set
+fin=open("A-large.in.txt",'r')
+fout=open("A.out",'w')
+tt=int(fin.readline())
+for t in range(tt):
+	n=int(fin.readline())
+	nn=n
+	print "Case {0}: {1}".format(t+1,n)
+	s=[0,1,2,3,4,5,6,7,8,9]
+	for i in str(nn):
+		if int(i) in s:
+			s.remove(int(i))
+	if n!=0:
+		while len(s)>0:
+			nn+=n
+			for i in str(nn):
+				if int(i) in s:
+					s.remove(int(i))
+			if t==1:
+				print nn
+		fout.write("Case #{0}: {1}\n".format(t+1,nn))
+	else:
+		fout.write("Case #{0}: INSOMNIA\n".format(t+1))

@@ -1,27 +1,15 @@
-import sys
+test = input()
+for i in range(1,test+1):
+    li = [0 for m in range(0,10)]
+    a = input()
+    c = a
+    if a == 0:
+        print "Case #"+str(i)+": INSOMNIA"
+    else:
+        while sum(li)!=10:
+            for d in str(a):
+                li[int(d)] = 1
+            a+=c
+        print "Case #"+str(i)+": "+str(a-c)
 
-def solve(s):
-	init = int(s)
-	if init == 0:
-		return "INSOMNIA"
-	digitsseen = set([c for c in s])
-	x = init
-	while True:
-		if len(digitsseen) == 10:
-			break
-		x = x + init
-		s = str(x)
-		digitsseen = digitsseen | set([c for c in s])
-	return str(x)
 
-if __name__ == "__main__":
-    f = sys.stdin
-    if len(sys.argv) >= 2:
-        fn = sys.argv[1]
-        if fn != '-':
-            f = open(fn)
-
-    N = int(f.readline().strip())
-    for i in xrange(N):
-        x = solve(f.readline().strip())
-        print("Case #%d: %s" % (i+1, x))

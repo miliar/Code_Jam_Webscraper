@@ -1,33 +1,44 @@
-__author__ = 'Christian'
+digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
-#fname = 'test_a.txt'
-#fname = 'A-small-attempt0.in'
-fname = 'A-large.in'
+def intersection(a, b):
 
-f = open(fname, 'r')
-data = f.read().split('\n')
-f.close()
+	return list(set(a) & set(b))
 
-res_file = open(fname + '.res', 'w')
+with open('A-small-attempt3.in','r') as g:
+	
+	case = int(g.readline())
+	case = 0
+	
+	with open('output_a.txt','w') as f:
+	
+		for line in g:
+		
+			case = case + 1
+		
+			if case > 100:
+				break
+			
+			num = int(line)
 
+			found = []
 
-def compute_sleep(n):
-    res = set()
-    
-    if n == 0:
-        return "INSOMNIA"
-    
-    current = 0
-    i = 0
-    while (i<1000000):
-        current += n
-        res = res.union(set(str(current)))
-        if len(res) == 10:
-            return current
-    return "INSOMNIA"
+			i = 0
 
-T = int(data[0])
-for i in range(T):
-    print >> res_file, "Case #%s: %s" % (i+1, compute_sleep(int(data[i+1])))
-    
-res_file.close()
+			if num is 0:
+
+				f.write('Case #' + str(case) + ': INSOMNIA\n')
+
+			else:
+				
+				while intersection(digits, found) != list(set(digits)):
+
+					i = i + 1
+					currentN = num * i
+					
+					for digit in str(currentN):
+					
+						if int(digit) not in found:
+						
+							found.append(int(digit))
+
+				f.write('Case #' + str(case) + ': ' + str(currentN) + '\n')

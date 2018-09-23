@@ -1,30 +1,26 @@
-#!/usr/bin/python
+import sys
 
-def N(): return tuple(map(int, raw_input().split()))
+def get_last_multiple(n):
+	allints = set([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+	seen = set()
+	for ii in range(1, 100):
+		m = n * ii
+		seen |= set([int(i) for i in str(m)])
+		if seen == allints:
+			return m
+	return 'INSOMNIA'
 
-digits = set("0123456789")
 
-#
-# small
-#
-def solve(n):
-    if n == 0:
-        return -1
+fpath = sys.argv[1]
 
-    m = n
-    seen = set(str(n))
-    while seen != digits:
-        m += n
-        seen |= set(str(m))
-    return m
+f = open(fpath, 'r')
+with open(fpath, 'r') as f:
+	content = f.read()
 
-T = N()[0]
-for c in range(T):
-    n = N()[0]
-    s = solve(n)
-    if s == -1:
-        s = "INSOMNIA"
-    else:
-        s = str(s)
-    print "Case #%d: %s" % (c+1, s)
+content = content.split('\n')
 
+t = int(content[0]) #no. of test cases
+
+
+for jj in range(1, t+1):
+	print 'Case #{}: {}'.format(jj, get_last_multiple(int(content[jj])))

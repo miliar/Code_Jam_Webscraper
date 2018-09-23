@@ -1,32 +1,32 @@
-from collections import defaultdict
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+import sys
 
-def get_digits(number):
-	digits = {}
-	while number:
-		digits[number % 10] = True
-		number //= 10
-	return list(digits.iterkeys())
 
-def last_counted_number(initial_number):
+def calculate_last_number(_N):
+    if _N == 0:
+        return "INSOMNIA"
 
-	if initial_number == 0:
-		return "INSOMNIA"
-	digits_not_found = {}
-	for i in range(10):
-		digits_not_found[i] = True
+    digits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
 
-	N = 1
+    i = 0
+    while len(digits) > 0:
+        i += 1
+        _M = _N * i
+        for digit in str(_M):
+            if digit in digits:
+                digits.remove(digit)
 
-	while True:
-		for digit in get_digits(N*initial_number):
-			digits_not_found.pop(digit, None)
+    return _N * i
 
-		if not digits_not_found:
-			return N*initial_number
 
-		N += 1 
+def main():
+    _T = int(raw_input())
+    for t in range(_T):
+        _N = int(raw_input())
+        result = calculate_last_number(_N)
+        print "Case #{0}: {1}".format(t + 1, result)
 
-if __name__ == "__main__":
-	number_cases = int(raw_input())
-	for i in range(number_cases):
-		print "Case #%s: %s" % (i+1, last_counted_number(int(raw_input())))
+
+if __name__ == '__main__':
+    main()

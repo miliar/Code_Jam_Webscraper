@@ -1,33 +1,23 @@
-import os
+T = int(raw_input())
+inputs = []
+outputs = []
+for i in range(T):
+  inputs.append(int(raw_input()))
 
-def solve_n(n):
-  if n == 0:
-    return 'INSOMNIA'
+for inp in inputs:
+  if inp == 0:
+    ans = "INSOMNIA"
+  else:
+    arr = [0] * 10
+    curr = 0
+    while sum(arr) < 10:
+      curr += inp
+      digits = str(curr)
+      for dig in digits:
+        arr[int(dig)] = 1
+    ans = curr
+  outputs.append(str(ans))
 
-  seen = set()
-
-  i = 1
-  while True:
-    temp_n = n * i
-    while temp_n > 0:
-      seen.add(temp_n % 10)
-      temp_n /= 10
-    if len(seen) == 10:
-      return n * i
-    i += 1
-
-fin = open('A-large.in', 'r')
-fout = open('A.out', 'w')
-for i, line in enumerate(fin):
-  if i == 0:
-    t = int(line)
-    continue
-  n = int(line)
-
-  res = solve_n(n)
-
-  out_str = 'Case #%d: %s' % (i, res)
-  print out_str
-  fout.write(out_str + '\n')
-fin.close()
-fout.close()
+for i in range(T):
+  output = "Case #" + str(i + 1) + ": " + outputs[i]
+  print output

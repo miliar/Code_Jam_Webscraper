@@ -1,34 +1,31 @@
-#!/usr/bin/python
 import sys
 
-def main( argv ):
-	infile = open(argv[1], 'r');
-	outfile = open('output.txt', 'w');
-	cases = int(infile.readline())
-	for case in range(1, cases+1):
-		lastNum = getLastNum(int(infile.readline()))
-		print("Case #" + str(case) + ": " + str(lastNum), file=outfile);
+
+# In[1]:
+
+def getDigits(n):
+    d = []
+    while n>=10:
+        d.append(n%10) 
+        n /= 10
+    d.append(n)
+    return list(set(d))
 
 
-def getLastNum( originalNum ): 
-	if originalNum == 0:
-		return "INSOMNIA"
-	numArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-	tries = 0
-	multiplier = 1
-	lastNum = originalNum
-	while len(numArray) > 0 and tries < 1000:
-		lastNum = originalNum * multiplier
-		currentArray = list(str(lastNum))
-		for num in currentArray:
-			if num in numArray:
-				numArray.remove(num)
-		multiplier += 1
-		tries += 1
-	if len(numArray) == 0:
-		return lastNum
-	else:
-		return "INSOMNIA"
+t = int(sys.stdin.readline())
+for _ in xrange(t):
+    num = int(sys.stdin.readline())
+    n = num
+    digits = range(0,10)
+    count = 1
+    if n == 0:
+        print 'Case #' + str(_+1) + ': '+ 'INSOMNIA'
+        continue
+    while len(digits) > 0:
+        n = num * count
+        d = getDigits(n)
+        for i in d:
+            if i in digits: digits.remove(i)
+        count+=1
+    print 'Case #' + str(_+1) + ': '+ str(n)
 
-if __name__ == "__main__":
-    main(sys.argv)

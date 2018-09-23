@@ -1,23 +1,26 @@
-T = int(input())
-
-for loopC in range(1,1+T):
-    N = int(input())
-
-    A = [0]*10
-
-    num = N
-    for x in range(1000001):
-        for y in str(num):
-            A[int(y)] = 1
-        if A.count(0) <= 0:
-            break
-
-        if num == num+N or x == 10e6 -1:
-            num = "INSOMNIA"
-            break
-            
-        num = num + N
-
-
-    print("Case #{}: {}".format(loopC, num))
+with open("A-large.in") as infile:
+    lines = [a.strip() for a in infile.readlines()[1:]]
+   
+out = []   
+x = 1    
+for n in lines:
+    mm = 10**int(n) +1
+    num = int(n)
+    sf = set(n)
+    i = 2
+    num2 = num
+    while len(sf) < 10 and i <= mm:
+        num2 *= i
+        n = str(num2)
+        for l in n:
+            sf.add(l)
+        i += 1
+        num2 = num
+    if i <= mm:
+        out.append("Case #{}: {}\n".format(x, num*(i-1)))
+    else:
+        out.append("Case #{}: INSOMNIA\n".format(x))
+    x += 1
         
+with open("out", "w") as outfile:
+    outfile.writelines(out)

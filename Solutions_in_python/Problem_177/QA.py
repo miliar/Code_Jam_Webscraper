@@ -1,26 +1,33 @@
-def solve():
-    f = open("A-large.in", "r")
-    T = int(f.readline())
-    out = open("output.txt", "w")
+import sys
 
-    for case in range(T):
-        N = int(f.readline())
-        if N == 0:
-            print("Case #%d: %s" % (case+1, "INSOMNIA"))
-            out.write("Case #%d: %s\n" % (case+1, "INSOMNIA"))
-            continue
-        digits = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+def solve(n):
+	digits = set({})
+	N = int(n)
+	m = 1
 
-        mult = 1
-        while 0 in digits:
-            number = mult * N
-            while number > 0:
-                digits[number % 10] += 1
-                number = number // 10
-            mult += 1
+	while True:
+		current = len(digits)
 
-        print("Case #%d: %d Multiple %d" % (case + 1, N * (mult - 1), mult))
-        out.write("Case #%d: %d\n" % (case + 1, N * (mult - 1)))
+		for i in range(10000):
+			for c in str(m * N): 
+				#print(c, digits)
+				digits.add(c)
+			if len(digits) == 10:
+				return str(m * N)
+			else:
+				m += 1
+				#print m * N
+
+		if len(digits) == current:
+			return "INSOMNIA"
 
 
-solve()
+
+with open('A-large.in') as f, open('A-large.out', 'w') as o:
+	lines = f.readlines()
+
+	case = 1
+	for line in lines[1:]:
+		o.write("Case #{0}: {1}\n".format(case, solve(line)))
+		case += 1
+	

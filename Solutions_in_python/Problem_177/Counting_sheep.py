@@ -1,39 +1,32 @@
-#!/usr/bin/env python
+def digit_split(n):
+    digit_list = map(int, str(n))
+    return set(digit_list)
 
-__author__ = 'Bill'
+def calculate(n):
+    digit = set([0,1,2,3,4,5,6,7,8,9])
+    i = 1
+    init_n = n
+    while True:
+        # INFINITE
+        if n == 0:
+            return "INSOMNIA"
+            break
 
-from misc import input_, output_
+        digit = digit - digit_split(n)
+        #print "digit_split : {}, digit : {}".format(digit_split(n), digit)
 
-num_cases, cases = input_('A-large.in')
+        if len(digit) == 0:
+            return n
+            break
 
-digits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
-answers = []
-
-
-for case in cases:
-    case = case.rstrip('\n')
-    done = False
-    if case == '0':
-        answers.append('INSOMNIA')
-        done = True
-    while done == False:
-        seen = set()
-        for ch in case:
-            seen.add(ch)
-        if seen.intersection(digits) == digits:
-            answers.append(case)
-            done = True
-        i = 2
-        while done == False:
-            number = int(case) * i
+        else:
             i += 1
-            for ch in str(number):
-                seen.add(ch)
-            if seen.intersection(digits) == digits:
-                answers.append(number)
-                done = True
+            n = init_n*i
 
-output_(answers, 'Counting_sheep_large.out')
-
-
+t = int(raw_input())  # read a line with a single integer
+for i in xrange(1, t + 1):
+    n = int(raw_input())  # read a list of integers, 2 in this case
+    result = calculate(n)
+    print "Case #{}: {}".format(i, result)
+    # check out .format's specification for more formatting options
 

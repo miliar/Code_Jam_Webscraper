@@ -1,39 +1,21 @@
-#!/usr/bin/env python
-# coding: utf-8
+# https://code.google.com/codejam/contest/dashboard?c=6254486#s=p0
+# author: log926
 
-from __future__ import print_function
-import math
-import sys
-
-def count(N):
+T = int(raw_input())
+for i in xrange(T):
+    N = int(raw_input())
     if N == 0:
-        return 'INSOMNIA'
-    cutoff = 1000
-    i, j = 0, 0
-    seen = set()
-    while len(seen) < 10:
-        i += 1
-        n = i * N
-        prev = len(seen)
-        for d in str(n):
-            seen.add(d)
-        if j == cutoff:
-            break
-        j += 1
-    if len(seen) < 10:
-        return 'INSOMNIA'
-    return n
+        print "Case #%d: INSOMNIA" % (i + 1)
+        continue
 
-if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print('usage: %s FILE' % sys.argv[0])
-        sys.exit(1)
-    fn = sys.argv[1]
-    with open(fn) as handle:
-        _ = handle.next()
-        for i, line in enumerate(handle, start=1):
-            line = line.strip()
-            if line == "":
-                continue
-            number = int(line)
-            print("Case #%s: %s" % (i, count(number)))
+    num = str(N)
+    s = set()
+    iter = 1
+    while len(s) < 10:
+        num = str(N * iter)
+        nums = map(int, list(num))
+        s |= set(nums)
+        iter += 1
+    print "Case #%d: %s" % (i + 1, num)
+
+

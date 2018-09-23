@@ -1,33 +1,24 @@
-from runner.runner import CodeJamRunner
-
-def counting_sheep(n):
-    if n == 0:
-        return "INSOMNIA"
-    numbers = set()
-    i = 1
-    last = n
-    while(len(numbers)<10):
-        last = n * i
-        numbers |= set(str(last))
-        i += 1
-    return last
-
-class CountingSheepRunner(CodeJamRunner):
-
-    def read_test(self, f):
-        line = f.readline().replace("\n", "")
-        return {
-                'n': int(line)
-                }
-
-    def execute(self, **kwargs):
-        return counting_sheep(**kwargs)
-
-
-if __name__ == "__main__":
-    import sys
-    if len(sys.argv) < 2:
-        print "Usage: python magic_deck.py <filename>"
-        exit()
-    runner = CountingSheepRunner(sys.argv[1])
-    runner.print_result()
+#!/bin/python
+import sys
+if __name__ == '__main__':
+    input_name = sys.argv[1] 
+    output_name = sys.argv[2] 
+    f = open(input_name, 'r')
+    f2 = open(output_name, 'w')
+    nb_cases = int(f.readline().strip())
+    for i in range(1, nb_cases+1):
+        print 'case ' + str(i)
+        number = int(f.readline().strip())
+        s = set()
+        ss = 0
+        if number:
+            while len(s) != 10:
+                ss += number
+                s = s.union(set(map(int, str(ss))))
+        f2.write('Case #' + str(i) + ': ') 
+        if len(s) == 0:
+            f2.write('INSOMNIA\n')
+        else:
+            f2.write(str(ss) + '\n')
+    f.close()
+    f2.close()

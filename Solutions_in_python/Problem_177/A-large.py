@@ -1,26 +1,18 @@
+import sys, math
 
-
-def get_total_count(input_num):
-	if input_num == 0:
-		return "INSOMNIA"
-	num_set = set()
-	target_num = input_num
-	loop_count = 1
-	while(True):
-		insert_each_number(num_set, target_num)
-		if len(num_set) == 10:
-			break
-		loop_count += 1	
-		target_num = input_num * loop_count
-	return target_num 
-	
-
-def insert_each_number(num_set, target_num):
-	for c in str(target_num):
-		num_set.add(c)
-
-
-t = int(input())  # read a line with a single integer
-for i in range(1, t + 1):
-	input_num = int(input())
-	print("Case #{}: {}".format(i, get_total_count(input_num)))
+T = int(input())
+for i in range(T):
+    N = input()
+    N_3 = int(N)
+    l_init = [-1] * 10
+    count = 0
+    if N_3 == 0:
+        print('Case #'+str(i+1)+': INSOMNIA')
+    else:
+        while l_init[0] == -1 or l_init[1] == -1 or l_init[2] == -1 or l_init[3] == -1 or l_init[4] == -1 or l_init[5] == -1 or l_init[6] == -1 or l_init[7] == -1 or l_init[8] == -1 or l_init[9] == -1:
+            count += 1
+            N_2 = N * count
+            l_transit = map(int, list(str(N_2)))
+            for j in range(len(l_transit)):
+                l_init[l_transit[j]] = 0
+        print('Case #'+str(i+1)+': '+str(N_2))

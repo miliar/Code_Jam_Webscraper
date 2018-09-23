@@ -1,38 +1,22 @@
-#! /usr/bin/python
-# kmwho
-# CodeJam 2016 Qualification Round
-
-from __future__ import print_function
-
-def __del():
-    input()
-    int(input())
-    map(int,input().split())
-
-def solvecase(N):
-    if N == 0:
-        return "INSOMNIA"
-    alldigits = set(str(d) for d in range(10))
-    seen      = set()
-    i = 1
-    while True:
-        x = i*N
-        digits = set( str(x) )
-        seen.update(digits)
-        if seen == alldigits:
-            break
-        i  += 1
-    return str(i*N)
-
-def solve():
-    T = int(input())
-    for t in range(T):
-        N = int(input())
-        res = solvecase(N)
-        print("Case #" + str(t+1) + ": " + str(res) )
-
-def main():
-    solve()
-
-
-main()
+T = int(raw_input())  # read a line with a single integer
+for i in xrange(1, T + 1):
+    N = raw_input()
+    
+    if(int(N)==0):
+        last = "INSOMNIA"
+        toCount = []
+    else:
+        toCount = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    j=1
+    Nj=N
+    while(len(toCount)!=0):
+        
+        for letter in list(Nj):
+            if letter in toCount:
+                toCount.remove(letter)
+                last=Nj
+        j=j+1
+        Nj = str(int(N)*j)
+        
+        
+    print "Case #{}: {}".format(i, last)

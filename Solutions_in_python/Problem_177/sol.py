@@ -1,15 +1,29 @@
-t = int(raw_input())  # read a line with a single integer
-for i in xrange(1, t+1):
-	n = int(raw_input())
-	N = n
+t = int(input())
+inp = []
+for i in range(t):
+  inp.append(int(input()))
 
-	s = set(list(str(N)))
 
-	while len(s) < 10:
-		if (N == N+n):
-			N = "INSOMNIA"
-			break
-		N += n
-		s = s.union(set(list(str(N))))
+for i in range(t):
+  n = inp[i]
+  if n == 0:
+    print("Case #%d: INSOMNIA" %(i + 1))
+    continue
 
-	print "Case #{}: {}".format(i, N)
+  temp = n
+  count = [0 for x in range(0,10)]
+  s = 0
+  ct = 1
+  while s != 10:
+
+    while n > 0:
+      d = n % 10
+      if count[d] == 0:
+        count[d] += 1
+        s += 1
+      n = n/10
+
+    if s == 10:
+      print("Case #%d: %d" %(i + 1, temp*ct))
+    ct += 1
+    n = temp * ct

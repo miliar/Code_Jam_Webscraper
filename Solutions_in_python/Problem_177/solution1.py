@@ -1,45 +1,33 @@
-'''
-solution for counting sheep
-'''
+#!/usr/bin/env python
 
-def getDigits(n):
-    digits = []
-    while n>0:
-        digits.append(n%10)
-        n = n//10
-    return digits
+import sys
+import os
 
-def isSolution(allDigits):
-    res = True
-    for digit in allDigits:
-        res = res and digit
+digits = set()
+for i in range(10):
+    digits.add(i)
 
-    return res
+def getDigits(number):
+    result = set()
+    strNum = str(number)
+    for i in range(len(strNum)):
+        result.add(int(strNum[i]))
+    return result
 
-def solve(n):
-    allDigits = [False]*10
-    count = 1
-    while True:
-        if n == 0:
-            return 'INSOMNIA'
-        number = n*count
-        digits = getDigits(number)
+def getLastNumber(number):
+    count = set()
+    idx = 1
+    while count != digits:
+        count.update(getDigits(idx * number)) 
+        idx += 1
+    return (idx-1)*number
 
-        for d in digits:
-            allDigits[d] = True
+lines = open(sys.argv[1]).readlines()
+cases = int(lines[0])
+for i in range(cases):
+    number = int(lines[i+1])
+    if number == 0:
+        print("Case #%s: INSOMNIA" % (i+1))
+    else:
+        print("Case #%s: %s" % (i+1, getLastNumber(number)))
 
-        if isSolution(allDigits):
-            return number
-        count += 1
-
-
-file = 'A-large'
-inp = open(file+'.in', 'r').read().splitlines()
-out = open(file+'.out', 'w')
-case = 0
-testcases = int(inp[0])
-case = 0
-for tc in range(1, testcases+1, 1):
-    res = solve(int(inp[tc]))
-    case += 1
-    out.write('Case #' + str(case) + ': ' + str(res) + '\n')

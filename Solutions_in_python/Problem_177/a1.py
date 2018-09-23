@@ -1,29 +1,18 @@
-#!/bin/env python
-from __future__ import print_function
-import sys
-import os
-import os.path
+inp = [0,1,2,11,1692]
+out = ['INSOMNIA', 10, 90, 110, 5076]
 
-fi = open(sys.argv[1], 'r')
-fo = open(os.path.splitext(sys.argv[1])[0] + '.out', 'w')
-
-T = int(fi.readline().strip())
-for k in range(T):
-    N = int(fi.readline().strip())
-    if N == 0:
-        ret = 'INSOMNIA'
-    else:
-        ret = 0
-        dset = set(range(10))
-        while len(dset) > 0:
-            ret += N
-            tval = ret
-            if ret == 0:
-                dset.discard(0)
-            while tval != 0:
-                dset.discard(tval % 10)
-                tval = int(tval / 10)
-    print('Case #%d:' % (k + 1), ret, file=fo)
-
-fi.close()
-fo.close()
+for i in range(int(raw_input())):
+    numb_set = {' '}
+    num = int(raw_input())
+    for j in range(1000):
+        if num == 0:
+            case = 'INSOMNIA'
+            break
+        else:
+            number = num * (j + 1)
+            numbers = set(str(number) + ' ')
+            numb_set.update(numbers)
+        if len(numb_set) == 11:
+            case = number
+            break
+    print 'Case #%s: %s' % ((i+1), case)

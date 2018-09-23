@@ -1,36 +1,47 @@
-__author__ = "Enric Florit <efz1005@gmail.com>"
+import math
 
-def get_digits(N):
-	digits = []
-	while N > 0:
-		digits.append(N % 10)
-		N /= 10
-	return digits
+numbers = [0,1,2,3,4,5,6,7,8,9]
+cases = []
+cased = []
+casenum = []
+i2 = 0
+##b = {'one': 1, 'two': 2, 'three': 3}
+p = 1
+fileo = open('output.txt', 'w')
 
-test_cases = int(raw_input())
+def validate(case):
+    cases = []
+    p = int(1)
+    numbers = ['0','1','2','3','4','5','6','7','8','9']
+    cases.append(case)
 
-solutions = []
+    while True:
 
-for i in xrange(test_cases):
-	case = int(raw_input())
-	j = 0
+        q = str(case * p)
+        x = len(q)
+        cases.append(str(q))
+        for i in range(x):
+            cases.append(q[i])
+        p+=1
+        if numbers[0] in cases and numbers[2] in cases and numbers[3] in cases and numbers[4] in cases and numbers[5] in cases and numbers[6] in cases and numbers[7] in cases and numbers[8] in cases and numbers[9] in cases:
+            cases = []
+            cases.append(str(q))
+            cased.append('Case #'+(str(i2))+': '+(str(q)))
+            break
+        elif q == str('0'):
+        	cased.append('Case #'+(str(i2))+': '+'INSOMNIA')#case+1
+        	break
 
-	digits = set()
+   
 
-	step = 0
-	while len(digits) < 10 and j < 10000:
-		j += 1
-		step += case
 
-		digits.update(get_digits(step))
+T = int(raw_input())
 
-	if j == 10000:
-		solutions.append(0)
-	else:
-		solutions.append(step)
+for case in range(T):
+	i2+=1
+	case = int(raw_input(''))
+	validate(case)
 
-for i in xrange(test_cases):
-	if solutions[i] == 0:
-		print "Case #%d: INSOMNIA" % (i + 1)
-	else:
-		print "Case #%d: %d" % (i + 1, solutions[i])
+for i in range(len(cased)):
+	print cased[i]
+	fileo.write(cased[i]+'\n')

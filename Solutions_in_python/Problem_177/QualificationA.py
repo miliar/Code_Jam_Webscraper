@@ -1,13 +1,19 @@
-t = int(raw_input())
-for c in range(t):
-    n = int(raw_input())
-    d = set()
-    if n == 0:
-        result = "INSOMNIA"
-    else:
-        k = 1
-        while len(d) < 10:
-            d |= set(str(k * n))
-            k += 1
-        result = (k - 1) * n
-    print "Case #{}: {}".format(c+1, result)
+#!/usr/bin/python
+
+T = int(raw_input())
+
+def solve(x):
+	s = set()
+	for i in xrange(1,10000):
+		for c in str(i*int(x)):
+			s.add(c)
+		if len(s) == 10:
+			return str(i*int(x))
+	return "INSOMNIA"
+
+
+for t in xrange(T):
+	
+	N = raw_input()
+	
+	print "Case #%d: %s" % (t+1, solve(N))

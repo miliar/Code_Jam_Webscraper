@@ -1,45 +1,37 @@
-def process(n):
-    # original_n = n
-    # # eliminate trailing zeroes
-    # while n % 10 == 0:
-    #     if n == 0:
-    #         return -1
-    #     else:
-    #         n /= 10
+from collections import defaultdict
+
+
+def C(n):
 
     if n == 0:
-        return -1
+        return 'INSOMNIA'
+    else:
 
-    m = 1
-    s = set()
+        digit = defaultdict(int)
+        x = 1
+        while x>=1:
 
-    all_digits_seen = False
-    while not all_digits_seen:
-        r = original_r = m*n
+            al = str(x*n)
 
-        while r != 0:
-            r, extracted_digit = divmod(r, 10)
-            s.add(extracted_digit)
+            for dig in al:
+                digit[dig]+=1
 
-        all_digits_seen = len(s) == 10
-        m += 1
+            if len(digit) == 10:
+                return al
 
-    return original_r
+            x = x+1
 
-number_of_cases = int(raw_input())
-for case_number in xrange(1, number_of_cases+1):
-    n = int(raw_input())
 
-    result = process(n)
-    if result == -1:
-        result = 'INSOMNIA'
 
-    print "Case #%d: %s" % (case_number, result)
-    case_number += 1
 
-# print process(0) == -1
-# print process(1) == 10
-# print process(2) == 90
-# print process(11) == 110
-# print process(1692) == 5076
-# print process(10) == 90
+read = open('Al.in','r')
+writ = open('o.txt','w')
+test = int(read.readline())
+
+l = [(int(read.readline())) for x in range(test)]
+
+#print l
+for (i, n) in enumerate(l,1):
+
+    s = 'Case #{0}: {1}\n'.format(i,C(n))
+    writ.writelines(s)

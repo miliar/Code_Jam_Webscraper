@@ -1,20 +1,24 @@
-def sol(n):
-  if n == 0:
-    return "INSOMNIA"
-  else:
-    i = n
-    digit = {}
-    while True:
-      for c in str(i):
-        if c not in digit:
-          digit[c] = 1
-      if len(digit) == 10:
-        return i
-      else:
-        i += n
 
-t = long(raw_input())  # read a line with a single integer
 
-for i in xrange(1, t + 1):
-    n = int(raw_input())
-    print "Case #{}: {}".format(i, sol(n))
+test_cases=int(raw_input())
+cases = 1
+while cases <= test_cases :
+	N = int(raw_input())
+	a = [1,2,3,4,5,6,7,8,9,0]
+	i=1
+	if N == 0 :
+		 print 'Case #'+str(cases) + ': INSOMNIA'
+	else :
+		while a.__len__() != 0  :
+			m = i*N
+			m =str(m)
+			m_split = map(int,str(m))
+			for x in m_split :
+				if a.__contains__(x):
+					a.remove(x)
+				if a.__len__() == 0 :
+					print 'Case #'+str(cases) + ': '+ m
+					break	 
+			i+=1
+	cases+=1	
+		

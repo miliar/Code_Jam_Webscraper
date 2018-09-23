@@ -1,15 +1,15 @@
-T = int(raw_input())
-for i in xrange(T):
-    N=int(raw_input())
-    currentcount=[0 for tmpi in xrange(10)]
-    if N==0:
-        latestsheep= "INSOMNIA" 
-    else:
-        for j in xrange(1,10**9):
-            latestsheep=str(j*N)
-            for k in latestsheep:
-                currentcount[int(k)]=1
-            if sum(currentcount)==10:
-                break
-    print("Case #{}: {}".format(i+1, latestsheep))
+f = open('A-large.in','r')
+o = open('out.out','w')
+T = int(f.readline())
+for i in range(T):
+	N = int(f.readline())
+	if N == 0:
+		o.write("Case #"+ str(i+1) + ": INSOMNIA\n")
+	else:	
+		currN = N
+		test = set(range(10))
+		while len(test):
+			test = test.difference(set([int(k) for k in str(currN)]))
+			currN += N
+		o.write("Case #"+ str(i+1) + ": "+ str(currN-N)+"\n")
 

@@ -1,32 +1,22 @@
-inFile = open("A-large.in")
-inFile.readline()
 
-outFile = open("A-large.out", "w")
 
-caseNum = 1
+output = open('1a-large.out','w')
 
-for line in inFile:
-    origNum = int(line.rstrip())
-    num = origNum
-
-    digits = set()
-
-    cnt = 0
-
-    while(len(digits) < 10):
-        for digit in str(num):
-            digits.add(digit)
-        if(len(digits) < 10):
-            num += origNum
+with open('1A-large.in','r') as input:
+    for i in range(int(input.readline())):
+        digits = [0]*10
+        base = int(input.readline())
+        if base == 0:
+            output.write('Case #' + str(i+1) + ': INSOMNIA\n')
         else:
-            print("Case #" + str(caseNum) + ":", num, file=outFile)
-            break
-        cnt += 1
+            a = 1
+            while sum(digits) < 10:
+                s = base*a
+                for d in str(s):
+                    digits[int(d)] = 1
+                a += 1
 
-        if(cnt > 100000000):
-            print("Case #" + str(caseNum) + ":", "INSOMNIA", file=outFile)
-            break
+            output.write('Case #' + str(i+1) + ': ' + str(s) + '\n')
+output.close()
+
         
-    caseNum += 1
-
-outFile.close()

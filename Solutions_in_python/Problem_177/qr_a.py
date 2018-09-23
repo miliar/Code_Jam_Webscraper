@@ -1,22 +1,48 @@
-def count_sheep(n):
-    if n == 0:
-        return "INSOMNIA"
-    counter = 1
-    current = n
-    result = set()
-    while counter < 1000:
-        current = n * counter
-        result=result.union(set(list(str(current))))
-        if len(result) == 10:
-            return current
-        else:
-            counter += 1
-    return "INSOMNIA"
+# -*- coding: utf-8 -*-
 
+# QR A.  Counting Sheep
 
-t = int(input())
-for i in range(t):
-    n = int(input())
-    print("Case #%d: %s" % (i+1, count_sheep(n)))
+#INPUT = 'qr_a-smaii.in'
+#OUTPUT = 'qr_a-small.out'
+INPUT = 'qr_a-large.in'
+OUTPUT = 'qr_a-large.out'
 
+#LIMIT = 200
+LIMIT = 10**6
 
+def result(caseno, msg):
+    output = open(OUTPUT, 'a')
+    output.write('Case #%d: %s\n' % (caseno, msg))
+    output.close()
+
+def main():
+    input = open(INPUT, 'r')
+
+    case = int(input.readline().replace('\n',''))    # 1行目問題数
+    
+    for caseno in range(1, case+1):
+        N = int(input.readline().replace('\n',''))
+        
+        if N == 0:
+            result(caseno, 'INSOMNIA')
+            continue
+        
+        count = 1
+        digits = [0]*10
+        while True:
+            d = N * count
+            for _d in str(d):
+                digits[int(_d)] = 1
+
+            if sum(digits) == 10:
+                result(caseno, d)
+                break
+
+            count += 1
+
+            if count > 200:
+                result(caseno, 'INSOMNIA')
+                break
+
+if __name__ == '__main__':
+    main()

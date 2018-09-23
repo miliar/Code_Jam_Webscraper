@@ -1,50 +1,39 @@
-numTest = 0
-inputs = [] 
-largestLimit = 10**6
 
+numbers=[int(line.rstrip('\n')) for line in open('Downloads/A-large.in')]
+del numbers[0]
+print numbers
+count=1
+for n in numbers:
 
-def calc(castNum, input):
-	
-	if input <= 0:
-		print 'Case #%d: %s' % (castNum, 'INSOMNIA')
-		return 'Case #%d: %s' % (castNum, 'INSOMNIA')
-	
-	aSet = set()
-	
-	for i in range(1, largestLimit):
-		incNum = input*i;
-		if isinstance(incNum, int) == False:
-			print 'Case #%d: %s' % (castNum, 'INSOMNIA')
-			return 'Case #%d: %s' % (castNum, 'INSOMNIA')
+	if n==0:
+		print 'Case #'+str(count)+': INSOMNIA'
+	else:	
+		i=1
+		digitdict={
+				'1':False,
+				'2':False,
+				'3':False,
+				'4':False,
+				'5':False,
+				'6':False,
+				'7':False,
+				'8':False,
+				'9':False,
+				'0':False,
+				}
+		while True:
 		
-		aString = str(incNum)
-		cList = list(aString)
-		for c in cList:
-			n = int(c)
-			aSet.add(n)
-		
-		if len(aSet) == 10:
-			print 'Case #%d: %d' % (castNum, incNum)
-			return 'Case #%d: %d' % (castNum, incNum)
-	
+			temp=n*i
+			x=temp
+			#print 'temp='+str(temp)
+			while temp!=0:
+				digit=temp%10
+				temp=temp/10
+				digitdict[str(digit)]=True
+				#print 'digitdict['+str(digit)+']='+str(digitdict['1'])
+			if digitdict['0'] is True and digitdict['1'] is True and digitdict['2'] is True and digitdict['3'] is True and digitdict['4'] is True and digitdict['5'] is True and digitdict['6'] is True and digitdict['7'] is True and digitdict['8'] is True and digitdict['9'] is True:
+				print 'Case #'+str(count)+': ' + str(x)
+				break
+			i=i+1
+	count+=1
 
-def main():
-	f = open("A-large.in", 'r')
-	numTest = int(f.readline())
-	while True:
-		line = f.readline()
-		if not line: break
-		inputs.append(int(line))
-	f.close()
-	
-	print 'numtest : ' + str(numTest)
-	
-	f = open("output_large_test1.txt", 'w')
-	
-	for i in range(0, len(inputs)):
-		output = calc(i+1, inputs[i])
-		f.write(output + '\n')
-	f.close()
-	
-if __name__ == "__main__":
-    main()

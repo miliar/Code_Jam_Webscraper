@@ -1,53 +1,24 @@
-#!/bin/python
+inputData = [int(line.rstrip('\n')) for line in open('A-large.in', 'r')]
+outputList = []
 
-def writeLine(case, answer) :
-    outF.write('Case #'+str(i+1)+': '+answer+'\n')
+for i in range(1, inputData[0] + 1):
+    seenNum = set()
+    n = 1
+    num = inputData[i]
+    while True:
+        if num == 0:
+            outputList.append('Case #' + str(i) + ': INSOMNIA' + '\n')
+            break
 
-inF = open('A-large.in', 'r')
-outF = open('a-large.out', 'w')
+        multiplyedNum = num * n
+        for d in str(multiplyedNum):
+            seenNum.add(d)
 
-n = int(inF.readline())
+        seenAsString = ''.join(str(x) for x in sorted(seenNum))
+        if '0123456789' in seenAsString:
+            outputList.append('Case #' + str(i) + ': ' + str(multiplyedNum) + '\n')
+            break
+        n += 1
 
-for i in range(n) :
-    start = count = inF.readline().strip()
-    if count == '0' :
-        writeLine(i, 'INSOMNIA')
-        continue
-    sleep = [1,1,1,1,1,1,1,1,1,1]
-    while sum(sleep) != 0 :
-        for j in count :
-            sleep[int(j)] = 0
-        count = str(int(count)+int(start))
-    writeLine(i, str(int(count)-int(start)))
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# 1 2 3 4 5 6 7 8 9 0
-# 2 4 6 8 10 12 14 16 18 
-# 3 6 9 12 15 18 21 24 27 30
-
-
+with open("A-large.out", "w") as fw:
+    fw.writelines(outputList)

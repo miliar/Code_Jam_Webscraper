@@ -1,13 +1,17 @@
-def ans(x):
-	if not x:
-		return "INSOMNIA"
-	s = set(range(10))
-	k = 0
-	while len(s):
-	    k += 1
-	    for v in map(int, str(x*k)):
-	        s.discard(v)
-	return x*k
+def s(N, c):
+    if (N==0):
+        print "Case #%s:" % c, "INSOMNIA"
+        return
+    i = 1
+    A = {}
+    while len(A) < 10:
+        for d in str(i*N):
+            A[d] = 1
+        i+=1
 
-for case in range(int(input())):
-    print("Case #{0}: {1}".format(case+1, ans(int(input()))))
+    print "Case #%s:" % c, (i-1)*N
+
+T = int(raw_input())
+for kk in xrange(T):
+    N = int(raw_input())
+    s(N, kk+1)

@@ -1,32 +1,25 @@
-inputData = open("Q_A_input.txt", "r")
-outputData = open("Q_A_output.txt", "w")
-outputLines = []
+from collections import Counter
 
-def output (string):
-	string = str(string)
-	print(string)
-	outputLines.append(string)
+input_file = "A-large.in"
 
-def case (x, y):
-	output("Case #" + str(x) + ": " + str(y))
+f = open(input_file, 'r')
 
-for (number, line) in enumerate(inputData.read().splitlines()[1:]):
-	digits = set([str(i) for i in range(10)])
-	x = int(line)
-	y = x
-	found = False
-	if y != 0:
-		for i in range(1000):
-			for d in list(str(y)):
-				digits.discard(d)
-			if len(digits) == 0:
-				case(number + 1, y)
-				found = True
-				break
-			y = (i + 2) * x
-	if not found:
-		case(number + 1, "INSOMNIA")
+f.readline()
 
-outputData.write("\n".join(outputLines))
-inputData.close()
-outputData.close()
+def case(n):
+	seen = Counter()
+	
+	if n == 0:
+		return "INSOMNIA"
+	
+	i = 0
+	while len(seen.values()) < 10:
+		for d in str((i + 1) * n):
+			seen[d] = 1
+		i += 1
+	return (i * n)
+	
+t = 1
+for line in f:
+	print("Case #{}: {}".format(t, case(int(line))))
+	t += 1

@@ -1,15 +1,34 @@
-def main_code(x):
-    N = int(input())
-    if N == 0:
-        print("Case #" + str(x + 1) + ":", "INSOMNIA")
+def calc(n):
+    if n == 0:
+        return 'INSOMNIA'
     else:
-        M = N
-        seen = set(c for c in str(M))
-        while seen != {'0','1','2','3','4','5','6','7','8','9'}:
-            M += N
-            seen |= set(c for c in str(M))
-        print("Case #" + str(x + 1) + ":", M)
+        numbers = set(range(10))
+        i = 1
+        while len(numbers) > 0:
+            nn = str(n * i)
+            i_numbers = set(map(int, nn))
+            numbers -= i_numbers
+            i += 1
+        print 'I -- ', i - 1
+        return nn
 
-T = int(input())
-for x in range(T):
-    main_code(x)
+
+def main(file_name):
+    in_filename = file_name + '.in'
+    out_filename = file_name + '.out'
+    with open(in_filename) as in_file, open(out_filename, 'w') as out_file:
+        in_file.readline()
+        for index, line in enumerate(in_file, start=1):
+            n = int(line.strip())
+
+            print '----------------'
+            print 'N -- ', n
+            ans = "Case #{}: {}\n".format(index, calc(n))
+            out_file.write(ans)
+            print ans
+
+
+if __name__ == '__main__':
+    # main('test')
+    # main('small')
+    main('large')

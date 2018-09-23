@@ -1,38 +1,21 @@
-import time
-import datetime
-__author__ = 'eegee'
+__author__ = 'ivan_pavlov'
 
-filename = "A-large"
+with open("in.txt", "r") as f:
+    size = next(f)
+    out = open("res.txt", "w")
+    for index, N in enumerate(list(map(int, f.readlines()))):
+        print(N)
+        out.write("Case #"+str(index+1)+": ")
+        digit_set = set()
+        ok = False
+        for i in range(1, 10000000):
+            cur_n = i * N
+            digit_set.update(set(str(cur_n)))
+            if len(digit_set) == 10:
+                out.write(str(cur_n) + "\n")
+                ok = True
+                break
+        if not ok:
+            out.write("INSOMNIA\n")
 
-input_data = open("../data/" + filename + ".in")
-output_data = open("../data/" + filename + ".out", "w")
-time.perf_counter()
 
-for case in range(int(input_data.readline())):
-    # read inputs #
-    n = int(input_data.readline())
-    # read inputs #
-
-    # solution #
-    if n == 0:
-        answer = "INSOMNIA"
-    else:
-        missing = set("0123456789")
-        i, counting = 0, n
-        while missing:
-            i += 1
-            counting = i * int(n)
-            missing -= set(str(counting))
-        answer = counting
-    # solution #
-
-    # display and write output #
-    output_line = "Case #" + str(case + 1) + ": "
-    print(output_line + str(answer))
-    output_data.write(output_line + str(answer) + "\n")
-    # display and write output #
-
-print()
-print("total_time:", datetime.timedelta(seconds=time.perf_counter()))
-input_data.close()
-output_data.close()

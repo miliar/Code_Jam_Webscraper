@@ -1,28 +1,40 @@
-#!/usr/bin/env python3
+        #Contestant : Emmanuel HAVUGIMANA
+        #Year 2016
+        #Country Rwanda
+t = int(input())
+caseN=0
+
+for i in xrange(1,t+1):
+    n=int([int(s) for s in raw_input().split()][0])
+    l=set()
+    nNext=0
+    
+    if n==0:   # for infititely long time before getting all digits, I assumed that it true only for 0
+        caseN+=1
+        print "Case #{}: {}".format(str(caseN),"INSOMNIA")
+    else:   # for other cases,I used sets to store elements until it gets 10 elements
+        caseN+=1
+        while len(l)!=10:
+            nNext+= n
+            for s in str(nNext):
+                l.add(s)
+        print "Case #{}: {}".format(str(caseN),str(nNext))
 
 
-N = int(input())
 
-def calc(value):
-    m = {}
-    for l in range(10):
-        m["%s" % l] = 0
-    for j in range(100):
-        j += 1
-        nb = j * value
-        str = "%s" % nb
-        for c in str:
-            m[c] = 1
-
-        counter = 0
-        for k, v in m.items():
-            if v == 1:
-                counter += 1
-        if counter == 10:
-            return nb
-    return "INSOMNIA"
-
-for loop in range(N):
-    value = int(input())
-    result = calc(value)
-    print("Case #%s: %s" % (loop + 1, result))
+    
+##n2=0
+##l=set()
+##caseN=0
+##if n==0:
+##    caseN+=1
+##    print "Case #{}: {}".format(str(caseN),"Insomia")
+##    
+##else:
+##    caseN+=1
+##    while len(l)!=10:
+##        n2+= n
+##        for s in str(n2):
+##            l.add(s)
+##    print "Case #{}: {}".format(str(caseN),str(n2))
+##

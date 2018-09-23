@@ -1,18 +1,41 @@
-T = int(input())
+import itertools
 
-for t in range(T):
-    N = int(input())
-    
-    if not N:
-        print "Case #{0}: INSOMNIA".format(t+1)
-        continue
-    
-    tot = set([int(i) for i in str(N)])
-    k = 2
-    while len(tot) != 10:
-        X = k*N
-        tot = tot | set([int(i) for i in str(X)])
-        k = k+1
-        
-    print "Case #{0}: {1}".format(t+1, (k-1)*N)
-        
+def read_file_simple(name, fn=int):
+    with open(name) as file:
+        lines = iter(file)
+        ncases = int(next(lines))
+
+        return [fn(next(lines).strip()) for _ in range(ncases)]
+
+
+def solve(input_file, func, read_func, stdout=False):
+    input_data = read_func(input_file)
+
+    text = '\n'.join(
+        'Case #{}: {}'.format(i, func(data))
+        for i, data in enumerate(input_data, 1)
+    )
+
+    if stdout:
+        print(text)
+    else:
+        with open(input_file + '.out', 'w') as file:
+            print(text, file=file)
+
+
+def func_a(val):
+    if val == 0:
+        return 'INSOMNIA'
+
+    seen = [False] * 10
+    n = 0
+
+    while not all(seen):
+        n += val
+        for d in str(n):
+            seen[int(d)] = True
+    return n
+
+
+if __name__ == '__main__':
+    solve('tests/A-large.in', func_a, read_file_simple, False)

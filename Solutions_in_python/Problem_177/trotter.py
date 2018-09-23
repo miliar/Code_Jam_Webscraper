@@ -1,28 +1,36 @@
-def getDigits(number):
-    reversedDigits = []
-    while number > 0:
-        reversedDigits.append(number % 10)
-        number -= number % 10
-        number /= 10
-    reversedDigits.reverse()
-    return set(reversedDigits)
+import sys
 
-def whatSee(start):
-    seen = set()
-    for x in range(1,101):
-        current = start * x
-        digits = getDigits(current)
-        seen = seen.union(digits)
-        if len(seen) == 10:
-            return (True, x * start)
-    return (False, 0)
+def find_sleep(n):
+    def set10(s):
+        if len(s) != 10:
+            return False
+        for n in s:
+            if n < 0 and n > 9:
+                return False
+        return True
     
-def main():
-    cases = int(raw_input())
-    for x in range(1, cases + 1):
-        number = int(raw_input())
-        willSee, whatISee = whatSee(number)
-        response = str(whatISee) if willSee else "INSOMNIA"
-        print("Case #%s: %s" % (x, response))
+    nums = set()
+    
+    if n == 0:
+        return 'INSOMNIA'
+    multiplier = 0;
+    val = 0
+    while not set10(nums):
+        multiplier += 1
+        val = n * multiplier
+        for c in str(val):
+            nums.add(int(c))
+    return val
 
-main()
+if __name__ == "__main__":
+    f = sys.stdin
+    if len(sys.argv) >= 2:
+        fn = sys.argv[1]
+        if fn != '-':
+            f = open(fn)
+
+    t = int(f.readline())
+    for _t in xrange(t):
+        s = int(f.readline())
+        n = str(find_sleep(s))
+        print "Case #%d: %s" % (_t+1, n)

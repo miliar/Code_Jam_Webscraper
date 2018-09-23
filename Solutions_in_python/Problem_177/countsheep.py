@@ -1,32 +1,17 @@
-# Code Jam 2016
-# Raoul Veroy
-import fileinput
-
-stdin = fileinput.input()
-
-def update_digits( digits = set([]),
-                   num = None ):
-    for x in str(num):
-        digits.add(x)
-    
-results = {}
-def get_sheep_number(start):
-    global results
-    if start == 0:
+def countSheep(N):
+    if N == 0:
         return "INSOMNIA"
-    if start in results:
-        return results[start]
-    digits = set([])
-    num = start
-    update_digits( digits, num )
-    while len(digits) < 10:
-        num += start
-        update_digits( digits, num )
-    results[start] = str(num)
-    return results[start]
+    factor = 1
+    digits = set(list(str(N)))
+    retVal = N
+    complete = list("0123456789")
+    while 1:
+        if sorted(digits) == complete:
+            return str(retVal)
+        factor += 1
+        retVal += N
+        digits = digits.union(set(list(str(retVal))))
 
-count = int(stdin.next())
-for x in xrange(count):
-    start = int(stdin.next().rstrip())
-    shnum = get_sheep_number(start)
-    print "Case #%d: %s" % (x+1, shnum)
+T = int(input())
+for i in range(1,T+1):
+    print("Case #%d: %s" % (i, countSheep(int(input()))))

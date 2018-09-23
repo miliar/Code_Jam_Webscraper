@@ -1,38 +1,38 @@
+def countsheeps():
+	input = open('A-large.in')
+	test_cases = int(input.readline()) + 1
+	# test_cases = test_cases 
+	result_file = open('results.txt', 'w')
 
-import numpy as np
+	for iterator in range(1,test_cases):
+		check = ['0','1','2','3','4','5','6','7','8','9']	
+		N = long(input.readline())
+		if N != 0:
+			count = 0
+			x = 1
+			number = 1
+			while x:
 
-def to_array(n):
-    return [int(i) for i in str(n)]
+				
+				result = str(N*number)
+				for result1 in result:
+					if result1 in check:
+						check[int(result1)] = True
+				count = 0		
+				for iter in range(0,10):
+					if check[iter] == True: 
+						count = count + 1
+				if count == 10:
+					break
+				number = number + 1
+					
+			print >> result_file, "Case #%d: %s" % (iterator, result)
+			
+		else:
+			print  >> result_file, "Case #%d: INSOMNIA" % (iterator)
 
-def get_input():
-    numTests = int(raw_input())
-    inputs = []
-    for i in xrange(1, numTests + 1):  
-        inputs.append([int(s) for s in raw_input().split(" ")])
-    return [numTests, inputs]
-
-numTests = int(raw_input())
-
-for line in xrange(1, numTests + 1):
-        N = int(raw_input())
-
-        NotSeen = [0,1,2,3,4,5,6,7,8,9]
-
-        if N==0:
-            solution = "INSOMNIA"
-        else:
-            i=0
-            while(NotSeen != []):
-                i+=1;
-                n = to_array(i*N)
-                for k in n:
-                    if k in NotSeen:
-                        NotSeen.remove(k)
-            solution = i*N;
-        
-        #endroutine
-        print "Case #{}: {}".format(line, solution)
-
+if __name__ == "__main__":
+	countsheeps()
 
 
 

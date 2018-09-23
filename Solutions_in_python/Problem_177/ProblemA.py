@@ -1,29 +1,46 @@
-__author__ = 'lowikchanussot'
+import fileinput
+
+def check():
+	return 0
+
+def printSet():
+	print ("set is ...")
+
+def testSet(genericSet):
+        counter = 0
+        for x in genericSet:
+                print (x)
+                counter+=x
+        print ("Counter = " , counter)
 
 
-def solve(line) :
-    N = int(line.strip())
-    if N == 0: return 'INSOMNIA'
-    seen = set()
-    P = 0
-    while len(seen) != 10:
-        P += N
-        for c in str(P):
-            seen.add(c)
-    return P
 
 
-def solve_A(in_filename, out_filename):
-    with open(in_filename, 'r') as file, open(out_filename, 'w') as ofile :
-        lines = file.readlines()
-        n_cases = int(lines[0].strip())
-        for case, line in enumerate(lines[1:]) :
-            sol = solve(line)
-            ofile.write("Case #{c}: {s}\n".format(c=case+1, s=sol))
+def main(N):
+        setIsNotCompleted = 1
+        setTobeCheck = set()
+        if(N==0):
+                return 'INSOMNIA'  
+                print (setTobeCheck)
+        else:
+                i=0                 
+                while(setIsNotCompleted):
+                        splittedN = ([int(i) for i in str((i+1)*N)])
+                        for x in splittedN:                                
+                                setTobeCheck.add(x)
+                        i += 1
+                        if len(setTobeCheck)==10:
+                                setIsNotCompleted=0                        
+                return (i)*N
 
-if __name__ == '__main__':
-    import sys
-    import os
-    _, input = sys.argv
-    output = os.path.splitext(input)[0] + '_out.txt'
-    solve_A(input, output)
+               
+def read():
+        t = int(input())
+        for i in range(1, t + 1):
+                #print(input())
+                print("Case #{}: {}".format(i, main(int(input()))) )
+
+ 
+
+read()
+

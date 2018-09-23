@@ -1,29 +1,30 @@
-import sys
-
-def solve(N):
-    maxint = sys.maxint
-    seen = set()
-    n = 0
-    while len(seen) < 10 and maxint - n >= N :
-        n += N
-        k = n
-        while k:
-            seen.add(k % 10)
-            k /= 10
-    if len(seen) == 10:
-        return n
-    return 'INSOMNIA'
+def case(func):
+    def wrapper(i, n):
+        retval = func(int(n))
+        return "Case #{0}: {1}\n".format(i+1, retval)
+    return wrapper
 
 
-def main():
-    T = int(raw_input())
-    for i in range(1, T+1):
-        N = int(raw_input())
-        if N == 0:
-            print 'Case #%d: %s' % (i, 'INSOMNIA')
-        else:
-            res = solve(N)
-            print 'Case #%d: %s' % (i, res)
+@case
+def digify(n):
+    if n:
+        d, c = set("1234567890"), set()
+        i, j = 1, n
+        while c != d:
+            c.update(str(n * i))
+            j = n * i
+            i += 1
+        return str(j)
+    else:
+        return "INSOMNIA"
 
-if __name__ == '__main__':
-    main()
+
+ifname = input("File: ")
+
+with open(ifname + ".in", "r") as f:
+    lines = f.readlines()
+    lines.pop(0)
+
+with open(ifname + ".out", "w") as f:
+    for i, l in enumerate(lines):
+        f.write(digify(i, l))

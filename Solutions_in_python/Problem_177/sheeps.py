@@ -1,26 +1,38 @@
-file = open("A-large.in", 'r')
-outfile = open("OUT.txt", 'w')
-cases = int(file.readline())
-n = []
-for i in range(cases):
-    n.append(int(file.readline()))
+from collections import Counter
 
-for x in range(cases):
-    if n[x] == 0:
-        outfile.write("Case #" + str(x+1) + ": INSOMNIA")
-        outfile.write('\n')
+output = open('test.out', 'w')
+
+def is_empty(ls):
+    for x in ls:
+        if ls[x] ==1:
+            return True
+    return False
+
+#number of test cases
+
+f = open('A-large.in')
+case = int(f.readline())
+#output. write('')
+
+for c in range(1, case+1):
+    test = int(f.readline())
+    if test == 0:
+        output.write('Case #1: INSOMNIA\n')
+        print('Case #1: INSOMNIA')
     else:
-        arr = [0,1,2,3,4,5,6,7,8,9]
-        count = 0
-        while len(arr) != 0:
-            count += 1
-            num = list(str(count * n[x]))
-            for j in num:
-                if int(j) in arr:
-                    arr.remove(int(j))
-            
-        outfile.write("Case #" + str(x+1) + ": " + str(count*n[x]))
-        outfile.write('\n')
+        digits = Counter('0123456789')
+        i = 1
+        while i:
+            y = i*test
+            i += 1
+            digits.update(str(y))
+            if is_empty(digits) == False:
+                output.write('Case #' + str(c) + ': ' +str(y) + '\n')
+                print ('Case #' + str(c) + ': ' +str(y)  )
+                break
 
-file.close()
-outfile.close()
+
+
+
+
+#Case #1: Insomnia

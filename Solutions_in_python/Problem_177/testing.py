@@ -1,34 +1,28 @@
-fr = open('/home/rafail/Desktop/input1.in', 'r')
-fw = open ('/home/rafail/Desktop/output1.out', 'w')
+def count(N):
+	if N == 0:
+		return 'INSOMNIA'
+	seen = []
+	count = 0;
+	last = 0;
+	while len(seen) < 10:
+		count += 1
+		temp = count * N
+		while temp != 0:
+			digit = temp % 10
+			if not digit in seen:
+				seen.append(digit)
+			temp = temp // 10
+	return count * N
 
-t=fr.readline().rstrip()
-
-
-count=1
-
-for i in range(int(t)):
-	times=[0,0,0,0,0,0,0,0,0,0]
-	check=1
-	n=int(fr.readline().rstrip())
-	N=n
-	if (n == 0):
-			fw.write("Case #"+str(count)+": " + "INSOMNIA\n")
-			count+=1
-	else:		
-		while(check==1):
-			
-			l=map(int,str(int(N)))
-			for j in l:
-				if (times[int(j)]==0):
-					times[int(j)]=1
-					
-			if (sum(times)==10):
-				check=0
-				fw.write("Case #"+str(count)+": " + str(N) + "\n")
-				count+=1
-			N+=n
-fw.close()
-fr.close()
-				
-		
-		
+case = 1
+inputs = []
+with open('A-large.in') as f:  
+    for line in f:
+        line = line.split() # to deal with blank 
+        if line:            # lines (ie skip them)
+            line = [int(i) for i in line]
+            inputs += line
+inputs = inputs[1:]
+for i in range(0, len(inputs)):
+	print('Case #' + str(case) + ': ' + str(count(inputs[i])))
+	case += 1

@@ -1,20 +1,27 @@
-def compute(n):
-    if (n == 0):
-        return "INSOMNIA"
-    digits = ["0", "1", "2", "3", "4", "5", "6", "7" , "8", "9"]
-    i = 0
-    while len(digits) > 0:
-        i += 1
-        for d in str(i*n):
-            if (d in digits):
-                digits.remove(d)
-    return str(i * n)
+t = int(raw_input())
 
-inputFile = open("A-large.in")
-outputFile = open("A-large.out", "a")
-i = 0
-for line in inputFile:
-    if (i > 0):
-        outputFile.write("Case #" + str(i) + ": " + compute(int(line)) + "\n")
-    i += 1
-outputFile.flush()
+def printResult(number, text):
+	print "Case #{}: {}".format(number, text)
+
+for i in xrange(1, t + 1):
+	n = int(raw_input())
+
+	if n == 0:
+		printResult(i, "INSOMNIA")
+	else:
+		memo = [False] * 10
+		j = 1
+		while(1):
+		 	digits = [int(digit) for digit in str(n * j)]
+
+		 	for digit in digits:
+		 		memo[digit] =  True
+
+		 	if False not in memo:
+		 		printResult(i, n * j)
+		 		break
+
+		 	j = j + 1
+
+	
+

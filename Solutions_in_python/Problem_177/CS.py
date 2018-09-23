@@ -1,23 +1,53 @@
-t = input()
-for case in range(0,t):
-	num = int(raw_input())
-	if num == 0:
-		print "Case #%d: INSOMNIA"%(case+1)
-	else:
-		num2 = str(num)
-		appear = [0] * 10
-		flag = 0
-		temp = num
-		while(flag == 0):
-			for z in num2:
-				x = int(z)
-				if appear[x] == 0:
-					appear[x] = 1
-			flag = 1
-			for i in range(0,10):
-				if appear[i] == 0:
-					flag = 0
-			if flag == 0:
-				num = num + temp
-				num2 = str(num)
-		print "Case #%d: %d"%(case+1,num)
+import glob, time, string, re, math
+from math import sqrt; from itertools import count, islice
+
+#textFile = open("out_test.txt", "w")
+textFile = open("output_large.txt", "w")
+#textFile = open("output_small.txt", "w")
+#open and read the input file
+#sInputFileLoc = 'test.in'
+sInputFileLoc = 'A-large.in'
+#sInputFileLoc = 'A-small-attempt0.in'
+sInputFile = open(sInputFileLoc)
+sLineOutput = "Case #"
+iLineRead = 0
+
+def checkEqual2(iterator):
+    return len(set(iterator)) <= 1
+
+def counting_sheep(N):
+    status2 = False
+    NumVal2 = [0,0,0,0,0,0,0,0,0,0]
+    if N == 0:
+        val = 'INSOMNIA'
+    else:
+        for i in range(1000000):
+            val = N*(i+1)
+            valStr = str(val)
+            for ch in valStr:
+                NumVal2[int(ch)] = 1
+                status2 = checkEqual2(NumVal2)
+                if status2 == True:
+                    break
+            if status2 == True:
+                break
+
+        if status2 == False:
+            val = 'INSOMNIA'
+    return val
+            
+
+#Import the first line of the file. The first line contains how many different test cases are in the file being imported
+iNumTestCases = int(sInputFile.readline())
+
+#based on the numer of test cases in the first line, loop through these each one by one
+for x in range(iNumTestCases):
+    #import the first line of text
+    sInputString = sInputFile.readline()
+    resultsOut = counting_sheep(int(sInputString))
+    
+    textFile.write(sLineOutput+str(x+1)+ ": " + str(resultsOut) +"\n")
+
+textFile.close()
+
+

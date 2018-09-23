@@ -1,56 +1,25 @@
-array=[]
-f=open("a.in","r")
+inputfile = open('inputfile.txt', 'r')
+outputfile = open('outputfile.txt', 'w')
 
-def mark(i,j):
-	global array
-	if('1' in str(i*j)):
-		array.append('1') 
-	
-	if('2' in str(i*j)):
-		array.append('2')
-	
-	if('3' in str(i*j)):
-		array.append('3')
-	
-	if('4' in str(i*j)):
-		array.append('4')
-	
-	if('5' in str(i*j)):
-		array.append('5')
-	
-	if('6' in str(i*j)):
-		array.append('6')
-	
-	if('7' in str(i*j)):
-		array.append('7')
-	
-	if('8' in str(i*j)):
-		array.append('8')
-	
-	if('9' in str(i*j)):
-		array.append('9')
-	
-	if('0' in str(i*j)):
-		array.append('0')
-def evaluate():
-	count=0;
-	for i in range(0,10):
-		if(str(i) in array):
-			count=count+1;
-	if(count==10):
-		return True;
+for num, line in enumerate(inputfile,1):
+    if (num > 1):
+        numlist = [0,1,2,3,4,5,6,7,8,9]
+        N0 = int(line)
+        for i in range(1, 1000):
+            N= N0*i
+#            print N
+            for char in str(N):
+                if (numlist.count(int(char)) > 0):
+                    numlist.remove(int(char))
+                if (numlist == []):
+                    break
+            if(numlist == []):
+                outputfile.write('Case #'+ str((num -1)) + ': ' + str(N) + '\n')
+                break
+            if(i == 999):
+                outputfile.write('Case #'+ str((num -1)) + ': ' + 'INSOMNIA' + '\n')
+                break
+                    
 
-t=int(f.readline().rstrip("\n"))
-for i in range (0,t):
-	##global array
-	n=int(f.readline().rstrip("\n"))
-	array=[]
-	for j in range (1,74):
-		mark(n,j)
-		if(evaluate()):
-			print("Case #"+str(i+1)+": "+str(n*j))
-			break;
-		if(j==73):
-			print("Case #"+str(i+1)+": "+"INSOMNIA");
-
-
+inputfile.close()
+outputfile.close()

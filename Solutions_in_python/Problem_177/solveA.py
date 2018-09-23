@@ -1,43 +1,33 @@
-#!/usr/bin/env python
+def read_data(filename):
+    with open(filename) as f:
+        cases = int(f.readline().strip())
+        data = []
+        for i in xrange(cases):
+            number = f.readline().strip()
+            data.append(number)
+        return data
 
-debug=0
+def count_sheeps(data):
+    case = 0
+    for number in data:
+        case += 1
+        digits = [False] * 10
 
-def compute(N):
-	if N == 0:
-		return 'INSOMNIA'
-	count = 0
-	number = N
-	d={}
-	for digit in list(str(number)):
-		d[digit]=1
-	while len(d) < 10:
-		number = number + N
-		count = count + 1
-		for digit in list(str(number)):
-			d[digit]=1
-	return number
-	
+        if number == '0':
+            print 'Case #{}: INSOMNIA'.format(case)
+        else:
+            val_number = int(number)
+            steps = 1
+            found = False
+            while not found:
+                str_num = str(val_number)
+                for d in str_num:
+                    digits[int(d)] = True
+                found = all(digits)
+                if not found:
+                    steps += 1
+                    val_number = int(number) * (steps)
+            print 'Case #{}: {}'.format(case, val_number)
 
-def solve(infilename):
-	infile=open(infilename,'r')
-	line=infile.readline()
-	T=int(line)
-	if debug > 0:
-		print 'T:',T
-	#iterate
-	for index in range(T):
-		[N]=[int(i) for i in infile.readline().split()]
-		if debug > 0:
-			print 
-			print 'N:',N
-		answer = compute(N)
-		print 'Case #%(index)d: %(answer)s' % {"index":index+1,"answer":answer}
-	infile.close()
-	return
-
-if __name__ == "__main__":
-	import sys
-	if len(sys.argv) > 1:
-		solve(sys.argv[1])
-	else:
-		solve('A-example')
+if __name__ == '__main__':
+    count_sheeps(read_data('A-large.in'))
