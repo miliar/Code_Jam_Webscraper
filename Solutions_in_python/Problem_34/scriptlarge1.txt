@@ -1,4 +1,0 @@
-python script:
-execfile('utils.py')
-ex('1.py')
-write1('large1.txt',process(read1('A-large.in')))

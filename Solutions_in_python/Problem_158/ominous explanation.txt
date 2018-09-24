@@ -1,8 +1,0 @@
-To whom it may concern,
-
-Given the very small values of X, R and C, I computed all possible scenarios by hand. 
-That is, for every possible X, I verified for which values of R and C there was a possible tiling of an R*C grid with every possible X-omino (which is equivalent to Gabriel winning). If for some values of R and C there is an X-omino with which it's impossible to tile the R*C grid using at least that X-omino once, then Richard wins.
-
-Most of the cases were very straightforward, except for X = 4 R = 4 and C = 3, which required a just a bit of effort to realize there was a tiling with every possible 4-ominos. From there it was clear that the answer for X = 4, R = 4 and C = 4 was Gabriel, since he could add a straigh 4-omino to the 4x3 tiling.
-
-My code consists of very simple if statements where I first cover the cases X = 1, 2, 3, 4 and then I decide who wins based on the values of R and C.
