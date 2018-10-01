@@ -1,0 +1,1 @@
+t = input()for i in xrange(t):	print "Case #" + str(i + 1) + ":",	x = {}	y = {}	for j in xrange(2):		x[j] = input()		for k in xrange(4):			a = raw_input()			if k + 1 == x[j]:				y[j] = map(int, a.split())	ans = set(y[0]) & set(y[1])	if len(ans) == 0:		print "Volunteer cheated!"	elif len(ans) == 1:		print list(ans)[0]	else:		print "Bad magician!"

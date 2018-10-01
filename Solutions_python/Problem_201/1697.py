@@ -1,0 +1,41 @@
+t=int(input())
+i=1
+while i<=t:
+    y=input()
+    y=y.split()
+    N=[int(y[0]),0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    I=[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    K=int(y[1])
+    j=1
+    ind=0
+    while j<K:
+        I[ind]-=1
+        if(N[ind]%2==1):
+            new=(N[ind]-1)//2
+            rec=ind+1
+            while(new<N[rec]):
+                rec+=1
+            N[rec]=new
+            I[rec]+=2
+        else:
+            new=N[ind]//2
+            new2=N[ind]//2-1
+            rec=ind+1
+            while(new<N[rec]):
+                rec+=1
+            N[rec]=new
+            I[rec]+=1
+            rec+=1
+            N[rec]=new2
+            I[rec]+=1
+        if(I[ind]==0):
+            ind+=1
+        j+=1
+    if(N[ind]%2==1):
+        maxi=(N[ind]-1)//2
+        mini=(N[ind]-1)//2
+    else:
+        maxi=N[ind]//2
+        mini=N[ind]//2-1
+    print("Case #"+str(i)+": "+str(maxi)+" "+str(mini))
+    i+=1

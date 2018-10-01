@@ -1,0 +1,67 @@
+#!/usr/bin/python
+# 2010 Round1C
+''' Usage %s
+'''
+import logging
+
+CurrentDebugLevel=logging.DEBUG
+
+def ProcessCase(inFile, caseNum):
+    logging.debug('Case %d', caseNum)
+    param = inFile.readline().strip().split()
+    #logging.debug(param)
+    
+    height = int(param[0])
+    building = {}
+    for i in range(height):
+        pair = [int(x) for x in inFile.readline().strip().split()]
+        building[pair[0] - 1] = (pair[1] - pair[0], pair[0]) # pair -1 since we start from 0
+
+    total = 0
+    for k, i in building.items():
+        for t, j in building.items():
+            x = (j[0] - i[0])
+            if x == 0: continue
+            y = (j[1] - i[1])/ x
+            if y < 0 and y > -1: total += 1
+    
+    result = [total // 2]
+    
+    return result
+
+def OutputResult(outFile, caseNum, result):
+    value = result[0]
+    outFile.write("Case #{0}: {1}\n".format(caseNum, value))
+    logging.debug("Case #{0}: {1}\n".format(caseNum, value))
+
+def ProcessDataFile(fileName):
+    inFile = open(fileName, 'r')
+    line = inFile.readline()
+    lineCount = int(line)
+    outFile = open(fileName + '.out.txt', 'w')
+    for i in range(1, lineCount + 1):
+        result = ProcessCase(inFile, i)
+        OutputResult(outFile, i, result)
+    outFile.close()
+
+def main():
+    logging.basicConfig(level=CurrentDebugLevel, datefmt='%Y.%m.%d %H:%M:%S', format='%(asctime)s %(levelname)-5s %(message)s')
+    question = 'A'
+    dataSet = 2
+    attemptCount = 0   
+    isPractice = False
+    
+    partName = '-practice'
+    dataSetNames = ['test', 'small', 'large']
+    if dataSet == 0:
+        dataFileName = '{0}-{1}.txt'.format(question, dataSetNames[dataSet])
+    elif dataSet == 1:
+        if not isPractice: partName = '-attempt{}'.format(attemptCount)
+        dataFileName = '{0}-{1}{2}.in'.format(question, dataSetNames[dataSet], partName)
+    else:
+        if not isPractice: partName = ''
+        dataFileName = '{0}-{1}{2}.in'.format(question, dataSetNames[dataSet], partName)
+
+    ProcessDataFile(dataFileName)
+
+if __name__ == '__main__': main()

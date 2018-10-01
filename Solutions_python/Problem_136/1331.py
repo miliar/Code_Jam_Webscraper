@@ -1,0 +1,1 @@
+t = input()for i in xrange(t):	print "Case #" + str(i + 1) + ":",	[c, f, x] = map(float, raw_input().split())	ans = x / 2	base = 0	j = 0	while True:		base = base + c / (2 + j * f)		j = j + 1		tmp = base + x / (2 + j * f)		if tmp < ans:			ans = tmp			continue		break	print ans

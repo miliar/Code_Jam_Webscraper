@@ -1,0 +1,1 @@
+f = open("c:\\log.log", 'r+b')
