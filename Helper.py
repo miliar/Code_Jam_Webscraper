@@ -10,7 +10,7 @@ def simple_get(url):
 
     try:
         with closing(get(url, stream=True)) as resp:
-            if is_good_response(resp):
+            if _is_good_response(resp):
                 logger.debug('Good response on %s', url)
                 return resp.content
             else:
@@ -21,7 +21,7 @@ def simple_get(url):
         logger.exception('Error during requests to %s', url)
         return None
 
-def is_good_response(resp):
+def _is_good_response(resp):
     
     content_type = resp.headers['Content-Type'].lower()
     return (resp.status_code == 200 
