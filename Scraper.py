@@ -4,7 +4,7 @@ import zipfile
 import io
 import pathlib
 import logging
-
+from Helper import *
 
 class Scraper:
     
