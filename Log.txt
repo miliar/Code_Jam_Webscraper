@@ -1,0 +1,648 @@
+INFO:Orchestra:Init Orchestra
+INFO:Orchestra:Making problem list
+INFO:Orchestra:Finished problem list of 215 items
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/0/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/0/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/1/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/0/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/1/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/1/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/2/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/2/2/Python
+INFO:Scraper:Saved 40 download links for https://www.go-hero.net/jam/08/solutions/1/2/Python
+INFO:Scraper:Saved 61 download links for https://www.go-hero.net/jam/08/solutions/1/3/Python
+INFO:Scraper:Saved 68 download links for https://www.go-hero.net/jam/08/solutions/2/2/Python
+INFO:Scraper:Saved 114 download links for https://www.go-hero.net/jam/08/solutions/0/3/Python
+INFO:Scraper:Saved 172 download links for https://www.go-hero.net/jam/08/solutions/2/1/Python
+INFO:Scraper:Saved 218 download links for https://www.go-hero.net/jam/08/solutions/1/1/Python
+INFO:Scraper:Saved 497 download links for https://www.go-hero.net/jam/08/solutions/0/2/Python
+INFO:Scraper:Saved 644 download links for https://www.go-hero.net/jam/08/solutions/0/1/Python
+INFO:Scraper:Download 40 files for https://www.go-hero.net/jam/08/solutions/1/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/2/3/Python
+INFO:Scraper:Saved 44 download links for https://www.go-hero.net/jam/08/solutions/2/3/Python
+INFO:Scraper:Download 61 files for https://www.go-hero.net/jam/08/solutions/1/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/3/1/Python
+INFO:Scraper:Saved 194 download links for https://www.go-hero.net/jam/08/solutions/3/1/Python
+INFO:Scraper:Download 68 files for https://www.go-hero.net/jam/08/solutions/2/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/3/2/Python
+INFO:Scraper:Saved 27 download links for https://www.go-hero.net/jam/08/solutions/3/2/Python
+INFO:Scraper:Download 44 files for https://www.go-hero.net/jam/08/solutions/2/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/3/3/Python
+INFO:Scraper:Saved 29 download links for https://www.go-hero.net/jam/08/solutions/3/3/Python
+INFO:Scraper:Download 27 files for https://www.go-hero.net/jam/08/solutions/3/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/4/1/Python
+INFO:Scraper:Saved 81 download links for https://www.go-hero.net/jam/08/solutions/4/1/Python
+INFO:Scraper:Download 29 files for https://www.go-hero.net/jam/08/solutions/3/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/4/2/Python
+INFO:Scraper:Saved 39 download links for https://www.go-hero.net/jam/08/solutions/4/2/Python
+INFO:Scraper:Download 114 files for https://www.go-hero.net/jam/08/solutions/0/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/4/3/Python
+INFO:Scraper:Saved 9 download links for https://www.go-hero.net/jam/08/solutions/4/3/Python
+INFO:Scraper:Download 9 files for https://www.go-hero.net/jam/08/solutions/4/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/4/4/Python
+INFO:Scraper:Saved 76 download links for https://www.go-hero.net/jam/08/solutions/4/4/Python
+INFO:Scraper:Download 39 files for https://www.go-hero.net/jam/08/solutions/4/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/5/1/Python
+INFO:Scraper:Saved 6 download links for https://www.go-hero.net/jam/08/solutions/5/1/Python
+INFO:Scraper:Download 6 files for https://www.go-hero.net/jam/08/solutions/5/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/5/2/Python
+INFO:Scraper:Saved 3 download links for https://www.go-hero.net/jam/08/solutions/5/2/Python
+INFO:Scraper:Download 3 files for https://www.go-hero.net/jam/08/solutions/5/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/5/3/Python
+INFO:Scraper:Saved 5 download links for https://www.go-hero.net/jam/08/solutions/5/3/Python
+INFO:Scraper:Download 5 files for https://www.go-hero.net/jam/08/solutions/5/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/5/4/Python
+INFO:Scraper:Saved 25 download links for https://www.go-hero.net/jam/08/solutions/5/4/Python
+INFO:Scraper:Download 172 files for https://www.go-hero.net/jam/08/solutions/2/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/6/1/Python
+INFO:Scraper:Saved 1 download links for https://www.go-hero.net/jam/08/solutions/6/1/Python
+INFO:Scraper:Download 81 files for https://www.go-hero.net/jam/08/solutions/4/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/7/1/Python
+INFO:Scraper:Saved 3 download links for https://www.go-hero.net/jam/08/solutions/7/1/Python
+INFO:Scraper:Download 1 files for https://www.go-hero.net/jam/08/solutions/6/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/7/2/Python
+INFO:Scraper:Saved 1 download links for https://www.go-hero.net/jam/08/solutions/7/2/Python
+INFO:Scraper:Download 1 files for https://www.go-hero.net/jam/08/solutions/7/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/7/3/Python
+INFO:Scraper:Saved 1 download links for https://www.go-hero.net/jam/08/solutions/7/3/Python
+INFO:Scraper:Download 3 files for https://www.go-hero.net/jam/08/solutions/7/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/7/4/Python
+INFO:Scraper:Download 1 files for https://www.go-hero.net/jam/08/solutions/7/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/8/1/Python
+INFO:Scraper:Saved 2 download links for https://www.go-hero.net/jam/08/solutions/7/4/Python
+INFO:Scraper:Saved 2 download links for https://www.go-hero.net/jam/08/solutions/8/1/Python
+INFO:Scraper:Download 2 files for https://www.go-hero.net/jam/08/solutions/7/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/8/2/Python
+INFO:Scraper:Saved 1 download links for https://www.go-hero.net/jam/08/solutions/8/2/Python
+INFO:Scraper:Download 2 files for https://www.go-hero.net/jam/08/solutions/8/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/8/3/Python
+INFO:Scraper:Saved 2 download links for https://www.go-hero.net/jam/08/solutions/8/3/Python
+INFO:Scraper:Download 1 files for https://www.go-hero.net/jam/08/solutions/8/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/8/4/Python
+INFO:Scraper:Saved 1 download links for https://www.go-hero.net/jam/08/solutions/8/4/Python
+INFO:Scraper:Download 2 files for https://www.go-hero.net/jam/08/solutions/8/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/9/1/Python
+INFO:Scraper:Download 1 files for https://www.go-hero.net/jam/08/solutions/8/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/9/2/Python
+INFO:Scraper:Saved 1 download links for https://www.go-hero.net/jam/08/solutions/9/1/Python
+INFO:Scraper:Saved 2 download links for https://www.go-hero.net/jam/08/solutions/9/2/Python
+INFO:Scraper:Download 1 files for https://www.go-hero.net/jam/08/solutions/9/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/9/3/Python
+INFO:Scraper:Saved 2 download links for https://www.go-hero.net/jam/08/solutions/9/3/Python
+INFO:Scraper:Download 2 files for https://www.go-hero.net/jam/08/solutions/9/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/08/solutions/9/4/Python
+INFO:Scraper:Saved 1 download links for https://www.go-hero.net/jam/08/solutions/9/4/Python
+INFO:Scraper:Download 2 files for https://www.go-hero.net/jam/08/solutions/9/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/09/solutions/0/1/Python
+INFO:Scraper:Download 1 files for https://www.go-hero.net/jam/08/solutions/9/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/09/solutions/0/2/Python
+INFO:Scraper:Download 25 files for https://www.go-hero.net/jam/08/solutions/5/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/09/solutions/0/3/Python
+INFO:Scraper:Saved 513 download links for https://www.go-hero.net/jam/09/solutions/0/2/Python
+INFO:Scraper:Saved 872 download links for https://www.go-hero.net/jam/09/solutions/0/1/Python
+INFO:Scraper:Saved 516 download links for https://www.go-hero.net/jam/09/solutions/0/3/Python
+INFO:Scraper:Download 76 files for https://www.go-hero.net/jam/08/solutions/4/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/09/solutions/1/1/Python
+INFO:Scraper:Saved 204 download links for https://www.go-hero.net/jam/09/solutions/1/1/Python
+INFO:Scraper:Download 218 files for https://www.go-hero.net/jam/08/solutions/1/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/09/solutions/1/2/Python
+INFO:Scraper:Saved 14 download links for https://www.go-hero.net/jam/09/solutions/1/2/Python
+INFO:Scraper:Download 14 files for https://www.go-hero.net/jam/09/solutions/1/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/09/solutions/1/3/Python
+INFO:Scraper:Saved 23 download links for https://www.go-hero.net/jam/09/solutions/1/3/Python
+INFO:Scraper:Download 23 files for https://www.go-hero.net/jam/09/solutions/1/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/09/solutions/2/1/Python
+INFO:Scraper:Saved 162 download links for https://www.go-hero.net/jam/09/solutions/2/1/Python
+INFO:Scraper:Download 194 files for https://www.go-hero.net/jam/08/solutions/3/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/09/solutions/2/2/Python
+INFO:Scraper:Saved 215 download links for https://www.go-hero.net/jam/09/solutions/2/2/Python
+INFO:Scraper:Download 204 files for https://www.go-hero.net/jam/09/solutions/1/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/09/solutions/2/3/Python
+INFO:Scraper:Saved 10 download links for https://www.go-hero.net/jam/09/solutions/2/3/Python
+INFO:Scraper:Download 10 files for https://www.go-hero.net/jam/09/solutions/2/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/09/solutions/3/1/Python
+INFO:Scraper:Saved 238 download links for https://www.go-hero.net/jam/09/solutions/3/1/Python
+INFO:Scraper:Download 162 files for https://www.go-hero.net/jam/09/solutions/2/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/09/solutions/3/2/Python
+INFO:Scraper:Saved 82 download links for https://www.go-hero.net/jam/09/solutions/3/2/Python
+INFO:Scraper:Download 215 files for https://www.go-hero.net/jam/09/solutions/2/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/09/solutions/3/3/Python
+INFO:Scraper:Saved 105 download links for https://www.go-hero.net/jam/09/solutions/3/3/Python
+INFO:Scraper:Download 497 files for https://www.go-hero.net/jam/08/solutions/0/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/09/solutions/4/1/Python
+INFO:Scraper:Saved 121 download links for https://www.go-hero.net/jam/09/solutions/4/1/Python
+INFO:Scraper:Download 82 files for https://www.go-hero.net/jam/09/solutions/3/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/09/solutions/4/2/Python
+INFO:Scraper:Saved 12 download links for https://www.go-hero.net/jam/09/solutions/4/2/Python
+INFO:Scraper:Download 12 files for https://www.go-hero.net/jam/09/solutions/4/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/09/solutions/4/3/Python
+INFO:Scraper:Saved 20 download links for https://www.go-hero.net/jam/09/solutions/4/3/Python
+INFO:Scraper:Download 20 files for https://www.go-hero.net/jam/09/solutions/4/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/09/solutions/4/4/Python
+INFO:Scraper:Saved 64 download links for https://www.go-hero.net/jam/09/solutions/4/4/Python
+INFO:Scraper:Download 105 files for https://www.go-hero.net/jam/09/solutions/3/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/09/solutions/5/1/Python
+INFO:Scraper:Saved 4 download links for https://www.go-hero.net/jam/09/solutions/5/1/Python
+INFO:Scraper:Download 4 files for https://www.go-hero.net/jam/09/solutions/5/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/09/solutions/5/2/Python
+INFO:Scraper:Saved 1 download links for https://www.go-hero.net/jam/09/solutions/5/2/Python
+INFO:Scraper:Download 1 files for https://www.go-hero.net/jam/09/solutions/5/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/09/solutions/6/1/Python
+INFO:Scraper:Saved 1 download links for https://www.go-hero.net/jam/09/solutions/6/1/Python
+INFO:Scraper:Download 1 files for https://www.go-hero.net/jam/09/solutions/6/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/0/1/Python
+INFO:Scraper:Saved 1043 download links for https://www.go-hero.net/jam/10/solutions/0/1/Python
+INFO:Scraper:Download 121 files for https://www.go-hero.net/jam/09/solutions/4/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/0/2/Python
+INFO:Scraper:Saved 699 download links for https://www.go-hero.net/jam/10/solutions/0/2/Python
+INFO:Scraper:Download 64 files for https://www.go-hero.net/jam/09/solutions/4/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/0/3/Python
+INFO:Scraper:Saved 931 download links for https://www.go-hero.net/jam/10/solutions/0/3/Python
+INFO:Scraper:Download 644 files for https://www.go-hero.net/jam/08/solutions/0/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/1/1/Python
+INFO:Scraper:Saved 206 download links for https://www.go-hero.net/jam/10/solutions/1/1/Python
+INFO:Scraper:Download 238 files for https://www.go-hero.net/jam/09/solutions/3/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/1/2/Python
+INFO:Scraper:Saved 16 download links for https://www.go-hero.net/jam/10/solutions/1/2/Python
+INFO:Scraper:Download 16 files for https://www.go-hero.net/jam/10/solutions/1/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/1/3/Python
+INFO:Scraper:Saved 56 download links for https://www.go-hero.net/jam/10/solutions/1/3/Python
+INFO:Scraper:Download 516 files for https://www.go-hero.net/jam/09/solutions/0/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/2/1/Python
+INFO:Scraper:Saved 482 download links for https://www.go-hero.net/jam/10/solutions/2/1/Python
+INFO:Scraper:Download 513 files for https://www.go-hero.net/jam/09/solutions/0/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/2/2/Python
+INFO:Scraper:Saved 187 download links for https://www.go-hero.net/jam/10/solutions/2/2/Python
+INFO:Scraper:Download 56 files for https://www.go-hero.net/jam/10/solutions/1/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/2/3/Python
+INFO:Scraper:Saved 113 download links for https://www.go-hero.net/jam/10/solutions/2/3/Python
+INFO:Scraper:Download 113 files for https://www.go-hero.net/jam/10/solutions/2/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/3/1/Python
+INFO:Scraper:Saved 357 download links for https://www.go-hero.net/jam/10/solutions/3/1/Python
+INFO:Scraper:Download 206 files for https://www.go-hero.net/jam/10/solutions/1/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/3/2/Python
+INFO:Scraper:Saved 145 download links for https://www.go-hero.net/jam/10/solutions/3/2/Python
+INFO:Scraper:Download 187 files for https://www.go-hero.net/jam/10/solutions/2/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/3/3/Python
+INFO:Scraper:Saved 54 download links for https://www.go-hero.net/jam/10/solutions/3/3/Python
+INFO:Scraper:Download 54 files for https://www.go-hero.net/jam/10/solutions/3/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/4/1/Python
+INFO:Scraper:Saved 17 download links for https://www.go-hero.net/jam/10/solutions/4/1/Python
+INFO:Scraper:Download 17 files for https://www.go-hero.net/jam/10/solutions/4/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/4/2/Python
+INFO:Scraper:Saved 92 download links for https://www.go-hero.net/jam/10/solutions/4/2/Python
+INFO:Scraper:Download 145 files for https://www.go-hero.net/jam/10/solutions/3/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/4/3/Python
+INFO:Scraper:Saved 98 download links for https://www.go-hero.net/jam/10/solutions/4/3/Python
+INFO:Scraper:Download 872 files for https://www.go-hero.net/jam/09/solutions/0/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/4/4/Python
+INFO:Scraper:Saved 6 download links for https://www.go-hero.net/jam/10/solutions/4/4/Python
+INFO:Scraper:Download 92 files for https://www.go-hero.net/jam/10/solutions/4/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/5/1/Python
+INFO:Scraper:Saved 2 download links for https://www.go-hero.net/jam/10/solutions/5/1/Python
+INFO:Scraper:Download 2 files for https://www.go-hero.net/jam/10/solutions/5/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/5/2/Python
+INFO:Scraper:Saved 4 download links for https://www.go-hero.net/jam/10/solutions/5/2/Python
+INFO:Scraper:Download 6 files for https://www.go-hero.net/jam/10/solutions/4/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/5/3/Python
+INFO:Scraper:Saved 5 download links for https://www.go-hero.net/jam/10/solutions/5/3/Python
+INFO:Scraper:Download 4 files for https://www.go-hero.net/jam/10/solutions/5/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/5/4/Python
+INFO:Scraper:Saved 1 download links for https://www.go-hero.net/jam/10/solutions/5/4/Python
+INFO:Scraper:Download 1 files for https://www.go-hero.net/jam/10/solutions/5/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/10/solutions/6/1/Python
+INFO:Scraper:Saved 1 download links for https://www.go-hero.net/jam/10/solutions/6/1/Python
+INFO:Scraper:Download 5 files for https://www.go-hero.net/jam/10/solutions/5/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/0/1/Python
+INFO:Scraper:Download 1 files for https://www.go-hero.net/jam/10/solutions/6/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/0/2/Python
+INFO:Scraper:Saved 1318 download links for https://www.go-hero.net/jam/11/solutions/0/1/Python
+INFO:Scraper:Saved 1272 download links for https://www.go-hero.net/jam/11/solutions/0/2/Python
+INFO:Scraper:Download 98 files for https://www.go-hero.net/jam/10/solutions/4/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/0/3/Python
+INFO:Scraper:Saved 987 download links for https://www.go-hero.net/jam/11/solutions/0/3/Python
+INFO:Scraper:Download 482 files for https://www.go-hero.net/jam/10/solutions/2/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/0/4/Python
+INFO:Scraper:Saved 341 download links for https://www.go-hero.net/jam/11/solutions/0/4/Python
+INFO:Scraper:Download 357 files for https://www.go-hero.net/jam/10/solutions/3/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/1/1/Python
+INFO:Scraper:Saved 329 download links for https://www.go-hero.net/jam/11/solutions/1/1/Python
+INFO:Scraper:Download 699 files for https://www.go-hero.net/jam/10/solutions/0/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/1/2/Python
+INFO:Scraper:Saved 67 download links for https://www.go-hero.net/jam/11/solutions/1/2/Python
+INFO:Scraper:Download 67 files for https://www.go-hero.net/jam/11/solutions/1/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/1/3/Python
+INFO:Scraper:Saved 11 download links for https://www.go-hero.net/jam/11/solutions/1/3/Python
+INFO:Scraper:Download 11 files for https://www.go-hero.net/jam/11/solutions/1/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/2/1/Python
+INFO:Scraper:Saved 548 download links for https://www.go-hero.net/jam/11/solutions/2/1/Python
+INFO:Scraper:Download 341 files for https://www.go-hero.net/jam/11/solutions/0/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/2/2/Python
+INFO:Scraper:Saved 70 download links for https://www.go-hero.net/jam/11/solutions/2/2/Python
+INFO:Scraper:Download 329 files for https://www.go-hero.net/jam/11/solutions/1/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/2/3/Python
+INFO:Scraper:Saved 17 download links for https://www.go-hero.net/jam/11/solutions/2/3/Python
+INFO:Scraper:Download 931 files for https://www.go-hero.net/jam/10/solutions/0/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/3/1/Python
+INFO:Scraper:Download 17 files for https://www.go-hero.net/jam/11/solutions/2/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/3/2/Python
+INFO:Scraper:Saved 132 download links for https://www.go-hero.net/jam/11/solutions/3/2/Python
+INFO:Scraper:Saved 437 download links for https://www.go-hero.net/jam/11/solutions/3/1/Python
+INFO:Scraper:Download 70 files for https://www.go-hero.net/jam/11/solutions/2/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/3/3/Python
+INFO:Scraper:Saved 288 download links for https://www.go-hero.net/jam/11/solutions/3/3/Python
+INFO:Scraper:Download 1043 files for https://www.go-hero.net/jam/10/solutions/0/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/4/1/Python
+INFO:Scraper:Saved 159 download links for https://www.go-hero.net/jam/11/solutions/4/1/Python
+INFO:Scraper:Download 132 files for https://www.go-hero.net/jam/11/solutions/3/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/4/2/Python
+INFO:Scraper:Saved 72 download links for https://www.go-hero.net/jam/11/solutions/4/2/Python
+INFO:Scraper:Download 72 files for https://www.go-hero.net/jam/11/solutions/4/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/4/3/Python
+INFO:Scraper:Saved 47 download links for https://www.go-hero.net/jam/11/solutions/4/3/Python
+INFO:Scraper:Download 159 files for https://www.go-hero.net/jam/11/solutions/4/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/4/4/Python
+INFO:Scraper:Saved 26 download links for https://www.go-hero.net/jam/11/solutions/4/4/Python
+INFO:Scraper:Download 47 files for https://www.go-hero.net/jam/11/solutions/4/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/5/1/Python
+INFO:Scraper:Saved 16 download links for https://www.go-hero.net/jam/11/solutions/5/1/Python
+INFO:Scraper:Download 26 files for https://www.go-hero.net/jam/11/solutions/4/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/5/2/Python
+INFO:Scraper:Saved 9 download links for https://www.go-hero.net/jam/11/solutions/5/2/Python
+INFO:Scraper:Download 16 files for https://www.go-hero.net/jam/11/solutions/5/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/5/3/Python
+INFO:Scraper:Saved 4 download links for https://www.go-hero.net/jam/11/solutions/5/3/Python
+INFO:Scraper:Download 9 files for https://www.go-hero.net/jam/11/solutions/5/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/11/solutions/5/4/Python
+INFO:Scraper:Download 4 files for https://www.go-hero.net/jam/11/solutions/5/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/0/1/Python
+INFO:Scraper:Saved 7 download links for https://www.go-hero.net/jam/11/solutions/5/4/Python
+INFO:Scraper:Download 7 files for https://www.go-hero.net/jam/11/solutions/5/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/0/2/Python
+INFO:Scraper:Saved 1906 download links for https://www.go-hero.net/jam/12/solutions/0/2/Python
+INFO:Scraper:Saved 2869 download links for https://www.go-hero.net/jam/12/solutions/0/1/Python
+INFO:Scraper:Download 288 files for https://www.go-hero.net/jam/11/solutions/3/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/0/3/Python
+INFO:Scraper:Saved 1878 download links for https://www.go-hero.net/jam/12/solutions/0/3/Python
+INFO:Scraper:Download 548 files for https://www.go-hero.net/jam/11/solutions/2/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/0/4/Python
+INFO:Scraper:Saved 77 download links for https://www.go-hero.net/jam/12/solutions/0/4/Python
+INFO:Scraper:Download 437 files for https://www.go-hero.net/jam/11/solutions/3/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/1/1/Python
+INFO:Scraper:Saved 477 download links for https://www.go-hero.net/jam/12/solutions/1/1/Python
+INFO:Scraper:Download 77 files for https://www.go-hero.net/jam/12/solutions/0/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/1/2/Python
+INFO:Scraper:Saved 195 download links for https://www.go-hero.net/jam/12/solutions/1/2/Python
+INFO:Scraper:Download 987 files for https://www.go-hero.net/jam/11/solutions/0/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/1/3/Python
+INFO:Scraper:Saved 8 download links for https://www.go-hero.net/jam/12/solutions/1/3/Python
+INFO:Scraper:Download 8 files for https://www.go-hero.net/jam/12/solutions/1/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/2/1/Python
+INFO:Scraper:Saved 294 download links for https://www.go-hero.net/jam/12/solutions/2/1/Python
+INFO:Scraper:Download 195 files for https://www.go-hero.net/jam/12/solutions/1/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/2/2/Python
+INFO:Scraper:Saved 47 download links for https://www.go-hero.net/jam/12/solutions/2/2/Python
+INFO:Scraper:Download 47 files for https://www.go-hero.net/jam/12/solutions/2/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/2/3/Python
+INFO:Scraper:Saved 296 download links for https://www.go-hero.net/jam/12/solutions/2/3/Python
+INFO:Scraper:Download 1272 files for https://www.go-hero.net/jam/11/solutions/0/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/3/1/Python
+INFO:Scraper:Saved 374 download links for https://www.go-hero.net/jam/12/solutions/3/1/Python
+INFO:Scraper:Download 294 files for https://www.go-hero.net/jam/12/solutions/2/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/3/2/Python
+INFO:Scraper:Saved 55 download links for https://www.go-hero.net/jam/12/solutions/3/2/Python
+INFO:Scraper:Download 1318 files for https://www.go-hero.net/jam/11/solutions/0/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/3/3/Python
+INFO:Scraper:Saved 102 download links for https://www.go-hero.net/jam/12/solutions/3/3/Python
+INFO:Scraper:Download 55 files for https://www.go-hero.net/jam/12/solutions/3/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/4/1/Python
+INFO:Scraper:Saved 136 download links for https://www.go-hero.net/jam/12/solutions/4/1/Python
+INFO:Scraper:Download 477 files for https://www.go-hero.net/jam/12/solutions/1/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/4/2/Python
+INFO:Scraper:Saved 70 download links for https://www.go-hero.net/jam/12/solutions/4/2/Python
+INFO:Scraper:Download 102 files for https://www.go-hero.net/jam/12/solutions/3/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/4/3/Python
+INFO:Scraper:Saved 20 download links for https://www.go-hero.net/jam/12/solutions/4/3/Python
+INFO:Scraper:Download 20 files for https://www.go-hero.net/jam/12/solutions/4/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/4/4/Python
+INFO:Scraper:Saved 6 download links for https://www.go-hero.net/jam/12/solutions/4/4/Python
+INFO:Scraper:Download 6 files for https://www.go-hero.net/jam/12/solutions/4/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/5/1/Python
+INFO:Scraper:Saved 24 download links for https://www.go-hero.net/jam/12/solutions/5/1/Python
+INFO:Scraper:Download 24 files for https://www.go-hero.net/jam/12/solutions/5/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/5/2/Python
+INFO:Scraper:Saved 5 download links for https://www.go-hero.net/jam/12/solutions/5/2/Python
+INFO:Scraper:Download 296 files for https://www.go-hero.net/jam/12/solutions/2/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/5/3/Python
+INFO:Scraper:Saved 5 download links for https://www.go-hero.net/jam/12/solutions/5/3/Python
+INFO:Scraper:Download 5 files for https://www.go-hero.net/jam/12/solutions/5/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/12/solutions/5/4/Python
+INFO:Scraper:Saved 7 download links for https://www.go-hero.net/jam/12/solutions/5/4/Python
+INFO:Scraper:Download 5 files for https://www.go-hero.net/jam/12/solutions/5/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/13/solutions/0/1/Python
+INFO:Scraper:Download 7 files for https://www.go-hero.net/jam/12/solutions/5/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/13/solutions/0/2/Python
+INFO:Scraper:Download 70 files for https://www.go-hero.net/jam/12/solutions/4/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/13/solutions/0/3/Python
+INFO:Scraper:Saved 1743 download links for https://www.go-hero.net/jam/13/solutions/0/2/Python
+INFO:Scraper:Download 136 files for https://www.go-hero.net/jam/12/solutions/4/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/13/solutions/0/4/Python
+INFO:Scraper:Saved 166 download links for https://www.go-hero.net/jam/13/solutions/0/4/Python
+INFO:Scraper:Saved 2897 download links for https://www.go-hero.net/jam/13/solutions/0/1/Python
+INFO:Scraper:Saved 3074 download links for https://www.go-hero.net/jam/13/solutions/0/3/Python
+INFO:Scraper:Download 166 files for https://www.go-hero.net/jam/13/solutions/0/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/13/solutions/1/1/Python
+INFO:Scraper:Saved 1115 download links for https://www.go-hero.net/jam/13/solutions/1/1/Python
+INFO:Scraper:Download 374 files for https://www.go-hero.net/jam/12/solutions/3/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/13/solutions/1/2/Python
+INFO:Scraper:Saved 265 download links for https://www.go-hero.net/jam/13/solutions/1/2/Python
+INFO:Scraper:Download 265 files for https://www.go-hero.net/jam/13/solutions/1/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/13/solutions/1/3/Python
+INFO:Scraper:Saved 174 download links for https://www.go-hero.net/jam/13/solutions/1/3/Python
+INFO:Scraper:Download 174 files for https://www.go-hero.net/jam/13/solutions/1/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/13/solutions/2/1/Python
+INFO:Scraper:Saved 681 download links for https://www.go-hero.net/jam/13/solutions/2/1/Python
+INFO:Scraper:Download 1906 files for https://www.go-hero.net/jam/12/solutions/0/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/13/solutions/2/2/Python
+INFO:Scraper:Saved 124 download links for https://www.go-hero.net/jam/13/solutions/2/2/Python
+INFO:Scraper:Download 1878 files for https://www.go-hero.net/jam/12/solutions/0/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/13/solutions/2/3/Python
+INFO:Scraper:Saved 11 download links for https://www.go-hero.net/jam/13/solutions/2/3/Python
+INFO:Scraper:Download 11 files for https://www.go-hero.net/jam/13/solutions/2/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/13/solutions/3/1/Python
+INFO:Scraper:Download 1115 files for https://www.go-hero.net/jam/13/solutions/1/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/13/solutions/3/2/Python
+INFO:Scraper:Saved 318 download links for https://www.go-hero.net/jam/13/solutions/3/2/Python
+INFO:Scraper:Saved 647 download links for https://www.go-hero.net/jam/13/solutions/3/1/Python
+INFO:Scraper:Download 681 files for https://www.go-hero.net/jam/13/solutions/2/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/13/solutions/3/3/Python
+INFO:Scraper:Saved 106 download links for https://www.go-hero.net/jam/13/solutions/3/3/Python
+INFO:Scraper:Download 124 files for https://www.go-hero.net/jam/13/solutions/2/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/13/solutions/4/1/Python
+INFO:Scraper:Saved 143 download links for https://www.go-hero.net/jam/13/solutions/4/1/Python
+INFO:Scraper:Download 106 files for https://www.go-hero.net/jam/13/solutions/3/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/13/solutions/4/2/Python
+INFO:Scraper:Saved 116 download links for https://www.go-hero.net/jam/13/solutions/4/2/Python
+INFO:Scraper:Download 143 files for https://www.go-hero.net/jam/13/solutions/4/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/13/solutions/4/3/Python
+INFO:Scraper:Saved 10 download links for https://www.go-hero.net/jam/13/solutions/4/3/Python
+INFO:Scraper:Download 10 files for https://www.go-hero.net/jam/13/solutions/4/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/13/solutions/4/4/Python
+INFO:Scraper:Saved 1 download links for https://www.go-hero.net/jam/13/solutions/4/4/Python
+INFO:Scraper:Download 1 files for https://www.go-hero.net/jam/13/solutions/4/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/13/solutions/5/1/Python
+INFO:Scraper:Saved 19 download links for https://www.go-hero.net/jam/13/solutions/5/1/Python
+INFO:Scraper:Download 19 files for https://www.go-hero.net/jam/13/solutions/5/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/13/solutions/5/2/Python
+INFO:Scraper:Saved 1 download links for https://www.go-hero.net/jam/13/solutions/5/2/Python
+INFO:Scraper:Download 1 files for https://www.go-hero.net/jam/13/solutions/5/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/0/1/Python
+INFO:Scraper:Download 318 files for https://www.go-hero.net/jam/13/solutions/3/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/0/2/Python
+INFO:Scraper:Saved 4135 download links for https://www.go-hero.net/jam/14/solutions/0/1/Python
+INFO:Scraper:Download 116 files for https://www.go-hero.net/jam/13/solutions/4/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/0/3/Python
+INFO:Scraper:Saved 554 download links for https://www.go-hero.net/jam/14/solutions/0/3/Python
+INFO:Scraper:Saved 3577 download links for https://www.go-hero.net/jam/14/solutions/0/2/Python
+INFO:Scraper:Download 1743 files for https://www.go-hero.net/jam/13/solutions/0/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/0/4/Python
+INFO:Scraper:Saved 1872 download links for https://www.go-hero.net/jam/14/solutions/0/4/Python
+INFO:Scraper:Download 647 files for https://www.go-hero.net/jam/13/solutions/3/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/1/1/Python
+INFO:Scraper:Saved 534 download links for https://www.go-hero.net/jam/14/solutions/1/1/Python
+INFO:Scraper:Download 554 files for https://www.go-hero.net/jam/14/solutions/0/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/1/2/Python
+INFO:Scraper:Saved 143 download links for https://www.go-hero.net/jam/14/solutions/1/2/Python
+INFO:Scraper:Download 2869 files for https://www.go-hero.net/jam/12/solutions/0/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/1/3/Python
+INFO:Scraper:Saved 48 download links for https://www.go-hero.net/jam/14/solutions/1/3/Python
+INFO:Scraper:Download 48 files for https://www.go-hero.net/jam/14/solutions/1/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/2/1/Python
+INFO:Scraper:Saved 864 download links for https://www.go-hero.net/jam/14/solutions/2/1/Python
+INFO:Scraper:Download 143 files for https://www.go-hero.net/jam/14/solutions/1/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/2/2/Python
+INFO:Scraper:Saved 936 download links for https://www.go-hero.net/jam/14/solutions/2/2/Python
+INFO:Scraper:Download 534 files for https://www.go-hero.net/jam/14/solutions/1/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/2/3/Python
+INFO:Scraper:Saved 73 download links for https://www.go-hero.net/jam/14/solutions/2/3/Python
+INFO:Scraper:Download 73 files for https://www.go-hero.net/jam/14/solutions/2/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/3/1/Python
+INFO:Scraper:Saved 717 download links for https://www.go-hero.net/jam/14/solutions/3/1/Python
+INFO:Scraper:Download 2897 files for https://www.go-hero.net/jam/13/solutions/0/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/3/2/Python
+INFO:Scraper:Saved 188 download links for https://www.go-hero.net/jam/14/solutions/3/2/Python
+INFO:Scraper:Download 3074 files for https://www.go-hero.net/jam/13/solutions/0/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/3/3/Python
+INFO:Scraper:Saved 40 download links for https://www.go-hero.net/jam/14/solutions/3/3/Python
+INFO:Scraper:Download 40 files for https://www.go-hero.net/jam/14/solutions/3/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/4/1/Python
+INFO:Scraper:Saved 237 download links for https://www.go-hero.net/jam/14/solutions/4/1/Python
+INFO:Scraper:Download 188 files for https://www.go-hero.net/jam/14/solutions/3/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/4/2/Python
+INFO:Scraper:Saved 117 download links for https://www.go-hero.net/jam/14/solutions/4/2/Python
+INFO:Scraper:Download 864 files for https://www.go-hero.net/jam/14/solutions/2/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/4/3/Python
+INFO:Scraper:Saved 21 download links for https://www.go-hero.net/jam/14/solutions/4/3/Python
+INFO:Scraper:Download 117 files for https://www.go-hero.net/jam/14/solutions/4/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/4/4/Python
+INFO:Scraper:Saved 93 download links for https://www.go-hero.net/jam/14/solutions/4/4/Python
+INFO:Scraper:Download 21 files for https://www.go-hero.net/jam/14/solutions/4/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/5/1/Python
+INFO:Scraper:Saved 18 download links for https://www.go-hero.net/jam/14/solutions/5/1/Python
+INFO:Scraper:Download 18 files for https://www.go-hero.net/jam/14/solutions/5/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/5/2/Python
+INFO:Scraper:Saved 13 download links for https://www.go-hero.net/jam/14/solutions/5/2/Python
+INFO:Scraper:Download 13 files for https://www.go-hero.net/jam/14/solutions/5/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/14/solutions/5/3/Python
+INFO:Scraper:Saved 3 download links for https://www.go-hero.net/jam/14/solutions/5/3/Python
+INFO:Scraper:Download 3 files for https://www.go-hero.net/jam/14/solutions/5/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/0/1/Python
+INFO:Scraper:Download 237 files for https://www.go-hero.net/jam/14/solutions/4/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/0/2/Python
+INFO:Scraper:Saved 1077 download links for https://www.go-hero.net/jam/15/solutions/0/2/Python
+INFO:Scraper:Download 93 files for https://www.go-hero.net/jam/14/solutions/4/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/0/3/Python
+INFO:Scraper:Saved 3785 download links for https://www.go-hero.net/jam/15/solutions/0/1/Python
+INFO:Scraper:Saved 991 download links for https://www.go-hero.net/jam/15/solutions/0/3/Python
+INFO:Scraper:Download 936 files for https://www.go-hero.net/jam/14/solutions/2/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/0/4/Python
+INFO:Scraper:Saved 1192 download links for https://www.go-hero.net/jam/15/solutions/0/4/Python
+INFO:Scraper:Download 717 files for https://www.go-hero.net/jam/14/solutions/3/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/1/1/Python
+INFO:Scraper:Saved 719 download links for https://www.go-hero.net/jam/15/solutions/1/1/Python
+INFO:Scraper:Download 1872 files for https://www.go-hero.net/jam/14/solutions/0/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/1/2/Python
+INFO:Scraper:Saved 417 download links for https://www.go-hero.net/jam/15/solutions/1/2/Python
+INFO:Scraper:Download 417 files for https://www.go-hero.net/jam/15/solutions/1/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/1/3/Python
+INFO:Scraper:Saved 111 download links for https://www.go-hero.net/jam/15/solutions/1/3/Python
+INFO:Scraper:Download 111 files for https://www.go-hero.net/jam/15/solutions/1/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/2/1/Python
+INFO:Scraper:Saved 373 download links for https://www.go-hero.net/jam/15/solutions/2/1/Python
+INFO:Scraper:Download 719 files for https://www.go-hero.net/jam/15/solutions/1/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/2/2/Python
+INFO:Scraper:Saved 221 download links for https://www.go-hero.net/jam/15/solutions/2/2/Python
+INFO:Scraper:Download 991 files for https://www.go-hero.net/jam/15/solutions/0/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/2/3/Python
+INFO:Scraper:Saved 100 download links for https://www.go-hero.net/jam/15/solutions/2/3/Python
+INFO:Scraper:Download 221 files for https://www.go-hero.net/jam/15/solutions/2/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/3/1/Python
+INFO:Scraper:Saved 484 download links for https://www.go-hero.net/jam/15/solutions/3/1/Python
+INFO:Scraper:Download 1077 files for https://www.go-hero.net/jam/15/solutions/0/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/3/2/Python
+INFO:Scraper:Saved 210 download links for https://www.go-hero.net/jam/15/solutions/3/2/Python
+INFO:Scraper:Download 100 files for https://www.go-hero.net/jam/15/solutions/2/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/3/3/Python
+INFO:Scraper:Saved 224 download links for https://www.go-hero.net/jam/15/solutions/3/3/Python
+INFO:Scraper:Download 373 files for https://www.go-hero.net/jam/15/solutions/2/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/4/1/Python
+INFO:Scraper:Saved 202 download links for https://www.go-hero.net/jam/15/solutions/4/1/Python
+INFO:Scraper:Download 210 files for https://www.go-hero.net/jam/15/solutions/3/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/4/2/Python
+INFO:Scraper:Saved 152 download links for https://www.go-hero.net/jam/15/solutions/4/2/Python
+INFO:Scraper:Download 1192 files for https://www.go-hero.net/jam/15/solutions/0/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/4/3/Python
+INFO:Scraper:Saved 53 download links for https://www.go-hero.net/jam/15/solutions/4/3/Python
+INFO:Scraper:Download 224 files for https://www.go-hero.net/jam/15/solutions/3/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/4/4/Python
+INFO:Scraper:Saved 20 download links for https://www.go-hero.net/jam/15/solutions/4/4/Python
+INFO:Scraper:Download 202 files for https://www.go-hero.net/jam/15/solutions/4/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/5/1/Python
+INFO:Scraper:Saved 14 download links for https://www.go-hero.net/jam/15/solutions/5/1/Python
+INFO:Scraper:Download 20 files for https://www.go-hero.net/jam/15/solutions/4/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/5/2/Python
+INFO:Scraper:Saved 12 download links for https://www.go-hero.net/jam/15/solutions/5/2/Python
+INFO:Scraper:Download 14 files for https://www.go-hero.net/jam/15/solutions/5/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/5/3/Python
+INFO:Scraper:Saved 2 download links for https://www.go-hero.net/jam/15/solutions/5/3/Python
+INFO:Scraper:Download 12 files for https://www.go-hero.net/jam/15/solutions/5/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/5/4/Python
+INFO:Scraper:Saved 13 download links for https://www.go-hero.net/jam/15/solutions/5/4/Python
+INFO:Scraper:Download 2 files for https://www.go-hero.net/jam/15/solutions/5/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/15/solutions/5/5/Python
+INFO:Scraper:Saved 3 download links for https://www.go-hero.net/jam/15/solutions/5/5/Python
+INFO:Scraper:Download 3 files for https://www.go-hero.net/jam/15/solutions/5/5/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/0/1/Python
+INFO:Scraper:Download 13 files for https://www.go-hero.net/jam/15/solutions/5/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/0/2/Python
+INFO:Scraper:Download 53 files for https://www.go-hero.net/jam/15/solutions/4/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/0/3/Python
+INFO:Scraper:Saved 3728 download links for https://www.go-hero.net/jam/16/solutions/0/3/Python
+INFO:Scraper:Saved 4560 download links for https://www.go-hero.net/jam/16/solutions/0/2/Python
+INFO:Scraper:Saved 5540 download links for https://www.go-hero.net/jam/16/solutions/0/1/Python
+INFO:Scraper:Download 152 files for https://www.go-hero.net/jam/15/solutions/4/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/0/4/Python
+INFO:Scraper:Saved 1911 download links for https://www.go-hero.net/jam/16/solutions/0/4/Python
+INFO:Scraper:Download 484 files for https://www.go-hero.net/jam/15/solutions/3/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/1/1/Python
+INFO:Scraper:Saved 2136 download links for https://www.go-hero.net/jam/16/solutions/1/1/Python
+INFO:Scraper:Download 3577 files for https://www.go-hero.net/jam/14/solutions/0/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/1/2/Python
+INFO:Scraper:Saved 836 download links for https://www.go-hero.net/jam/16/solutions/1/2/Python
+INFO:Scraper:Download 4135 files for https://www.go-hero.net/jam/14/solutions/0/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/1/3/Python
+INFO:Scraper:Saved 232 download links for https://www.go-hero.net/jam/16/solutions/1/3/Python
+INFO:Scraper:Download 232 files for https://www.go-hero.net/jam/16/solutions/1/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/2/1/Python
+INFO:Scraper:Saved 1733 download links for https://www.go-hero.net/jam/16/solutions/2/1/Python
+INFO:Scraper:Download 836 files for https://www.go-hero.net/jam/16/solutions/1/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/2/2/Python
+INFO:Scraper:Saved 491 download links for https://www.go-hero.net/jam/16/solutions/2/2/Python
+INFO:Scraper:Download 491 files for https://www.go-hero.net/jam/16/solutions/2/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/2/3/Python
+INFO:Scraper:Saved 193 download links for https://www.go-hero.net/jam/16/solutions/2/3/Python
+INFO:Scraper:Download 1911 files for https://www.go-hero.net/jam/16/solutions/0/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/3/1/Python
+INFO:Scraper:Saved 1190 download links for https://www.go-hero.net/jam/16/solutions/3/1/Python
+INFO:Scraper:Download 193 files for https://www.go-hero.net/jam/16/solutions/2/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/3/2/Python
+INFO:Scraper:Saved 320 download links for https://www.go-hero.net/jam/16/solutions/3/2/Python
+INFO:Scraper:Download 320 files for https://www.go-hero.net/jam/16/solutions/3/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/3/3/Python
+INFO:Scraper:Saved 105 download links for https://www.go-hero.net/jam/16/solutions/3/3/Python
+INFO:Scraper:Download 105 files for https://www.go-hero.net/jam/16/solutions/3/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/4/1/Python
+INFO:Scraper:Saved 278 download links for https://www.go-hero.net/jam/16/solutions/4/1/Python
+INFO:Scraper:Download 2136 files for https://www.go-hero.net/jam/16/solutions/1/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/4/2/Python
+INFO:Scraper:Saved 139 download links for https://www.go-hero.net/jam/16/solutions/4/2/Python
+INFO:Scraper:Download 139 files for https://www.go-hero.net/jam/16/solutions/4/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/4/3/Python
+INFO:Scraper:Saved 26 download links for https://www.go-hero.net/jam/16/solutions/4/3/Python
+INFO:Scraper:Download 3785 files for https://www.go-hero.net/jam/15/solutions/0/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/4/4/Python
+INFO:Scraper:Saved 37 download links for https://www.go-hero.net/jam/16/solutions/4/4/Python
+INFO:Scraper:Download 26 files for https://www.go-hero.net/jam/16/solutions/4/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/5/1/Python
+INFO:Scraper:Saved 20 download links for https://www.go-hero.net/jam/16/solutions/5/1/Python
+INFO:Scraper:Download 37 files for https://www.go-hero.net/jam/16/solutions/4/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/5/2/Python
+INFO:Scraper:Saved 4 download links for https://www.go-hero.net/jam/16/solutions/5/2/Python
+INFO:Scraper:Download 20 files for https://www.go-hero.net/jam/16/solutions/5/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/5/3/Python
+INFO:Scraper:Saved 13 download links for https://www.go-hero.net/jam/16/solutions/5/3/Python
+INFO:Scraper:Download 4 files for https://www.go-hero.net/jam/16/solutions/5/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/5/4/Python
+INFO:Scraper:Saved 16 download links for https://www.go-hero.net/jam/16/solutions/5/4/Python
+INFO:Scraper:Download 13 files for https://www.go-hero.net/jam/16/solutions/5/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/16/solutions/6/1/Python
+INFO:Scraper:Saved 2 download links for https://www.go-hero.net/jam/16/solutions/6/1/Python
+INFO:Scraper:Download 2 files for https://www.go-hero.net/jam/16/solutions/6/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/17/solutions/0/1/Python
+INFO:Scraper:Download 16 files for https://www.go-hero.net/jam/16/solutions/5/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/17/solutions/0/2/Python
+INFO:Scraper:Download 278 files for https://www.go-hero.net/jam/16/solutions/4/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/17/solutions/0/3/Python
+INFO:Scraper:Saved 2985 download links for https://www.go-hero.net/jam/17/solutions/0/3/Python
+INFO:Scraper:Saved 3999 download links for https://www.go-hero.net/jam/17/solutions/0/1/Python
+INFO:Scraper:Saved 5476 download links for https://www.go-hero.net/jam/17/solutions/0/2/Python
+INFO:Scraper:Download 1733 files for https://www.go-hero.net/jam/16/solutions/2/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/17/solutions/0/4/Python
+INFO:Scraper:Saved 186 download links for https://www.go-hero.net/jam/17/solutions/0/4/Python
+INFO:Scraper:Download 1190 files for https://www.go-hero.net/jam/16/solutions/3/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/17/solutions/1/1/Python
+INFO:Scraper:Saved 831 download links for https://www.go-hero.net/jam/17/solutions/1/1/Python
+INFO:Scraper:Download 186 files for https://www.go-hero.net/jam/17/solutions/0/4/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/17/solutions/1/2/Python
+INFO:Scraper:Saved 305 download links for https://www.go-hero.net/jam/17/solutions/1/2/Python
+INFO:Scraper:Download 305 files for https://www.go-hero.net/jam/17/solutions/1/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/17/solutions/1/3/Python
+INFO:Scraper:Saved 62 download links for https://www.go-hero.net/jam/17/solutions/1/3/Python
+INFO:Scraper:Download 62 files for https://www.go-hero.net/jam/17/solutions/1/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/17/solutions/2/1/Python
+INFO:Scraper:Saved 1676 download links for https://www.go-hero.net/jam/17/solutions/2/1/Python
+INFO:Scraper:Download 3728 files for https://www.go-hero.net/jam/16/solutions/0/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/17/solutions/2/2/Python
+INFO:Scraper:Saved 739 download links for https://www.go-hero.net/jam/17/solutions/2/2/Python
+INFO:Scraper:Download 831 files for https://www.go-hero.net/jam/17/solutions/1/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/17/solutions/2/3/Python
+INFO:Scraper:Saved 329 download links for https://www.go-hero.net/jam/17/solutions/2/3/Python
+INFO:Scraper:Download 329 files for https://www.go-hero.net/jam/17/solutions/2/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/17/solutions/3/1/Python
+INFO:Scraper:Saved 731 download links for https://www.go-hero.net/jam/17/solutions/3/1/Python
+INFO:Scraper:Download 4560 files for https://www.go-hero.net/jam/16/solutions/0/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/17/solutions/3/2/Python
+INFO:Scraper:Saved 313 download links for https://www.go-hero.net/jam/17/solutions/3/2/Python
+INFO:Scraper:Download 739 files for https://www.go-hero.net/jam/17/solutions/2/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/17/solutions/3/3/Python
+INFO:Scraper:Saved 343 download links for https://www.go-hero.net/jam/17/solutions/3/3/Python
+INFO:Scraper:Download 313 files for https://www.go-hero.net/jam/17/solutions/3/2/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/17/solutions/4/1/Python
+INFO:Scraper:Saved 282 download links for https://www.go-hero.net/jam/17/solutions/4/1/Python
+INFO:Scraper:Download 731 files for https://www.go-hero.net/jam/17/solutions/3/1/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/17/solutions/4/2/Python
+INFO:Scraper:Saved 126 download links for https://www.go-hero.net/jam/17/solutions/4/2/Python
+INFO:Scraper:Download 343 files for https://www.go-hero.net/jam/17/solutions/3/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/17/solutions/4/3/Python
+INFO:Scraper:Saved 51 download links for https://www.go-hero.net/jam/17/solutions/4/3/Python
+INFO:Scraper:Download 51 files for https://www.go-hero.net/jam/17/solutions/4/3/Python
+INFO:Scraper:Init Scraper for https://www.go-hero.net/jam/17/solutions/4/4/Python
+INFO:Scraper:Saved 3 download links for https://www.go-hero.net/jam/17/solutions/4/4/Python
+INFO:Scraper:Download 3 files for https://www.go-hero.net/jam/17/solutions/4/4/Python
+INFO:Scraper:Download 126 files for https://www.go-hero.net/jam/17/solutions/4/2/Python
+INFO:Scraper:Download 282 files for https://www.go-hero.net/jam/17/solutions/4/1/Python
+INFO:Scraper:Download 1676 files for https://www.go-hero.net/jam/17/solutions/2/1/Python
+INFO:Scraper:Download 5540 files for https://www.go-hero.net/jam/16/solutions/0/1/Python
+INFO:Scraper:Download 2985 files for https://www.go-hero.net/jam/17/solutions/0/3/Python
+INFO:Scraper:Download 3999 files for https://www.go-hero.net/jam/17/solutions/0/1/Python
+INFO:Scraper:Download 5476 files for https://www.go-hero.net/jam/17/solutions/0/2/Python
