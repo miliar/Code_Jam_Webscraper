@@ -7,19 +7,18 @@ import logging
 def simple_get(url):
     
     logger = logging.getLogger(__name__)
+    content = None
 
     try:
         with closing(get(url, stream=True)) as resp:
             if _is_good_response(resp):
-                logger.debug('Good response on %s', url)
-                return resp.content
-            else:
-                logger.debug('Bad response on %s', url)
-                return None
-
+                content = resp.content
+                
     except RequestException :
         logger.exception('Error during requests to %s', url)
-        return None
+    
+    return content
+    
 
 def _is_good_response(resp):
     
