@@ -1,0 +1,40 @@
+g=open("war.in","r")
+h=open("warout.txt","w")
+n=int(g.readline())
+for i in range(n):
+    war=0
+    dwar=0
+    no=int(g.readline())
+    nm=g.readline().split()
+    ken=g.readline().split()
+    nm1=[]
+    ken1=[]
+    for j in range(no):
+        nm[j]=float(nm[j])
+        ken[j]=float(ken[j])
+        nm1+=[nm[j]]
+        ken1+=[ken[j]]
+    nm1=sorted(nm1)[-1::-1]
+    ken1=sorted(ken1)[-1::-1]
+    while(len(nm1)!=0):
+        if(nm1[0]>ken1[0]):
+            nm1[0:1]=[]
+            ken1[len(ken1)-1:len(ken1)]=[]
+            war+=1
+        else:
+            nm1[0:1]=[]
+            ken1[0:1]=[]
+    nm=sorted(nm)
+    ken=sorted(ken)
+    while(len(nm)!=0):
+        if(nm[0]>ken[0]):
+            dwar+=1
+            nm[0:1]=[]
+            ken[0:1]=[]
+        else:
+            nm[0:1]=[]
+            ken[len(ken)-1:len(ken)]=[]
+    string="Case #"+str(i+1)+": "+str(dwar)+" "+str(war)+"\n"
+    h.write(string)
+h.close()
+g.close()

@@ -1,0 +1,253 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# imports\n",
+    "import numpy as np # http://www.numpy.org/\n",
+    "import math # https://docs.python.org/2/library/math.html\n",
+    "import itertools as it # https://docs.python.org/2/library/itertools.html"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "basepath = '/home/epg/halde/codejam/2017/2/'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "testset = 'A-small-attempt0'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def do_solve(N, P, G):\n",
+    "    res = 0\n",
+    "    rg = sorted(G)\n",
+    "    \n",
+    "    # groups with size = n*P\n",
+    "    rg[:] = [x for x in rg if x%P != 0]\n",
+    "    res = N - len(rg)\n",
+    "    \n",
+    "    # remaining groups\n",
+    "    if P == 2:\n",
+    "        # all remaining groups of uneven size -> blocks of two with one fresh/non-fresh group each\n",
+    "        # if odd number of remaining groups -> last group fresh\n",
+    "        res += (len(rg)+1)/2\n",
+    "        rg = []\n",
+    "    else:\n",
+    "        # 2-tuples of groups\n",
+    "        i = 0\n",
+    "        while i < len(rg):\n",
+    "            for j in xrange(i+1, len(rg)):\n",
+    "                if (rg[i]+rg[j])%P == 0:\n",
+    "                    res += 1\n",
+    "                    del rg[j]\n",
+    "                    del rg[i]\n",
+    "                    i -= 1\n",
+    "                    break\n",
+    "            i += 1\n",
+    "        # 3-tuples of groups\n",
+    "        i = 0\n",
+    "        while i < len(rg):\n",
+    "            for j in xrange(i+1, len(rg)):\n",
+    "                do_break = False\n",
+    "                for k in xrange(j+1, len(rg)):\n",
+    "                    if (rg[i]+rg[j]+rg[k])%P == 0:\n",
+    "                        res += 1\n",
+    "                        del rg[k]\n",
+    "                        del rg[j]\n",
+    "                        del rg[i]\n",
+    "                        i -= 1\n",
+    "                        do_break = True\n",
+    "                        break\n",
+    "                if do_break:\n",
+    "                    break\n",
+    "            i += 1\n",
+    "    \n",
+    "    if rg:\n",
+    "        # groups left -> only one fresh\n",
+    "        res += 1\n",
+    "    \n",
+    "    return res"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 50,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Case #1: 3\n",
+      "Case #2: 4\n",
+      "Case #3: 1\n",
+      "Case #4: 54\n",
+      "Case #5: 55\n",
+      "Case #6: 50\n",
+      "Case #7: 53\n",
+      "Case #8: 50\n",
+      "Case #9: 49\n",
+      "Case #10: 55\n",
+      "Case #11: 1\n",
+      "Case #12: 52\n",
+      "Case #13: 1\n",
+      "Case #14: 1\n",
+      "Case #15: 51\n",
+      "Case #16: 47\n",
+      "Case #17: 50\n",
+      "Case #18: 50\n",
+      "Case #19: 53\n",
+      "Case #20: 49\n",
+      "Case #21: 52\n",
+      "Case #22: 49\n",
+      "Case #23: 9\n",
+      "Case #24: 8\n",
+      "Case #25: 9\n",
+      "Case #26: 55\n",
+      "Case #27: 47\n",
+      "Case #28: 52\n",
+      "Case #29: 1\n",
+      "Case #30: 50\n",
+      "Case #31: 53\n",
+      "Case #32: 46\n",
+      "Case #33: 51\n",
+      "Case #34: 52\n",
+      "Case #35: 51\n",
+      "Case #36: 46\n",
+      "Case #37: 48\n",
+      "Case #38: 9\n",
+      "Case #39: 50\n",
+      "Case #40: 53\n",
+      "Case #41: 51\n",
+      "Case #42: 47\n",
+      "Case #43: 51\n",
+      "Case #44: 55\n",
+      "Case #45: 51\n",
+      "Case #46: 10\n",
+      "Case #47: 49\n",
+      "Case #48: 1\n",
+      "Case #49: 48\n",
+      "Case #50: 49\n",
+      "Case #51: 47\n",
+      "Case #52: 54\n",
+      "Case #53: 51\n",
+      "Case #54: 11\n",
+      "Case #55: 53\n",
+      "Case #56: 48\n",
+      "Case #57: 48\n",
+      "Case #58: 53\n",
+      "Case #59: 50\n",
+      "Case #60: 1\n",
+      "Case #61: 15\n",
+      "Case #62: 48\n",
+      "Case #63: 50\n",
+      "Case #64: 15\n",
+      "Case #65: 10\n",
+      "Case #66: 49\n",
+      "Case #67: 54\n",
+      "Case #68: 47\n",
+      "Case #69: 53\n",
+      "Case #70: 47\n",
+      "Case #71: 50\n",
+      "Case #72: 14\n",
+      "Case #73: 51\n",
+      "Case #74: 49\n",
+      "Case #75: 47\n",
+      "Case #76: 53\n",
+      "Case #77: 51\n",
+      "Case #78: 1\n",
+      "Case #79: 51\n",
+      "Case #80: 11\n",
+      "Case #81: 13\n",
+      "Case #82: 11\n",
+      "Case #83: 53\n",
+      "Case #84: 50\n",
+      "Case #85: 48\n",
+      "Case #86: 67\n",
+      "Case #87: 1\n",
+      "Case #88: 49\n",
+      "Case #89: 52\n",
+      "Case #90: 49\n",
+      "Case #91: 52\n",
+      "Case #92: 6\n",
+      "Case #93: 50\n",
+      "Case #94: 75\n",
+      "Case #95: 53\n",
+      "Case #96: 47\n",
+      "Case #97: 53\n",
+      "Case #98: 50\n",
+      "Case #99: 48\n",
+      "Case #100: 1\n"
+     ]
+    }
+   ],
+   "source": [
+    "with open(basepath + testset + '.in') as fin, open(basepath + testset + '.out', 'w') as fout:\n",
+    "    T = int(fin.readline().rstrip('\\r\\n'))\n",
+    "    for i in xrange(T):\n",
+    "        N, P = tuple(map(int, fin.readline().rstrip('\\r\\n').split(' ')))\n",
+    "        G = tuple(map(int, fin.readline().rstrip('\\r\\n').split(' ')))\n",
+    "        \n",
+    "        sol = do_solve(N, P, G)\n",
+    "        \n",
+    "        sol_string = 'Case #{}: {}'.format(i+1, sol)\n",
+    "        fout.write(sol_string + '\\n')\n",
+    "        print sol_string"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 2",
+   "language": "python2",
+   "name": "python2"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 2
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython2",
+   "version": "2.7.13"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 1
+}
