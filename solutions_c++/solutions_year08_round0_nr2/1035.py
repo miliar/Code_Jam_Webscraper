@@ -1,0 +1,3 @@
+@echo off
+%1.source <%1.%2.in >%1.%2.out
+

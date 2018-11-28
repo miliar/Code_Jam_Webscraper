@@ -1,0 +1,1 @@
+#include<iostream>#include<cstdio>using namespace std;int main(){long double c,f,x,ans,s; long T,t=0; cin>>T; while(T--) {ans=0,s=2;  t++;  cin>>c>>f>>x;  ans=c/s;  while(x/(f+s)<(x-c)/s)   s+=f,ans+=c/s;  ans+=(x-c)/s;  cout<<"Case #"<<t<<": ";  printf("%.7Lf\n",ans);  //cout<<ans<<endl; } return 0;}

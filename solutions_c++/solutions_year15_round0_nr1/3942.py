@@ -1,0 +1,60 @@
+/* Pranet Verma */
+/* Yeh mera template hai. Apna khud banao =_= */
+#include <bits/stdc++.h>
+using namespace std;
+#define infinity (1000000007)
+#define ll long long
+#define ull unsigned long long
+#define pii pair<int,int>
+#define ppi pair<pii,int>
+#define ppp pair<pii,pii>
+#define pip pair<int,pii>
+#define pb push_back
+#define mp make_pair
+#define s(n) scanf("%d",&n)
+#define s2(n,m) scanf("%d%d",&n,&m)
+#define s3(n,m,l) scanf("%d%d%d",&n,&m,&l)
+#define rep(i,n) for(int i=0;i<n;++i)
+ll pwr(ll a,ll b,ll mod) {a%=mod;if(a<0)a+=mod;ll ans=1; while(b) {if(b&1) ans=(ans*a)%mod; a=(a*a)%mod; b/=2; } return ans; }
+ll pwr(ll a,ll b) {ll ans=1; while(b) {if(b&1) ans*=a; a*=a; b/=2; } return ans; }
+ll gcd(ll a,ll b) {while(b) {ll temp=a; a=b; b=temp%b; } return a; }
+ll lcm(ll a,ll b) {return (a/gcd(a,b))*b; }
+ll modularInverse(ll a,ll m) {/*reminder: make sure m is prime*/ assert(false); return pwr(a,m-2,m); }
+const int mod=1000000007;
+
+vector<int> toVector(string &s)
+{
+  vector<int> all;
+  for(int i=0;i<s.size();++i)
+    all.pb(s[i]-'0');
+  return all;
+}
+int main()
+{
+  std::ios::sync_with_stdio(false);
+  
+  int t;
+  cin>>t;
+  for(int tt=1;tt<=t;++tt)
+  {
+    cout<<"Case #"<<tt<<": ";
+    int n;
+    cin>>n;
+    string s;
+    cin>>s;
+    vector<int> a=toVector(s);
+    int inHand=a[0];
+    int ans=0;
+    for(int i=1;i<a.size();++i)
+    {
+      int deficit=i-inHand; 
+      ans=max(ans,deficit);
+      inHand+=a[i];
+    }
+    cout<<ans<<"\n";
+  }
+  
+   
+
+
+}

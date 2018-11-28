@@ -1,0 +1,136 @@
+#include <vector>
+#include <list>
+#include <map>
+#include <set>
+#include <deque>
+#include <stack>
+#include <bitset>
+#include <algorithm>
+#include <functional>
+#include <numeric>
+#include <utility>
+#include <sstream>
+#include <iostream>
+#include <iomanip>
+#include <cstdio>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+#define max(a,b) (((a)>(b))?(a):(b))
+#define min(a,b) (((a)<(b))?(a):(b))
+/*
+#define SIZE(X) ((int)X.size())
+#define LENGTH(X) ((int)X.length())
+#define MP(A,B) make_pair(A,B)
+typedef long long int64;
+typedef unsigned long long uint64;
+#define two(X) (1<<(X))
+#define towL(X) (((int64)(1))<<(X))
+#define contain(S,X) ((S&two(X))>0)
+#define containL(S,X) ((S&towL(X))>0)
+const double pi = acos(-1.0);
+const double eps = 1e-11;
+template<class T> void checkmin(T &a, T b) {
+	if (b < a) a = b;
+}
+template<class T> void checkmax(T &a, T b) {
+	if (b > a) a = b;
+}
+template<class T> T sqr(T x) {
+	return x*x;
+}
+int countbit(int n) {
+	return (n == 0) ? 0 : (1 + countbit(n&(n - 1)));
+}
+int lowbit(int n) {
+	return (n ^(n - 1))&n;
+}
+typedef pair<int, int> ipair;
+template<class T> void out(T A[], int n) {
+	for (int i = 0; i < n; i++) cout << A[i] << " ";
+	cout << endl;
+}
+template<class T> void out(vector<T> A, int n = -1) {
+	if (n == -1) n = A.size();
+	for (int i = 0; i < n; i++) cout << A[i] << " ";
+	cout << endl;
+}
+template<class T> T gcd(T a, T b) {
+	if (a < 0) return gcd(-a, b);
+	if (b < 0) return gcd(a, -b);
+	return (b == 0) ? a : gcd(b, a % b);
+}
+template<class T> T lcm(T a, T b) {
+	return a*(b / gcd(a, b));
+}
+*/
+
+struct Point {
+	int x, y;
+};
+int mul(Point p0, Point p1, Point p2) {
+	return (p1.x -p0.x)*(p2.y - p0.y) - (p2.x - p0.x)*(p1.y - p0.y);
+}
+
+char str[20000];
+char tp[20000];
+
+int main() {
+
+	freopen("D-small-attempt0.in", "r", stdin);
+	freopen("D-small-attempt0.out", "w", stdout);
+	int C;
+	int p;
+	int n, m, A;
+	int i, j, x, y;
+	int k;
+	int ans;
+	while (scanf("%d", &C) != EOF) {
+
+		for (p = 1; p <= C; p ++) {
+
+			scanf("%d",&k);
+			scanf("%s",str);
+
+			int dec[10];
+
+			for (i = 0; i < k; i ++) {
+				dec[i] = i;
+			}
+			int len = strlen(str);
+
+			ans = 999999999;
+
+			do
+			{
+				for (i = 0; i < len; i += k)
+				{
+					for (j = i; j < i + k; j ++)
+						tp[j] = str[dec[j-i]+i];
+				}
+				char pre = tp[0];
+				int count = 1;
+
+				for (i = 1; i < len; i ++) {
+					if (tp[i] != pre) {
+						pre = tp[i];
+						count ++;
+					}
+				}
+
+				if (count <ans) ans = count;
+
+
+
+			} while (next_permutation(dec,dec+k));
+
+				printf("Case #%d: %d\n", p,ans);
+		}
+
+
+	}
+	return 0;
+}

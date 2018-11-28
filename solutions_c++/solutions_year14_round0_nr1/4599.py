@@ -1,0 +1,159 @@
+#include <cstring>
+#include <string.h>
+#include <map>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <sstream>
+#include <iostream>
+#include <iomanip>
+#include <cstdio>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+#include <algorithm>
+#include <vector>
+#include <set>
+#include <complex>
+#include <list>
+
+using namespace std;
+
+#define pb push_back
+#define all(v) v.begin(),v.end()
+#define rall(v) v.rbegin(),v.rend()
+#define sz size()
+#define rep(i,m) for((i)=0;(i)<(int)(m);(i)++)
+#define rep2(i,n,m) for((i)=n;(i)<(int)(m);(i)++)
+#define For(it,c) for(__typeof(c.begin()) it=c.begin();it!=c.end();++it)
+#define mem(a,b) memset(a,b,sizeof(a))
+#define mp make_pair
+#define dot(a,b) ((conj(a)*(b)).X)
+#define X real()
+#define Y imag()
+#define length(V) (hypot((V).X,(V).Y))
+#define vect(a,b) ((b)-(a))
+#define cross(a,b) ((conj(a)*(b)).imag())
+#define normalize(v) ((v)/length(v))
+#define rotate(p,about,theta) ((p-about)*exp(point(0,theta))+about)
+#define pointEqu(a,b) (comp(a.X,b.X)==0 && comp(a.Y,b.Y)==0)
+
+typedef stringstream ss;
+typedef istringstream iss;
+typedef pair<int, int> pii;
+typedef vector<pii> vpii;
+typedef vector<string> vs;
+typedef vector<int> vi;
+typedef vector<double> vd;
+typedef vector<vector<int> > vii;
+typedef long long ll;
+typedef long double ld;
+typedef complex<double> point;
+typedef pair<point, point> segment;
+typedef pair<double, point> circle;
+typedef vector<point> polygon;
+
+const int oo = (int) 1e9;
+//const double PI = 2 * acos(0);
+const double eps = 1e-9;
+
+inline int comp(const double &a, const double &b) {
+	if (fabs(a - b) < eps)
+		return 0;
+	return a > b ? 1 : -1;
+}
+
+int di[] = { 1, -1, 0, 0, 1, -1, 1, -1 };
+int dj[] = { 0, 0, 1, -1, 1, -1, -1, 1 };
+int diK[] = { -2, -2, -1, 1, 2, 2, 1, -1 };
+int djK[] = { -1, 1, 2, 2, 1, -1, -2, -2 };
+
+int dx[] = { 0, 0, 1, -1};
+int dy[] = { 1, -1, 0, 0};
+
+int I, J;
+
+inline bool val(const int &i, const int &j) {
+	if (i < 0 || j < 0 || i >= I || j >= J)
+		return false;
+	return true;
+}
+
+int T;
+int n;
+int case_number;
+
+#define gout case_number++, printf("Case #%d: ",case_number), cout       
+
+
+#define SMALL
+//#define LARGE
+int main() {
+#ifdef SMALL
+	freopen("A-small.in","rt",stdin);
+	freopen("A-small.out","wt",stdout);
+#endif
+#ifdef LARGE
+	freopen("A-large.in","rt",stdin);
+	freopen("A-large.out","wt",stdout);
+#endif
+
+
+	const int MAXN = 100;
+	const int MAXX = 100;
+	const int MAXY = 100;
+	int N, M, K, i, j, k, l, nn;
+	int board[MAXN][MAXN];
+	int x [MAXN];
+	int b[MAXN];
+	int c[MAXN];
+	int arr[MAXN];
+	int arr2[MAXN];
+	int bad = 0;
+	string s; 
+	char a[MAXN];
+	char input[MAXN];
+	char d[MAXX][MAXY];
+
+	scanf("%d", &T);
+	rep2(nn,1,T+1) {  //Number of test cases
+		int tmp=0;
+
+
+		scanf("%d", &N);  
+		rep(i,4)rep(j,4){
+			scanf("%d", &tmp);
+			board[i][j] = tmp;
+		}   
+		rep(i,4){
+			arr[i] = board[N-1][i];
+		}
+
+
+		scanf("%d", &M);  
+		rep(i,4)rep(j,4){
+			scanf("%d", &tmp);
+			board[i][j] = tmp;
+		}  
+		rep(i,4){
+			arr2[i] = board[M-1][i];
+		}
+
+		rep(i,4)rep(j,4){
+			if(arr[i]==arr2[j]){
+				bad +=1;
+				K = arr[i];
+			}
+		}
+
+		string ans = " ";
+		if (bad == 0) gout<<"Volunteer cheated!"<<endl;
+		if (bad == 1) gout<<K<<endl;
+		if (bad > 1) gout<<"Bad magician!"<<endl;
+
+		bad=0;
+		K=0;
+
+	}  //End number of test cases loop
+	return 0;
+}  // End main function

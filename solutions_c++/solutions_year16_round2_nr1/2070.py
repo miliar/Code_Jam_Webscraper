@@ -1,0 +1,93 @@
+#include<stdio.h>
+#include<string.h>
+
+int main()
+{
+	int len,k,t,arr[26],arr1[10],i,j;
+	char s[2007];
+	scanf("%d",&t);
+	for(k=1;k<=t;k++)
+	{
+		scanf("%s",&s);
+		len=strlen(s);
+		for(i=0;i<26;i++)
+			arr[i]=0;
+		for(i=0;i<10;i++)
+			arr1[i]=0;
+		for(i=0;i<len;i++)
+			arr[s[i]-65]++;
+		if(arr[25]>0)
+		{
+			arr1[0]+=arr[25];
+			arr[4]-=arr[25];
+			arr[17]-=arr[25];
+			arr[14]-=arr[25];
+			arr[25]=0;
+		}
+		if(arr[23]>0)
+		{
+			arr1[6]+=arr[23];
+			arr[18]-=arr[23];
+			arr[8]-=arr[23];
+			arr[23]=0;
+		}
+		if(arr[22]>0)
+		{
+			arr1[2]+=arr[22];
+			arr[19]-=arr[22];
+			arr[14]-=arr[22];
+			arr[22]=0;
+		}
+		if(arr[20]>0)
+		{
+			arr1[4]+=arr[20];
+			arr[5]-=arr[20];
+			arr[14]-=arr[20];
+			arr[17]-=arr[20];
+			arr[20]=0;
+		}
+		if(arr[6]>0)
+		{
+			arr1[8]+=arr[6];
+			arr[4]-=arr[6];
+			arr[8]-=arr[6];
+			arr[7]-=arr[6];
+			arr[19]-=arr[6];
+			arr[6]=0;
+		}
+		if(arr[19]>0)
+		{
+			arr1[3]+=arr[19];
+			arr[7]-=arr[19];
+			arr[17]-=arr[19];
+			arr[4]-=arr[19];
+			arr[4]-=arr[19];
+			arr[19]=0;
+		}
+		if(arr[14]>0)
+		{
+			arr1[1]+=arr[14];
+			arr[13]-=arr[14];
+			arr[14]=0;
+		}
+		if(arr[5]>0)
+			arr1[5]+=arr[5];
+		if(arr[18]>0)
+		{
+			arr1[7]+=arr[18];
+			arr[13]-=arr[18];
+		}
+		if(arr[13]>0)
+			arr1[9]+=arr[13]/2;
+		printf("Case #%d: ",k);
+		for(j=0;j<=9;j++)
+		{
+			for(i=0;i<arr1[j];i++)
+			{
+				printf("%d",j);
+			}
+		}
+		printf("\n");
+	}
+	return 0;
+}

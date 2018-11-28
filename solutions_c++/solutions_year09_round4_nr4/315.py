@@ -1,0 +1,83 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <map> 
+#include <set> 
+#include <queue> 
+#include <bitset> 
+#include <valarray> 
+#include <complex> 
+#include <iostream> 
+#include <sstream> 
+#include <cmath> 
+#include <algorithm> 
+#include <string> 
+#include <cassert>
+#include <ctime>
+#include <float.h>
+#include <string>
+#include <cstring>
+
+#ifdef _MSC_VER
+#pragma comment(linker,"/STACK:20000000")
+#endif
+
+using namespace std;
+
+// prewritten code
+
+#define Size(x) (int)(x).size()
+#define For(i,a,b) for(int i=(int)(a);i<=(int)(b);++i)
+#define Ford(i,a,b) for(int i=(int)(a);i>=(int)(b);--i) 
+#define RepV(i,v) for (int i=0;i<Size(v);++i)
+#define All(c) (c).begin(),(c).end()
+#define Fill(a,b) memset(&a,b,sizeof(a))
+#define Min(a,b) ((a)<(b)?(a):(b))
+#define Max(a,b) ((a)>(b)?(a):(b))
+#define Abs(a) ((a)<0?-(a):(a))
+#define VVI vector<vector<int> >
+#define VI vector<int>
+#define VVS vector<vector<string> >
+#define VS vector<string>
+#define ForEach(it,a) for (typeof((a).begin()) it=(a).begin(); it!=(a).end(); ++it)
+#define DBG(x) cout << #x <<" = "<< x << endl;
+#define DBGA(x) {cout << #x <<": "; for (int i=0; i<(int)sizeof(x)/(int)sizeof(x[0]); ++i) cout<<x[i]<<' '; cout<<endl;}
+#define DBGV(x) {cout << #x <<": "; for (int i=0; i<(int)Size(x); ++i) cout<<x[i]<<' '; cout<<endl;}
+
+const string problem_name = "4";
+
+int n, x[300], y[300], r[300];
+
+void solve_case(){
+	scanf("%d",&n);
+	For(i,1,n) scanf("%d%d%d",&x[i],&y[i],&r[i]);
+	if (n == 1) {printf("%d\n",r[1]); return;}
+	if (n == 2) {printf("%d\n",max(r[1],r[2])); return;}
+	if (n == 3){
+		double res=1e30;
+
+		For(i,1,n) For(j,i+1,n) {
+			res = min(res,max((sqrt( (double)(x[i]-x[j])*(x[i]-x[j]) + (double)(y[i]-y[j])*(y[i]-y[j]) )
+				+ r[i]+r[j])/2, r[6-i-j]+0.0 ));
+		}
+
+		printf("%.8lf\n",res);	
+	}
+	if ( n > 3) printf("MANY\n");
+}
+
+int main(){
+	freopen((problem_name+".in").c_str(),"rt",stdin);
+	freopen((problem_name+".out").c_str(),"wt",stdout);
+	
+	int _t;
+	scanf("%d\n",&_t);
+	
+	For(_z,1,_t){
+		printf("Case #%d: ",_z);
+		
+		solve_case();
+		
+		fflush(stdout);
+	}
+	
+	return 0;
+}

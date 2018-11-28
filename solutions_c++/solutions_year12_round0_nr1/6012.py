@@ -1,0 +1,140 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+char a[10000];
+int main()
+{
+	char num[10];
+	int i,t,j;
+	gets(num);
+	t=atoi(num);
+	for(j=1;j<=t;j++)
+	{
+		printf("Case #%d: ",j);
+		gets(a);
+		for(i=0;i<strlen(a);i++)
+		{
+			if(a[i]=='a')
+			{
+				printf("y");
+			}
+			else
+			if(a[i]=='b')
+			{
+				printf("h");
+			}
+			else
+			if(a[i]=='c')
+			{
+				printf("e");
+			}
+			else
+			if(a[i]=='d')
+			{
+				printf("s");
+			}
+			else
+			if(a[i]=='e')
+			{printf("o");
+			}
+			else
+			if(a[i]=='f')
+			{printf("c");
+			}
+			else
+			if(a[i]=='g')
+			{printf("v");
+			}
+			else
+			if(a[i]=='h')
+			{printf("x");
+			}
+			else
+			if(a[i]=='i')
+			{printf("d");
+			}
+			else
+			if(a[i]=='j')
+			{printf("u");
+			}
+			else
+			
+			if(a[i]=='k')
+			{printf("i");
+			}
+			else
+			if(a[i]=='l')
+			{printf("g");
+			}
+			else
+			if(a[i]=='m')
+			{printf("l");
+			}
+			else
+			if(a[i]=='n')
+			{printf("b");
+			}
+			else
+			if(a[i]=='o')
+			{printf("k");
+			}
+			else
+			if(a[i]=='p')
+			{printf("r");
+			}
+			else
+			if(a[i]=='q')
+			{printf("z");
+			}
+			else
+			if(a[i]=='r')
+			{printf("t");
+			}
+			else
+			if(a[i]=='s')
+			{
+				printf("n");
+			}
+			else
+			if(a[i]=='t')
+			{printf("w");
+			}
+			else
+			if(a[i]=='u')
+			{printf("j");
+			}
+			else
+			if(a[i]=='v')
+			{printf("p");
+			}
+			else
+			if(a[i]=='w')
+			{printf("f");
+			}
+			else
+			if(a[i]=='x')
+			{printf("m");
+			}
+			else
+			if(a[i]=='y')
+			{printf("a");
+			}
+			else
+			if(a[i]=='z')
+			{printf("q");
+			}
+			else
+			if(a[i]==' ')
+			{printf(" ");
+			}
+			else
+			printf("%c",a[i]);
+			
+			
+		}
+		printf("\n");
+		
+	}
+	return 0;
+}
+

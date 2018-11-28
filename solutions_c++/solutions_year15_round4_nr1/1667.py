@@ -1,0 +1,253 @@
+#include<iostream>
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<vector>
+#include<set>
+#include<map>
+#include<string>
+#include<queue>
+#include<math.h>
+#include<algorithm>
+using namespace std;
+const int maxn=105;
+const int INF=1<<30;
+const double eps=1e-7;
+char a[maxn][maxn];
+int b[maxn][maxn];
+int main(void)
+{
+	int i,j,n,m,pi,qi,sum;
+	bool OK;
+	freopen("A-large.in","r",stdin);
+	freopen("A-large.out","w",stdout);
+	scanf("%d",&pi);
+	for(qi=1;qi<=pi;qi++)
+	{
+		scanf("%d%d",&n,&m);
+		for(i=1;i<=n;i++)
+		{
+			scanf("%s",a[i]+1);
+		}
+		for(i=1;i<=n;i++)
+		{
+			for(j=1;j<=m;j++)
+			{
+				b[i][j]=0;
+			}
+		}
+		for(i=1;i<=n;i++)
+		{
+			if(a[i][1]=='.')
+			{
+				for(j=2;j<=m;j++)
+				{
+					if(a[i][j]!='.')
+					{
+						b[i][j]++;
+						break;
+					}
+				}
+			}
+			if(a[i][m]=='.')
+			{
+				for(j=m-1;j>=1;j--)
+				{
+					if(a[i][j]!='.')
+					{
+						b[i][j]++;
+						break;
+					}
+				}
+			}
+		}
+		for(i=1;i<=m;i++)
+		{
+			if(a[1][i]=='.')
+			{
+				for(j=2;j<=n;j++)
+				{
+					if(a[j][i]!='.')
+					{
+						b[j][i]++;
+						break;
+					}
+				}
+			}
+			if(a[n][i]=='.')
+			{
+				for(j=n-1;j>=1;j--)
+				{
+					if(a[j][i]!='.')
+					{
+						b[j][i]++;
+						break;
+					}
+				}
+			}
+		}
+		OK=true;
+		for(i=1;i<=n;i++)
+		{
+			for(j=1;j<=m;j++)
+			{
+				if(((i==1)||(i==n))&&((j==1)||(j==m)))
+				{
+					if(b[i][j]==2)
+					{
+						OK=false;
+					}
+				}
+				else if((i==1)||(i==n))
+				{
+					if(b[i][j]==3)
+					{
+						OK=false;
+					}
+				}
+				else if((j==1)||(j==m))
+				{
+					if(b[i][j]==3)
+					{
+						OK=false;
+					}
+				}
+				else
+				{
+					if(b[i][j]==4)
+					{
+						OK=false;
+					}
+				}
+			}
+		}
+		sum=0;
+		for(i=1;i<=n;i++)
+		{
+			for(j=1;j<=m;j++)
+			{
+				if(a[i][j]!='.')
+				{
+					sum++;
+				}
+			}
+		}
+		if((OK==false)||(sum==1))
+		{
+			printf("Case #%d: IMPOSSIBLE\n",qi);
+		}
+		else
+		{
+			for(i=1;i<=n;i++)
+			{
+				for(j=1;j<=m;j++)
+				{
+					b[i][j]=0;
+				}
+			}
+			for(i=1;i<=n;i++)
+			{
+				if(a[i][1]=='.')
+				{
+					for(j=2;j<=m;j++)
+					{
+						if(a[i][j]!='.')
+						{
+							if(a[i][j]=='<')
+							{
+								b[i][j]=1;
+							}
+							break;
+						}
+					}
+				}
+				else
+				{
+					if(a[i][1]=='<')
+					{
+						b[i][1]=1;
+					}
+				}
+				if(a[i][m]=='.')
+				{
+					for(j=m-1;j>=1;j--)
+					{
+						if(a[i][j]!='.')
+						{
+							if(a[i][j]=='>')
+							{
+								b[i][j]=1;
+							}
+							break;
+						}
+					}
+				}
+				else
+				{
+					if(a[i][m]=='>')
+					{
+						b[i][m]=1;
+					}
+				}
+			}
+			for(i=1;i<=m;i++)
+			{
+				if(a[1][i]=='.')
+				{
+					for(j=2;j<=n;j++)
+					{
+						if(a[j][i]!='.')
+						{
+							if(a[j][i]=='^')
+							{
+								b[j][i]=1;
+							}
+							break;
+						}
+					}
+				}
+				else
+				{
+					if(a[1][i]=='^')
+					{
+						b[1][i]=1;
+					}
+				}
+				if(a[n][i]=='.')
+				{
+					for(j=n-1;j>=1;j--)
+					{
+						if(a[j][i]!='.')
+						{
+							if(a[j][i]=='v')
+							{
+								b[j][i]=1;
+							}
+							break;
+						}
+					}
+				}
+				else
+				{
+					if(a[n][i]=='v')
+					{
+						b[n][i]=1;
+					}
+				}
+			}
+			sum=0;
+			for(i=1;i<=n;i++)
+			{
+				for(j=1;j<=m;j++)
+				{
+					if(b[i][j]!=0)
+					{
+						sum++;
+					}
+				}
+			}
+			printf("Case #%d: %d\n",qi,sum);
+		}
+	}
+	return 0;
+}

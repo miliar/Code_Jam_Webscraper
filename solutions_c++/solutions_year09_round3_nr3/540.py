@@ -1,0 +1,596 @@
+/*#include <iostream>
+#include <vector>
+#include <set>
+using namespace std;
+
+long long cas;
+long long bas[10];
+
+bool eoln( istream &fin = cin )
+{ 	return fin.peek()=='\n' || fin.peek()==EOF;  	}
+
+vector<long long> getbit(long long x, long long base)
+{
+	vector<long long> ret;
+	ret.clear();
+	while (x > 0)
+	{
+		ret.push_back(x % base);
+		x /= base;
+	}
+
+	return ret;
+}
+
+bool happy(long long x, long long base)
+{
+	vector<long long> bits = getbit(x, base);
+	set<long long> vis;
+	vis.clear();
+
+	while ((vis.find(x) == vis.end()) && (x != 1))
+	{
+		vis.insert(x);
+		long long num = 0;
+		for (long long i=0; i<bits.size(); ++i)
+			num += bits[i] * bits[i];
+		x = num;
+		bits = getbit(x, base);
+	}
+
+	if (x == 1)
+		return true;
+	else
+		return false;
+}
+
+long long getmin(long long start, long long base)
+{
+	while (!happy(start, base))
+		++start;
+	return start;
+}
+
+long long main()
+{
+	cin >> cas;
+	cin.get();
+	for (long long xxx=1; xxx<=cas; ++xxx)
+	{
+		memset(bas, 0, sizeof(bas));
+		long long st = 2;
+		long long bn = 0;
+		while (!eoln())
+		{
+			++bn;
+			cin >> bas[bn];
+		}
+		cin.get();
+
+		bool f = true;
+		while (f)
+		{
+			bool f2 = true;
+			for (long long i=1; i<=bn; ++i)
+			{
+				long long xx = getmin(st, bas[i]);
+				if (xx != st)
+				{
+					st = xx;
+					f2 = false;
+					break;
+				}
+			}
+			f = !f2;
+		}
+
+		cout << "Case #" << xxx << ": " << st << endl;
+	}
+
+	return 0;
+}*/
+
+
+/*#include <iostream>
+#include <cmath>
+using namespace std;
+
+long long t,c,n;
+
+long long main()
+{
+	cin >> t;
+	for (long long xxx =1; xxx<=t; ++xxx)
+	{
+		cin >> c >> n;
+		double result = 1;
+		for (long long i=1; i<=100000; ++i)
+			result += 2.0*i/pow(3.0,i*1.0);
+		prlong longf("Case #%d: %.7f\n", xxx, result);
+	}
+}
+*/
+
+/*#include <iostream>
+#include <cstring>
+using namespace std;
+
+long long num[10];
+
+bool check(long long t)
+{
+	long long chk[10] = {0};
+	while (t)
+	{
+			++chk[t%10];
+			t /= 10;
+	}
+
+	for (long long i=1; i<=9; ++i)
+	{
+		if (chk[i] != num[i])
+			return false;
+	}
+	return true;
+}
+
+long long getmax()
+{
+	long long sum = 0;
+	for (long long i=9; i>=0; --i)
+		for (long long j=1; j<=num[i]; ++j)
+			sum = sum * 10 + i;
+	return sum;
+}
+
+long long getmin()
+{
+	long long sum = 0;
+	bool addzero = false;
+	for (long long i=1; i<=9; ++i)
+	{
+		bool flag = true;
+		if (num[i] && (!addzero))
+		{
+			addzero = true;
+			flag = false;
+			sum += i;
+			for (long long j=1; j<=num[0]; ++j)
+				sum *= 10;
+		}
+
+		for (long long j=(flag?1:2); j<=num[i]; ++j)
+			sum = sum * 10 + i;
+	}
+
+	return sum;
+}
+
+void rearrange(long long data[30], long long maxp)
+{
+	long long nn[10] = {0};
+	for (long long i=1; i<=maxp; ++i)
+		++nn[data[i]];
+
+	long long pp = maxp;
+	for (long long i=0; i<=9; ++i)
+	{
+		for (long long j=1; j<=nn[i]; ++j)
+		{
+			data[pp] = i;
+			--pp;
+		}
+	}
+}
+
+int main()
+{
+	long long n;
+	cin >> n;
+	for (long long xxx=1; xxx<=n; ++xxx)
+	{
+		memset(num, 0, sizeof(num));
+		long long last;
+		scanf("%lld", &last);
+		long long t = last;
+		while (t)
+		{
+			++num[t%10];
+			t /= 10;
+		}
+
+		if (getmax() == last)
+		{
+			++num[0];
+			cout << "Case #" << xxx << ": " << getmin() << endl;
+			continue;
+		}
+
+		long long data[30] = {0};
+		t = last;
+		long long pos = 0;
+		while (t)
+		{
+			++pos;
+			data[pos] = t % 10;
+			t /= 10;
+		}
+
+		long long start = 1;
+		long long mymin, mymin2, myminpos, mymin2pos=100;
+		for (long long start=1; start<=pos-1; ++start)
+		{
+			long long tm, tm2, tmpos, tm2pos;
+			tm = data[start];
+			tmpos = start;
+			tm2 = tm;
+			tm2pos = 0;
+			for (long long i=start+1; i<=pos; ++i)
+			{
+				if (data[i] < tm2)
+				{
+					tm2 = data[i];
+					tm2pos = i;
+					break;
+				}
+			}
+
+			if (tm2pos > 0 && tm2pos < mymin2pos)
+			{
+				mymin = tm;
+				mymin2 = tm2;
+				myminpos = tmpos;
+				mymin2pos = tm2pos;
+			}
+		}
+
+		long long tmp = data[myminpos];
+		data[myminpos] = data[mymin2pos];
+		data[mymin2pos] = tmp;
+		rearrange(data, mymin2pos-1);
+
+		t = 0;
+		for (long long i=pos; i>=1; --i)
+			t = t * 10 + data[i];
+
+		cout << "Case #" << xxx << ": " << t << endl;
+	}
+}*/
+
+/*#include <iostream>
+#include <cstring>
+#include <string>
+#include <set>
+using namespace std;
+
+typedef struct _treetype {
+	double yes;
+	double no;
+	_treetype* yesnode;
+	_treetype* nonode;
+	string name;
+	double pro;
+	_treetype* father;
+	_treetype() {
+		yes = no = pro = 0;
+		yesnode = nonode = father = NULL;
+		name = "";
+	}
+} treetype;
+
+treetype root;
+
+int getnonspace(string x)
+{
+	int p = 0;
+	while (p < x.size() && x[p] == ' ') ++p;
+	return p;
+}
+
+int main()
+{
+	int cas;
+	cin >> cas;
+	for (int xxx=1; xxx<=cas; ++xxx)
+	{
+		int line;
+		cin >> line;
+		cin.get();
+		treetype* curnode = &root;
+		bool flagyes = true;
+		for (int i=1; i<=line; ++i)
+		{
+			string tmp;
+			getline(cin, tmp);
+			int st = getnonspace(tmp);
+			if (tmp[tmp.size()-1] != ')') // feature
+			{
+				if (curnode->name == "")
+				{
+					double pro;
+					char fea[20];
+					sscanf(tmp.c_str(), "(%lf %s", &pro, fea);
+					curnode->name = fea;
+					curnode->pro = pro;
+				}
+				else
+				{
+					treetype* tmpnode = new treetype;
+					double pro;
+					char fea[20];
+					sscanf(tmp.c_str(), "(%lf %s", &pro, fea);
+					tmpnode->name = fea;
+					tmpnode->pro = pro;
+					tmpnode->father = curnode;
+					if (flagyes)
+					{
+						curnode->yes = pro;
+						curnode->yesnode = tmpnode;
+						curnode = tmpnode;
+					}
+					else
+					{
+						curnode->yes = pro;
+						curnode->yesnode = tmpnode;
+						curnode = tmpnode;
+					}
+				}
+			}
+			else if (tmp[st] == ')') // end node
+			{
+				if (flagyes)
+				{
+					flagyes = false;
+					treetype* tp = curnode->father;
+					curnode = new treetype;
+					curnode->father = tp;
+				}
+				else
+				{
+					curnode = curnode->father;
+					if (curnode->nonode == NULL)
+						flagyes = false;
+					else
+						flagyes = true;
+				}
+			}
+			else
+			{
+				double pro;
+				sscanf(tmp.c_str(), "(%lf)", &pro);
+				if (flagyes)
+				{
+					curnode->yes = pro;
+					flagyes = false;
+				}
+				else
+				{
+					curnode->no = pro;
+				}
+			}
+
+			//
+		}
+	}
+}*/
+
+
+/*#include <iostream>
+#include <cmath>
+#include <cstring>
+using namespace std;
+
+double eps = 1e-8 ;
+const double PI = 3.14159265358979323846 ;
+
+typedef struct { double x, y, z; } Tpoint;
+typedef const Tpoint&              Tcrp;
+typedef Tpoint                     Tvector;
+
+inline double PPdist( Tcrp a, Tcrp b )
+{	return sqrt( (a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y) + (a.z-b.z)*(a.z-b.z));   }
+
+double triangleArea( double a, double b, double c )
+{
+	double p = ( a+b+c )*0.5 ;
+	return sqrt( p*(p-a)*(p-b)*(p-c) ) ;
+}
+
+double triangleArea( Tcrp a, Tcrp b, Tcrp c )
+{
+	return triangleArea( PPdist(a,b), PPdist(b,c), PPdist(a,c) );
+}
+
+// 点到直线的距离 
+double PLdist( Tcrp p, Tcrp a, Tcrp b ) // make sure that a is distinct to b
+{
+	return triangleArea( p, a, b ) / PPdist( a, b ) ;
+}
+
+int n;
+Tpoint p[510];
+Tpoint v[510];
+
+int main()
+{
+	int cas;
+	cin >> cas;
+	for (int xxx=1; xxx<=cas; ++xxx)
+	{
+		cin >> n;
+		for (int i=1; i<=n; ++i)
+		{
+			cin >> p[i].x >> p[i].y >> p[i].z;
+			cin >> v[i].x >> v[i].y >> v[i].z;
+		}
+
+		double dmin = 1000000000;
+		int did;
+		Tpoint me; me.x = me.y = me.z = 0;
+		for (int i=1; i<=n; ++i)
+		{
+			if ((v[i].x < eps && v[i].y < eps && v[i].z < eps) && (p[i].x > eps || p[i].y > eps || p[i].z > eps))
+				continue;
+			Tpoint tmp;
+			tmp.x = p[i].x + v[i].x;
+			tmp.y = p[i].y + v[i].y;
+			tmp.z = p[i].z + v[i].z;
+			double dd = PLdist(me, p[i], tmp);
+			if (dd < dmin)
+			{
+				dmin = dd;
+				did = i;
+			}
+		}
+
+		cout << dmin << endl;
+	}
+}*/
+
+/*#include <iostream>
+#include <string>
+#include <cstring>
+using namespace std;
+
+bool vis[50]; //0-9 a-z
+char mean[50];
+char mymin;
+
+int conv(char x)
+{
+	if (x >= '0' && x <= '9')
+		return x-'0';
+	if (x >= 'a' && x <= 'z')
+		return x-'a'+10;
+	return 40;
+}
+
+long long cBase(string x, int base)
+{
+	long long sum = 0;
+	for (int i=0; i<x.length(); ++i)
+		sum = sum * base + conv(x[i]);
+	return sum;
+}
+
+int main()
+{
+	int cas;
+	cin >> cas;
+	for (int xxx=1; xxx<=cas; ++xxx)
+	{
+		memset(vis, 0, sizeof(vis));
+		memset(mean, -1, sizeof(mean));
+		mymin = '0';
+
+		string x;
+		cin >> x;
+		for (int i=0; i<x.length(); ++i)
+			vis[conv(x[i])] = true;
+
+		int base = 0;
+		for (int i=0; i<=35; ++i)
+			if (vis[i])
+				++base;
+		if (base == 1)
+			base = 2;
+
+		mean[conv(x[0])] = '1';
+		x[0] = '1';
+		for (int i=1; i<x.length(); ++i)
+		{
+			int id = conv(x[i]);
+			if (mean[id] >= 0)
+				x[i] = mean[id];
+			else
+			{
+				mean[id] = mymin;
+				x[i] = mymin;
+				if (mymin == '0')
+					mymin = '2';
+				else if (mymin == '9')
+					mymin = 'a';
+				else
+					++mymin;
+			}
+		}
+
+		long long res = cBase(x, base);
+		cout << "Case #" << xxx << ": " << res << endl;
+	}
+}*/
+
+#include <iostream>
+#include <cstring>
+#include <cmath>
+#include <algorithm>
+using namespace std;
+
+int p,q;
+bool f[200];
+int re[10];
+int mymin;
+
+int getcost(int x)
+{
+	int sum = 0;
+	for (int i=x-1; i>=1; --i)
+	{
+		if (f[i])
+			break;
+		++sum;
+	}
+	for (int i=x+1; i<=p; ++i)
+	{
+		if (f[i])
+			break;
+		++sum;
+	}
+	return sum;
+}
+
+void del(int x, int cost, int man)
+{
+	if (man == q-1)
+	{
+		cost += getcost(re[x]);
+		if (cost < mymin)
+		{
+			mymin = cost;
+		}
+		return;
+	}
+
+	int id = re[x];
+	re[x] = 0;
+	f[id] = true;
+	for (int i=1; i<=q; ++i)
+	{
+		if (re[i])
+		{
+			del(i, cost+getcost(id), man+1);
+		}
+	}
+
+	re[x] = id;
+	f[id] = false;
+}
+
+int main()
+{
+	int cas;
+	cin >> cas;
+	for (int xxx=1; xxx<=cas; ++xxx)
+	{
+		mymin = 0x7fffffff;
+		memset(f, 0, sizeof(f));
+		cin >> p >> q;
+		for (int i=1; i<=q; ++i)
+			cin >> re[i];
+
+		for (int i=1; i<=q; ++i)
+			del(i, 0, 0);
+
+		cout << "Case #" << xxx << ": " << mymin << endl;
+	}
+}

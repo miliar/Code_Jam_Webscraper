@@ -1,0 +1,84 @@
+#include<iostream>
+#include<math.h>
+    using namespace std;
+
+int main()
+{
+    int t,n,i,j,o[100],b[100],ol,bl,op,bp,time,change;
+    char ns[100];
+    cin>>t;
+    for(j=0;j<t;j++)
+    {
+        cin>>n;
+        ol=0;
+        bl=0;
+        for(i=0;i<n;i++)
+        {
+            cin>>ns[i];
+            if(ns[i]=='O')
+            {
+                cin>>o[ol];
+                ol++;
+            }
+            else
+            {
+                cin>>b[bl];
+                bl++;
+            }
+        }
+        time=0;
+        op=1;
+        bp=1;
+        bl=0;
+        ol=0;
+        for(i=0;i<n;i++)
+        {
+            if(ns[i]=='O')
+            {
+                change=fabs(o[ol]-op)+1;
+                op=o[ol];
+                ol++;
+                time+=change;
+                if((fabs(b[bl]-bp))<=change)
+                {
+                    bp=b[bl];
+                }
+                else
+                {
+                    if(bp>b[bl])
+                    {
+                        bp=bp-change;
+                    }
+                    else
+                    {
+                        bp=bp+change;
+                    }
+                }
+            }
+            else
+            {
+                change=fabs(b[bl]-bp)+1;
+                bp=b[bl];
+                bl++;
+                time+=change;
+                if((fabs(o[ol]-op))<=change)
+                {
+                    op=o[ol];
+                }
+                else
+                {
+                    if(op>o[ol])
+                    {
+                        op=op-change;
+                    }
+                    else
+                    {
+                        op=op+change;
+                    }
+                }
+            }
+        }
+        cout<<"Case #"<<j+1<<": "<<time<<"\n";
+    }
+    return 0;
+}

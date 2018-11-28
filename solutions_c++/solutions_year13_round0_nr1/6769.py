@@ -1,0 +1,164 @@
+#include<iostream>
+#include<string.h>
+#include<string>
+#include<stdio.h>
+using namespace std;
+int main(){
+    freopen("A-large.in","r",stdin);
+    freopen("a.out","w",stdout);
+    int i,j,k,cont,n;
+    bool hasPoint,xWin,win;
+    char tab[4][4];
+    char cad[16];
+    cin>>n;
+    int num=n;
+    k=1;
+    while(k<=num){
+        for(i=0;i<4;i++){
+            cin>>tab[i];
+        }
+        cout<<"Case #"<<k<<": ";
+        win=false;
+        xWin=false;
+        hasPoint=false;
+        cont=0;
+        for(i=0;i<4;i++){
+            for(j=0;j<4;j++){
+                if(tab[i][j]=='.')hasPoint=true;
+                cad[cont++]=tab[i][j];
+            }
+        }
+        for(i=0;i<10;i++){
+            if(i==0){
+                if(((cad[0]=='X')||(cad[0]=='T'))&&((cad[1]=='X')||(cad[1]=='T'))&&((cad[2]=='X')||(cad[2]=='T'))&&((cad[3]=='X')||(cad[3]=='T'))){
+                    xWin=true;
+                    win=true;
+                    break;
+                }
+                if(((cad[0]=='O')||(cad[0]=='T'))&&((cad[1]=='O')||(cad[1]=='T'))&&((cad[2]=='O')||(cad[2]=='T'))&&((cad[3]=='O')||(cad[3]=='T'))){
+                    xWin=false;
+                    win=true;
+                    break;
+                }
+            }
+            if(i==1){
+                if(((cad[4]=='X')||(cad[4]=='T'))&&((cad[5]=='X')||(cad[5]=='T'))&&((cad[6]=='X')||(cad[6]=='T'))&&((cad[7]=='X')||(cad[7]=='T'))){
+                    xWin=true;
+                    win=true;
+                    break;
+                }
+                if(((cad[4]=='O')||(cad[4]=='T'))&&((cad[5]=='O')||(cad[5]=='T'))&&((cad[6]=='O')||(cad[6]=='T'))&&((cad[7]=='O')||(cad[7]=='T'))){
+                    xWin=false;
+                    win=true;
+                    break;
+                }
+            }
+            if(i==2){
+                if(((cad[8]=='X')||(cad[8]=='T'))&&((cad[9]=='X')||(cad[9]=='T'))&&((cad[10]=='X')||(cad[10]=='T'))&&((cad[11]=='X')||(cad[11]=='T'))){
+                    xWin=true;
+                    win=true;
+                    break;
+                }
+                if(((cad[8]=='O')||(cad[8]=='T'))&&((cad[9]=='O')||(cad[9]=='T'))&&((cad[10]=='O')||(cad[10]=='T'))&&((cad[11]=='O')||(cad[11]=='T'))){
+                    xWin=false;
+                    win=true;
+                    break;
+                }
+            }
+            if(i==3){
+                if(((cad[12]=='X')||(cad[12]=='T'))&&((cad[13]=='X')||(cad[13]=='T'))&&((cad[14]=='X')||(cad[14]=='T'))&&((cad[15]=='X')||(cad[15]=='T'))){
+                    xWin=true;
+                    win=true;
+                    break;
+                }
+                if(((cad[12]=='O')||(cad[12]=='T'))&&((cad[13]=='O')||(cad[13]=='T'))&&((cad[14]=='O')||(cad[14]=='T'))&&((cad[15]=='O')||(cad[15]=='T'))){
+                    xWin=false;
+                    win=true;
+                    break;
+                }
+            }
+            if(i==4){
+                if(((cad[0]=='X')||(cad[0]=='T'))&&((cad[4]=='X')||(cad[4]=='T'))&&((cad[8]=='X')||(cad[8]=='T'))&&((cad[12]=='X')||(cad[12]=='T'))){
+                    xWin=true;
+                    win=true;
+                    break;
+                }
+                if(((cad[0]=='O')||(cad[0]=='T'))&&((cad[4]=='O')||(cad[4]=='T'))&&((cad[8]=='O')||(cad[8]=='T'))&&((cad[12]=='O')||(cad[12]=='T'))){
+                    xWin=false;
+                    win=true;
+                    break;
+                }
+            }
+            if(i==5){
+                if(((cad[1]=='X')||(cad[1]=='T'))&&((cad[5]=='X')||(cad[5]=='T'))&&((cad[9]=='X')||(cad[9]=='T'))&&((cad[13]=='X')||(cad[13]=='T'))){
+                    xWin=true;
+                    win=true;
+                    break;
+                }
+                if(((cad[1]=='O')||(cad[1]=='T'))&&((cad[5]=='O')||(cad[5]=='T'))&&((cad[9]=='O')||(cad[9]=='T'))&&((cad[13]=='O')||(cad[13]=='T'))){
+                    xWin=false;
+                    win=true;
+                    break;
+                }
+            }
+            if(i==6){
+                if(((cad[2]=='X')||(cad[2]=='T'))&&((cad[6]=='X')||(cad[6]=='T'))&&((cad[10]=='X')||(cad[10]=='T'))&&((cad[14]=='X')||(cad[14]=='T'))){
+                    xWin=true;
+                    win=true;
+                    break;
+                }
+                if(((cad[2]=='O')||(cad[2]=='T'))&&((cad[6]=='O')||(cad[6]=='T'))&&((cad[10]=='O')||(cad[10]=='T'))&&((cad[14]=='O')||(cad[14]=='T'))){
+                    xWin=false;
+                    win=true;
+                    break;
+                }
+            }
+            if(i==7){
+                if(((cad[3]=='X')||(cad[3]=='T'))&&((cad[7]=='X')||(cad[7]=='T'))&&((cad[11]=='X')||(cad[11]=='T'))&&((cad[15]=='X')||(cad[15]=='T'))){
+                    xWin=true;
+                    win=true;
+                    break;
+                }
+                if(((cad[3]=='O')||(cad[3]=='T'))&&((cad[7]=='O')||(cad[7]=='T'))&&((cad[11]=='O')||(cad[11]=='T'))&&((cad[15]=='O')||(cad[15]=='T'))){
+                    xWin=false;
+                    win=true;
+                    break;
+                }
+            }
+            if(i==8){
+                if(((cad[0]=='X')||(cad[0]=='T'))&&((cad[5]=='X')||(cad[5]=='T'))&&((cad[10]=='X')||(cad[10]=='T'))&&((cad[15]=='X')||(cad[15]=='T'))){
+                    xWin=true;
+                    win=true;
+                    break;
+                }
+                if(((cad[0]=='O')||(cad[0]=='T'))&&((cad[5]=='O')||(cad[5]=='T'))&&((cad[10]=='O')||(cad[10]=='T'))&&((cad[15]=='O')||(cad[15]=='T'))){
+                    xWin=false;
+                    win=true;
+                    break;
+                }
+            }
+            if(i==9){
+                if(((cad[3]=='X')||(cad[3]=='T'))&&((cad[6]=='X')||(cad[6]=='T'))&&((cad[9]=='X')||(cad[9]=='T'))&&((cad[12]=='X')||(cad[12]=='T'))){
+                    xWin=true;
+                    win=true;
+                    break;
+                }
+                if(((cad[3]=='O')||(cad[3]=='T'))&&((cad[6]=='O')||(cad[6]=='T'))&&((cad[9]=='O')||(cad[9]=='T'))&&((cad[12]=='O')||(cad[12]=='T'))){
+                    xWin=false;
+                    win=true;
+                    break;
+                }
+            }
+        }
+        if(win){
+            if(xWin)cout<<"X won"<<endl;
+            else cout<<"O won"<<endl;
+        }
+        else{
+            if(hasPoint){cout<<"Game has not completed"<<endl;}
+            else{cout<<"Draw"<<endl;}
+        }
+        k++;
+    }
+}
+

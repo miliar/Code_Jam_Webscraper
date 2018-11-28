@@ -1,0 +1,76 @@
+#pragma warning(disable:4786)
+
+#include <vector>
+#include <string>
+#include <map>
+#include <set>
+#include <cstdio>
+#include <algorithm>
+#include <queue>
+#include <sstream>
+#include <iostream>
+#include <math.h>
+#include <fstream>
+
+using namespace std;
+
+#define VT vector
+typedef VT<int> VI;
+typedef VT<VI> VVI;
+typedef VT<string> VS;
+typedef VT<double> VD;
+typedef pair<int,int> PII;
+#define REP(i,n) for (int i = 0; i < (n); i++)
+#define ALL(c) c.begin(),c.end()
+#define pb push_back
+#define mp make_pair
+#define fs first
+#define sc second
+#define sz size()
+
+ifstream ifs;
+ofstream ofs;
+
+typedef long long ll;
+
+void testcase(int tst)
+{
+	int n;
+	ifs >> n;
+
+	int sum = 0;
+	int mn = 2000000000;
+	int xr = 0;
+	REP(i, n) {
+		int c;
+		ifs >> c;
+		sum += c;
+		mn = min(mn, c);
+		xr ^= c;
+	}
+
+	ofs << "Case #" << tst+1 << ": ";
+
+	if (xr != 0) {
+		ofs << "NO";
+	} else {
+		ofs << sum - mn;
+	}
+
+	ofs << endl;
+}
+
+int main()
+{
+	ifs.open("input.txt");
+	ofs.open("output.txt");
+	
+	int t;
+	ifs >> t;
+	REP(tn, t)
+	{
+		testcase(tn);
+	}
+
+	return 0;
+} 

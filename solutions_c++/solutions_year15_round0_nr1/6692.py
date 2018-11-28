@@ -1,0 +1,98 @@
+/**
+	site
+	A name (Code: Standing_Ovation)
+	Source: GCJ.Qual 2015
+*/
+
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <cmath>
+
+#include <iostream>
+#include <iterator>
+#include <algorithm>
+#include <functional>
+#include <string>
+#include <map>
+#include <vector>
+#include <set>
+
+typedef long long ll;
+typedef long long unsigned llu;
+
+#define	_min(a,b)	((a)<(b)?(a):(b))
+#define _max(a,b)	((a)>(b)?(a):(b))
+
+#define GI ({int t;scanf("%d",&t);t;})
+#define GL ({ll t;scanf("%lld",&t);t;})
+#define GD ({double t;scanf("%lf",&t);t;})
+
+#define FOR(i,a,b) for(int i = a; i < b; i++)
+#define ROF(i,a,b) for(int i=a;i>b;i--)
+#define REP(i,n) FOR(i,0,n)
+
+#define MOD 1000000007
+#define INF (int)1e9
+#define EPS 1e-9
+
+#define IT(a,it) for (typeof((a).begin()) it = (a).begin(); it != (a).end(); ++it)
+#define pb push_back
+#define mp make_pair
+
+// #define DEBUG
+
+#ifdef DEBUG
+	std::string tabs;
+	#define INDENT		tabs+="\t"
+	#define _EXIT(val)	{ UNINDENT; return val; }
+	#define UNINDENT	tabs.erase(tabs.length()-1)
+	#define SHOW(x)		cout << tabs << x
+	#include <time.h>
+	#define STARTTIME	clock_t start = clock();
+	#define GETTIME		printf("Time elapsed: %f\n", ((double)clock() - start) / CLOCKS_PER_SEC);
+	#define _DEBUG(x)	x
+#else
+	#define INDENT
+	#define _EXIT(val)	return val
+	#define UNINDENT
+	#define SHOW(x)
+	#define STARTTIME
+	#define GETTIME
+	#define _DEBUG(x)
+#endif
+
+using namespace std;
+
+char str[10000];
+
+void solve()
+{
+	int t = GI;
+	REP(i, t)
+	{
+		int smax = GI;
+		int sol = 0;
+		scanf(" %s\n", str);
+		
+		int c = 0;
+		REP(j, smax+1)
+		{
+			if (c + sol < j)
+				sol += j - c - sol;
+			c += str[j] - '0';
+		}
+		
+		cout << "Case #" << i+1 << ": " << sol << endl;
+	}
+}
+
+int main()
+{
+	STARTTIME;
+	
+	solve();
+	
+	GETTIME;
+	return 0;
+}

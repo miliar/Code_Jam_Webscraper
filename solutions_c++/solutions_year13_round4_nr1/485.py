@@ -1,0 +1,117 @@
+#include<cstdio>
+#include<cmath>
+#include<cassert>
+#include<cstring>
+#include<ctime>
+#include<iostream>
+#include<fstream>
+#include<sstream>
+#include<algorithm>
+#include<utility>
+#include<vector>
+#include<string>
+#include<map>
+#include<set>
+#include<deque>
+#include<queue>
+#include<stack>
+#include<list>
+#include<unordered_set>
+#include<unordered_map>
+using namespace std;
+#define mp make_pair
+#define pb push_back
+#define all(v) v.begin(),v.end()
+#define sz size()
+#define fi(i,n) for(size_t i=0;i<(n);++i)
+#define fv(i,v) fi(i,(v).sz)
+#define fit(i,v) for(auto i=v.begin();i!=v.end();++i)
+#define frit(i,v) for(auto i=(v).rbegin();i!=(v).rend();++i)
+#define fab(i,a,b) for(int i=(a);i<=(b);++i)
+#define fba(i,b,a) for(int i=(b);i>=(a);--i)
+#define INPC(t,x) t x;cin>>x
+#define INP(x) INPC(int,x)
+#define INP2(x,y) INP(x);INP(y)
+#define INP3(x,y,z) INP2(x,y);INP(z)
+#define INPS(x) INPC(string,x)
+#define readArr(ptr,n) {fi(i,n)cin>>*((ptr)+i);}
+#define readVec(v) readArr(v.begin(),(v).sz)
+#define printArr(ptr,n) {fi(i,n)cout<<*((ptr)+i)<<(i==n-1?endl:' ');}
+#define printVec(v) printArr(v.begin(),(v).sz)
+#define uint unsigned int
+#define uchar unsigned char
+#define LL long long
+#define uLL unsigned LL
+#define V vector
+#define VI vector<int>
+#define VL vector<uLL>
+#define VS vector<string>
+#define P pair
+uLL fact(uLL n,uLL m){return n?n*fact(n-1,m)%m:1;}
+uLL gcd(uLL a,uLL b){return a?gcd(b%a,b):b;}
+uLL lcm(uLL a,uLL b){return a/gcd(a,b)*b;}
+uLL qpow(uLL a,uLL b,uLL m){return b?(b%2?b:1)*qpow(a*a%m,b/2,m)%m:1;}
+bool isPow2(uLL x){return !(x&(x-1));}
+void solve_the_problem();
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt","rt",stdin), freopen("output.txt","wt",stdout);	uLL t = clock();
+#endif
+	int tn;
+	cin >> tn;
+	for (int i = 0; i < tn; ++i) {
+		cout << "Case #" << (i + 1) << ": ";
+		solve_the_problem();
+	}
+#ifdef _DEBUG
+	cerr << "Time: " << (double(clock() - t) / CLOCKS_PER_SEC) << endl;
+#endif
+	return 0;
+}
+
+LL price(LL length, LL n) {
+	return n * (n + 1) / 2 - (n - length) * (n - length + 1) / 2;
+}
+
+#define MOD 1000002013
+
+void solve_the_problem() {
+	INP2(n, m);
+	VI stations(n);
+	VI tunnels(n);
+	LL left = 0;
+	LL bad_price = 0;
+	fi (i, m) {
+		INP3(from, to, num);
+		--from, --to;
+		bad_price += num * price(to - from, n);
+		bad_price %= MOD;
+		fab(j, from, to - 1) {
+			tunnels[j] += num;
+			left += num;
+		}
+	}
+	LL cost = 0;
+	while (left > 0) {
+		int from = 0;
+		LL pass = INT_MAX;
+		fv(i, tunnels) {
+			if (tunnels[i] == 0) {
+				int length = i - from;
+				cost += pass * price(length, n);
+				cost %= MOD;
+				for (LL j  = from; j < i; ++j) {
+					tunnels[j] -= pass;
+					left -= pass;
+				}
+				from = i + 1;
+				if (from < n - 1) {
+					pass = tunnels[i + 1];
+				}
+			} else {
+				pass = min(pass, LL(tunnels[i]));
+			}
+		}
+	}
+	cout << (bad_price + MOD - cost) % MOD << endl;
+}

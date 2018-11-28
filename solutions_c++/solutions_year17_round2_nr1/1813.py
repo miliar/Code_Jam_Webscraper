@@ -1,0 +1,64 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <unordered_set>
+#include <algorithm>
+#include <functional>
+#include <cstdlib>
+#include <ctime>
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <string>
+#include <set>
+#include <map>
+#include <bitset>
+#include <unordered_map>
+#include <iomanip>
+#include <queue>
+
+#define mp make_pair
+#define pb push_back
+#define FI first
+#define SI second
+
+
+#ifdef _MSC_VER
+#define ALIGN(x) __declspec(align(x))
+#else
+#define ALIGN(x) __attribute__((aligned(x)))
+#endif
+
+using namespace std;
+
+typedef long long ll;
+
+const int maxn = 1000007;
+
+vector<pair<int, int> > p;
+pair<ll, ll> z, c;
+ll S;
+
+int main() {
+
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+
+    freopen("A-large.in", "r", stdin);
+    freopen("output.txt", "w", stdout);
+
+    int T;
+    cin >> T;
+    for (int t = 1; t <= T; ++t) {
+        int d, n;
+        double tm = 0;
+        cin >> d >> n;
+        for (int i = 0; i < n; ++i) {
+            int k, s;
+            cin >> k >> s;
+            tm = max(tm, (double)(d - k) / (double)s);
+        }
+        cout << "Case #" << t << ": " << std::fixed << std::setprecision(6) << (double)d / tm << endl;
+    }
+    return 0;
+}

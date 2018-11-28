@@ -1,0 +1,79 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define fastScan ios_base::sync_with_stdio(0); cin.tie(NULL);
+#define ABS(x) ((x) < 0 ? -1*(x) : (x))
+#define MAX(x,y) ((x) > (y) ? (x) : (y))
+#define MIN(x,y) ((x) < (y) ? (x) : (y))
+#define mp make_pair
+#define pb push_back
+#define MOD 1000000007
+#define INF 2000000000
+#define BINF 20000000000000000LL
+#define trace(x)                 cerr << #x << ": " << x << endl;
+#define trace1(x)                cerr << #x << ": " << x << endl;
+#define trace2(x, y)             cerr << #x << ": " << x << " | " << #y << ": " << y << endl;
+#define trace3(x, y, z)          cerr << #x << ": " << x << " | " << #y << ": " << y << " | " << #z << ": " << z << endl;
+#define trace4(a, b, c, d)       cerr << #a << ": " << a << " | " << #b << ": " << b << " | " << #c << ": " << c << " | " << #d << ": " << d << endl;
+#define trace5(a, b, c, d, e)    cerr << #a << ": " << a << " | " << #b << ": " << b << " | " << #c << ": " << c << " | " << #d << ": " << d << " | " << #e << ": " << e << endl;
+#define trace6(a, b, c, d, e, f) cerr << #a << ": " << a << " | " << #b << ": " << b << " | " << #c << ": " << c << " | " << #d << ": " << d << " | " << #e << ": " << e << " | " << #f << ": " << f << endl;
+using namespace std;
+typedef long long ll;
+typedef long double ld;
+typedef pair<ll,ll> pl;
+const ld PI = acos(-1.0);
+
+int main()
+{
+	fastScan;
+	int T,N,K,i,j,l;
+	cin >> T;
+	string str;
+	for(l = 1; l <= T; ++l)
+	{
+		cin >> str;
+		N = str.size();
+		cin >> K;
+
+		string str1 = str;
+		int ans = INF, steps = 0;
+		for(i = 0; i+K-1 < N; ++i)
+		{
+			if(str[i] == '-')
+			{
+				++steps;
+				for(j = 0; j < K; ++j)
+					str[i+j] = ((str[i+j] == '+') ? '-' : '+');
+			}
+		}
+		for(i = 0; i < N; ++i)
+			if(str[i] != '+')
+				break;
+		if(i == N)
+			ans = steps;
+
+
+		steps = 0;
+		for(i = N-1; i >= K-1; --i)
+		{
+			if(str1[i] == '-')
+			{
+				++steps;
+				for(j = 0; j < K; ++j)
+					str1[i-j] = ((str1[i-j] == '+') ? '-' : '+');
+			}
+		}
+		for(i = 0; i < N; ++i)
+			if(str1[i] != '+')
+				break;
+		if(i == N)
+			ans = MIN(ans,steps);
+
+		cout << "Case #" << l << ": ";
+		if(ans == INF)
+			cout << "IMPOSSIBLE";
+		else
+			cout << ans;
+		cout << endl;
+	}
+	return 0;
+}

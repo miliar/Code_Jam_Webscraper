@@ -1,0 +1,68 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <bits/stdc++.h>
+#include <unordered_set>
+#include <unordered_map>
+using namespace std;
+typedef long long          ll;
+typedef unsigned long long ull;
+typedef long double        ld;
+#define all(A)             A.begin(), A.end()
+#define rall(A)            A.rbegin(), A.rend()
+#define mem(A, B)          memset(A, B, sizeof A)
+#define sorta(A)           sort(all(A))
+#define sortd(A)           sort(rall(A))
+#define sortf(A, F)        sort(all(A), F)
+#define PI                 (acos(0.) * 2)
+#define eps                .000000001
+#define oo                 1000000000
+template <class T> inline void remax(T& A, T B){ if(A < B)A = B; }
+template <class T> inline void remin(T& A, T B){ if(A > B)A = B; }
+string ToString(ll num){ string ret; bool neg = false; if(num < 0)num *= ~0, neg = true; do{ ret += ((num % 10) + '0'); num /= 10; } while(num); if(neg)ret += '-'; reverse(all(ret)); return ret; }
+ll ToNumber(string s){ ll r = 0, p = 1; int e = (s[0] == '-'); for(int i = (int)s.size() - 1; i >= e; --i)r += (s[i] - '0') * p, p *= 10; if(e)r *= ~0; return r; }
+ll Gcd(ll a, ll b){ while(a %= b ^= a ^= b ^= a);  return b; }
+ll Power(ll base, ull power){ ll ret = 1; while(power){ if(power & 1)ret *= base; power >>= 1; base *= base; } return ret; }
+ll PowerMod(ll base, ull power, ll mod){ if(!power)return 1 % mod; if(power & 1)return (base * PowerMod(base, power - 1, mod)) % mod; return PowerMod((base * base) % mod, power >> 1, mod); }
+int Log(ll num, ll base){ int ret = 0; while(num){ ++ret; num /= base; } return ret; }
+
+
+inline void run(){
+	int t;
+	scanf("%d", &t);
+	for(int tt = 1; tt <= t; ++tt){
+		char ch[20];
+		int n;
+		scanf("%s", ch);
+		n = strlen(ch);
+		for(int i = 1; i < n; ++i)
+			if(ch[i] < ch[i - 1]){
+				int p = i;
+				while(p && ch[p] < ch[p - 1])--ch[--p];
+				while(++p < n)ch[p] = '9';
+				break;
+			}
+		printf("Case #%d: ", tt);
+		for(int i = (ch[0] == '0'); i < n; ++i)
+			putchar(ch[i]);
+		puts("");
+	}
+}
+int main(){
+	FILE *input = stdin;
+	FILE *output = stdout;
+#ifdef LOCAL
+	input = freopen("in.in", "r", stdin);
+	output = freopen("out.out", "w", stdout);
+#endif
+	while(!feof(input)){
+		run();
+#ifndef LOCAL
+		puts("");
+#else
+		break;
+#endif
+	}
+#ifndef LOCAL
+	fprintf(output, "\n\ntime: %d ms\n", (int)(clock() * 1000. / CLOCKS_PER_SEC));
+#endif
+	return 0;
+}

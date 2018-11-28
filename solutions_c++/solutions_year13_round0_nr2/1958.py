@@ -1,0 +1,77 @@
+#include<stdio.h>
+int map[110][110],n_max[110],m_max[110],QQ[110][110];
+int main(){
+	freopen("input3.in","r",stdin);
+	freopen("output.txt","w",stdout);
+	int n,m,k,i,j,max,T;
+	scanf("%d",&T);
+	for(j=1;j<=T;j++)
+	{
+		scanf("%d%d",&n,&m);
+		for(k=1;k<=n;k++)
+		{
+			for(i=1;i<=m;i++)
+			{
+				QQ[k][i]=100;
+				scanf("%d",&map[k][i]);
+			}
+		}
+		for(k=1;k<=n;k++)
+		{
+			max=0;
+			for(i=1;i<=m;i++)
+			{
+				if(map[k][i]>max)
+				{
+					max=map[k][i];
+				}
+			}
+			n_max[k]=max;
+		}
+		for(k=1;k<=m;k++)
+		{
+			max=0;
+			for(i=1;i<=n;i++)
+			{
+				if(map[i][k]>max)
+				{
+					max=map[i][k];
+				}
+			}
+			m_max[k]=max;
+		}
+		for(k=1;k<=n;k++)
+		{
+			for(i=1;i<=m;i++)
+			{
+				if(QQ[k][i]>n_max[k])
+				{
+					QQ[k][i]=n_max[k];
+				}
+			}
+		}
+		for(k=1;k<=m;k++)
+		{
+			for(i=1;i<=n;i++)
+			{
+				if(QQ[i][k]>m_max[k])
+				{
+					QQ[i][k]=m_max[k];
+				}
+			}
+		}
+		for(k=1;k<=n;k++)
+		{
+			for(i=1;i<=m;i++)
+			{
+				if(map[k][i]!=QQ[k][i])
+				{
+					printf("Case #%d: NO\n",j);
+					goto AAA;
+				}
+			}
+		}
+		printf("Case #%d: YES\n",j);
+		AAA:;
+	}
+}

@@ -1,0 +1,1 @@
+int calculateLastNumber(int startNumber);
