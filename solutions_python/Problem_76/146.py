@@ -1,1 +1,0 @@
-for T in range(input()):n=input();x=sorted(map(int,raw_input().split()));z=i=0;exec"z^=x[i];i+=1;"*n; print"Case #%s:"%(T+1),[sum(x[1:]),"NO"][0<z]
