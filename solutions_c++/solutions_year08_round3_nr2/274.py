@@ -1,0 +1,5 @@
+project(UglyNumbers)
+include(FindBoost)
+include_directories(${boost_include_dirs})
+add_executable(UglyNumbers UglyNumbers.cpp)
+target_link_libraries(UglyNumbers m)

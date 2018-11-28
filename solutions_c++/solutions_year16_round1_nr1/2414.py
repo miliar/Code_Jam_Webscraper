@@ -1,0 +1,125 @@
+#include<stdio.h>
+#include<string.h>
+char a[2010];
+int main(){
+    int test;
+    scanf("%d",&test);
+    for(int kk=1;kk<=test;kk++){
+    char c[2001];
+    scanf("%s",c);
+    int p = 1001 , q = 1001;
+    a[p] = c[0];
+    int n = (int)strlen(c);
+    for(int i=1;i<n;i++){
+        if(c[i] >= a[p]) { a[p-1] = c[i] ; p = p-1; }
+        else {a[q+1] = c[i] ,q = q+1; }
+    }
+        printf("Case #%d: ",kk+87);
+        for(int i=p;i<=q;i++){
+        printf("%c",a[i]);
+    }
+        printf("\n");
+    }
+}
+/*
+Case #1: CAB
+Case #2: MJA
+Case #3: OCDE
+Case #4: BBAAA
+Case #5: CCCABBBAB
+Case #6: CCCBAABAB
+Case #7: ZXCASDQWE
+Case #8: MMLKJHABCDEFGIA
+Case #9: CCCCBBBAABAAA
+Case #10: ZAAAA
+Case #11: CCCCCBBBBBAAAAA
+Case #12: CCCBBBBAABBBBBA
+Case #13: CCCCCBBBBBAAAAA
+Case #14: ZEDCBAYXWU
+Case #15: AA
+Case #16: CCCCCBBBBBAAAAA
+Case #17: CCCCCABBBBBBBAA
+Case #18: ZDCBA
+Case #19: CCCCCABBBBBAAAA
+Case #20: CBBAAAAAAAAAAA
+Case #21: BAAA
+Case #22: CCCCCBAABAAAABA
+Case #23: CCCCCBBBBBAAAAA
+Case #24: ZAYBXCWDUE
+Case #25: ZDABC
+Case #26: ONMLKEJHGFADCBI
+Case #27: BAA
+Case #28: CCCCCCCAAAABBBA
+Case #29: DDCCCBBBBAABBB
+Case #30: BA
+Case #31: CCCCCBBBAAABAAB
+Case #32: BA
+Case #33: ZABYCXDWEU
+Case #34: DCCCBBBAAAAAC
+Case #35: A
+Case #36: ZADBC
+Case #37: CCCCCCCCBAABABB
+Case #38: CCCBAAAAAAAAA
+Case #39: CCCCCBBBBAABAAA
+Case #40: CCCCCBBBBBAAAAA
+Case #41: CCCCCBBBBBAAAAA
+Case #42: YXFNJTWNPXJLKVH
+Case #43: OMNLBDAGJHEICFK
+Case #44: CBA
+Case #45: CCCCCBBAABABBAA
+Case #46: OMNLIHGKEFBDCJA
+Case #47: MMBCFHIJALKGEDA
+Case #48: OBLDEFCHIJNGMKA
+Case #49: BBA
+Case #50: CAB
+Case #51: OMNLAJGHIFEDCBK
+Case #52: BAA
+Case #53: CCCCCBBBBBAAAAA
+Case #54: CCCCCCBBBAABAAB
+Case #55: ZACBA
+Case #56: BBBBBAAAAAAAA
+Case #57: WTRQMHMSVVHHSGV
+Case #58: ONMLKJECAGIHBFD
+Case #59: CCCCCAAAABBBBBA
+Case #60: BBB
+Case #61: MMLKJIGFEDCABHA
+Case #62: CCBBBBAAAAAAA
+Case #63: DDCCBBBAABACB
+Case #64: BAA
+Case #65: CBBBBBBBBBAAB
+Case #66: RRBAACADABA
+Case #67: VTSRQMMQRMJPMRL
+Case #68: ONMLJBDEACHGIKF
+Case #69: OFIDEAGNLCKHMBJ
+Case #70: CBA
+Case #71: CBA
+Case #72: ZYYRGHMGJHSSDXR
+Case #73: DDCCCCBBAAAAA
+Case #74: CCCCCCCCAAAAABB
+Case #75: CBA
+Case #76: MMABCEGJKLAIHFD
+Case #77: BAAA
+Case #78: MMIHGFEABCDJKLA
+Case #79: CCCCCBBAABBBBBB
+Case #80: BBA
+Case #81: BAAA
+Case #82: MMLJGEDAAKIHFCB
+Case #83: Z
+Case #84: CCCCCBBBBAABAAA
+Case #85: CCCCBBBABAABBBB
+Case #86: CCCBBAAABBABABA
+Case #87: ONLJADMIHFCEKGB
+Case #88: ONMGFEDCBAHJKLI
+Case #89: CCCCCCAAABBBBBA
+Case #90: BAAA
+Case #91: ZABCD
+Case #92: XXQKWBFJDLBLQMR
+Case #93: BBA
+Case #94: BB
+Case #95: CCBAAAAAAABBBBA
+Case #96: CCCCCABBBAAABAB
+Case #97: AAA
+Case #98: DCCCCBAAAAABAB
+Case #99: CBBBBBBBBBBAAAA
+Case #100: CCBBABBAAAAABBB
+*/

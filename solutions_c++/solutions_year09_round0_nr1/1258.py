@@ -1,0 +1,93 @@
+#define _CRT_SECURE_NO_DEPRECATE
+#include<vector>
+#include<deque>
+#include<list>
+#include<set>
+#include<map>
+#include<numeric>
+#include<iostream>
+#include<sstream>
+using namespace std;
+
+#define sz(X) ((int)(X).size())
+#define pb push_back
+#define mp make_pair
+#define X first
+#define Y second
+#define all(X) (X).begin(),(X).end()
+#define FOR(I,S,N) for(int I=(S);I<(N);++I)
+#define REP(I,N) FOR(I,0,N)
+#define PR(X) cout<<#X<<" = "<<(X)<<" "
+#define PRL cout<<endl
+#define PRV(X) {cout<<#X<<" = {";int __prv;REP(__prv,sz(X)-1) cout<<(X)[__prv]<<",";cout<<(X).back()<<"}"<<endl;}
+
+typedef long long lint;
+typedef vector<int> VI;
+typedef pair<int,int> PII;
+
+#define SS stringstream
+template<typename T> string tos(T q,int w=0){SS A;A.flags(ios::fixed);A.precision(w);A<<q;string s;A>>s;return s;}
+template<typename T> T sto(string s){SS A(s);T t;A>>t;return t;}
+template<typename T> vector<T > s2v(string s){SS A(s);vector<T > ans;while(A&&!A.eof()){T t;A>>t;ans.pb(t);}return ans;}
+	
+// end of pre-inserted code
+
+#define MAXL 20
+#define DIM 6000
+int D[DIM][MAXL];
+
+
+
+VI getmask(char s[]) {
+	int len = strlen(s);
+	int p = 0;
+	VI ans;
+	while(p < len) {
+		int a = 0;
+		if(isalpha(s[p])) {
+			a = (1<<(s[p]-'a'));
+		}
+		else if(s[p] == '('){
+			++p;
+			while(s[p] != ')') {
+				a = a | (1<<(s[p]-'a'));
+				++p;
+			}
+		}
+		else cerr << "wtf?";
+
+		++p;
+		ans.pb(a);
+	}
+	return ans;
+}
+
+int main() {
+	freopen("A-large.in","r",stdin);
+	freopen("A-large.out","w",stdout);
+
+	int l, d, n;
+	char buf[1024];
+	scanf("%d %d %d",&l,&d,&n);
+	REP(i,d) {
+		scanf("%s",buf);
+		REP(j,l) D[i][j] = (1<<(buf[j]-'a'));
+	}
+	VI mask;
+	REP(i,n) {
+		scanf("%s",buf);
+		mask = getmask(buf);
+		int cc = 0;
+		REP(j,d) {
+			bool bb = true;
+			REP(k,l) if(!(D[j][k] & mask[k])) {
+				bb = false;
+				break;
+			}
+			if(bb) ++cc;
+		}
+		printf("Case #%d: %d\n",i+1,cc);
+	}
+	fclose(stdout);
+	return 0;
+}

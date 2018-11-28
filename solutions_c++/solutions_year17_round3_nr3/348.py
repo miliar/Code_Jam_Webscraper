@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define REP(_x,_y) for(int (_x)=0;(_x)<(_y);(_x)++)
+#define FOR(_x,_y,_z) for(int (_x)=(_y);(_x)<=(_z);(_x)++)
+#define FORD(_x,_y,_z) for(int (_x)=(_y);(_x)>=(_z);(_x)--)
+#define RESET(_x,_y) memset((_x),(_y),sizeof(_x))
+#define SZ(_x) ((int)(_x).size())
+#define LEN(_x) strlen(_x)
+#define ALL(_x) (_x).begin(),(_x).end()
+#define LL long long
+#define ULL unsigned LL
+#define PII pair<int,int>
+#define VI vector<int>
+#define VII vector< PII >
+#define VVI vector< VI >
+#define MP make_pair
+#define PB push_back
+#define FI first
+#define SE second
+const int INF=1e9;
+const int MOD=1e9+7;
+// >.<
+int t,tc=1,n,k;
+double u,p[50];
+int main(){
+	scanf("%d",&t);
+	while(t--){
+		scanf("%d %d",&n,&k);
+		scanf("%lf",&u);
+		REP(i,n)scanf("%lf",&p[i]);
+		sort(p,p+n);
+		double an=p[0];
+		FOR(i,1,n-1)an=an*p[i];
+		REP(i,n){
+			double need=0.0;
+			FOR(j,0,i)need+=p[i]-p[j];
+			if(need>u)continue;
+			double fair=(u-need)/(double)(i+1),qq=1.0;
+			REP(j,n){
+				if(j<=i)qq=qq*(p[i]+fair);
+				else qq=qq*p[j];
+			}
+			an=max(an,qq);
+		}
+		printf("Case #%d: %.9lf\n",tc++,an);
+	}
+	return 0;
+}

@@ -1,0 +1,11 @@
+#include<iostream>
+#include<cstring>
+#include<vector>
+#include<algorithm>
+#include<set>
+#include<cstdio>
+using namespace std;
+#define N 12int dp[1<<N];int haha[3];int num[3];int n;char word[5] = "RPS";int ok(int t,int p,int dep,string &ans){    if(dep == 0){        ans+=word[t];        return 1;    }    string a="",b="";    int x = t-1;    if(x == -1) x = 2;    if(num[x] <= 0) return 0;    num[x]--;    if(ok(t,p,dep-1,a) == 0) return 0;    int flag = ok(x,p+(1<<dep)/2,dep-1,b);    if(flag == 0) return 0;    if(a < b) ans = a+ b;    else ans = b+a;    return flag;}
+int main(){    freopen("A.in","r",stdin);    freopen("A.out","w",stdout);
+    int t;    cin>>t;    for(int tt = 1; tt <= t; tt++){//        cin>>n;        for(int i = 0;i < 3; i++){            cin>>num[i];            haha[i] = num[i];        }        int flag = 0;        num[0]--;        vector<string> res;        res.clear();        string ans = "";        if(num[0] >= 0){            flag = ok(0,0,n,ans);//cout<<endl;            if(flag) res.push_back(ans);            //cout<<ans<<endl;        }        for(int i = 0;i < 3; i++)            num[i] = haha[i];        num[1]--;        if(num[1] >= 0){            ans ="";            flag = ok(1,0,n,ans);//cout<<endl;            if(flag) res.push_back(ans);            //cout<<ans<<endl;        }        for(int i = 0;i < 3; i++)            num[i] = haha[i];        num[2]--;        if(num[2] >= 0){            ans = "";            flag = ok(2,0,n,ans);//cout<<endl;            if(flag) res.push_back(ans);            //cout<<ans<<endl;        }        printf("Case #%d: ",tt);        if(res.size() == 0) printf("IMPOSSIBLE\n");        else {            sort(res.begin(),res.end());            //ans = res[0];            //cout<<ans.c_str()<<endl;            cout<<res[0]<<endl;            //for(int i = 0;i < (1<<n);i++)            //    putchar(word[dp[i]]);            //printf("\n");        }    }
+}

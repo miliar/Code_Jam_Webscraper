@@ -1,0 +1,119 @@
+#include <cstdlib>
+#include <cmath>
+#include <climits>
+#include <cfloat>
+#include <map>
+#include <utility>
+#include <set>
+#include <iostream>
+#include <memory>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <functional>
+#include <sstream>
+#include <deque>
+#include <complex>
+#include <stack>
+#include <queue>
+#include <cstdio>
+#include <cctype>
+#include <cstring>
+#include <ctime>
+#include <iterator>
+#include <bitset>
+#include <numeric>
+#include <list>
+#include <iomanip>
+
+#if __cplusplus >= 201103L
+#include <array>
+#include <tuple>
+#include <initializer_list>
+#include <unordered_set>
+#include <unordered_map>
+#include <forward_list>
+
+#define cauto const auto&
+#endif
+
+using namespace std;
+
+
+typedef long long LL;
+typedef pair<int,int> pii;
+typedef pair<LL,LL> pll;
+
+typedef vector<int> vint;
+typedef vector<vector<int> > vvint;
+typedef vector<long long> vll, vLL;
+typedef vector<vector<long long> > vvll, vvLL;
+
+#define VV(T) vector<vector< T > >
+
+template <class T>
+void initvv(vector<vector<T> > &v, int a, int b, const T &t = T()){
+	v.assign(a, vector<T>(b, t));
+}
+
+template <class F, class T>
+void convert(const F &f, T &t){
+	stringstream ss;
+	ss << f;
+	ss >> t;
+}
+
+
+#define REP(i,n) for(int i=0;i<int(n);++i)
+#define ALL(v) (v).begin(),(v).end()
+#define RALL(v) (v).rbegin(),(v).rend()
+#define PB push_back
+
+
+#define MOD 1000000009LL
+#define EPS 1e-8
+
+
+double solve(){
+	LL opt = 0;
+	
+	LL n, p, q, r, s;
+	cin >> n >> p >> q >> r >> s;
+	vector<LL> sum(n + 1);
+	for(LL i = 1; i <= n; ++i){
+		sum[i] = ((i - 1) * p + q) % r + s + sum[i - 1];
+	}
+	LL as = sum.back();
+
+	for(LL a = 0; a <= n; ++a){
+		LL x = sum[a];
+		LL t = (as + x) / 2;
+		LL k = lower_bound(ALL(sum), t) - sum.begin();
+		LL v = max(k - 10, a);
+		LL w = min(k + 10, n);
+		for(LL j = v; j <= w; ++j){
+			LL y = sum[j] - sum[a];
+			LL z = as - sum[j];
+			opt = max(opt, sum.back() - max({x, y, z}));
+		}
+	}
+	
+	double ans = (double)opt / as;
+	
+	return ans;
+}
+
+
+int main(){
+	cout << fixed << setprecision(15);
+	cerr << fixed << setprecision(6);
+
+	int T = 0;
+	cin >> T;
+	for(int cnum = 1; cnum <= T; ++cnum){
+		fprintf(stderr, "%4d / %d\n", cnum, T);
+		cout << "Case #" << cnum << ": " << flush;
+		auto ans = solve();
+		cout << ans << endl;
+	}
+}

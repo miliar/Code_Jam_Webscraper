@@ -1,0 +1,5 @@
+project(TextMessaging)
+include(FindBoost)
+include_directories(${boost_include_dirs})
+add_executable(TextMessaging TextMessaging.cpp)
+target_link_libraries(TextMessaging m)

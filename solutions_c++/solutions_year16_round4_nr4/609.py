@@ -1,0 +1,136 @@
+#include <vector>
+#include <algorithm>
+#include <cmath>
+#include <string>
+#include <sstream>
+#include <iostream>
+#include <iomanip>
+#include <queue>
+#include <map>
+#include <set>
+#include <list>
+#include <utility>
+#include <numeric>
+#include <fstream>
+
+using namespace std;
+
+#define		ALL(c)	(c).begin(),(c).end()
+#define		SZ(c)	int((c).size())
+#define		LEN(s)	int((s).length())
+#define		FOR(i,n)	for(int i=0;i<(n);++i)
+#define		FORD(i,a,b)	for(int i=(a);i<=(b);++i)
+#define		FORR(i,a,b)	for(int i=(b);i>=(a);--i)
+
+typedef istringstream iss;
+typedef ostringstream oss;
+typedef long double ld;
+typedef long long i64;
+typedef pair<int,int> pii;
+
+typedef vector<i64> vi;
+typedef vector<vi> vvi;
+typedef vector<vvi> vvvi;
+
+typedef vector<ld> vd;
+typedef vector<vd> vvd;
+
+typedef vector<string> vs;
+
+const i64 d18 = 1000000000000000000LL;
+const ld eps = 1e-9;
+const ld pi = atan2(0.0, -1.0);
+template<class T> T sqr(T a) { return a * a; }
+i64 abs(i64 a) { return (a >= 0) ? a : -a; }
+
+ofstream LOG("log.txt");
+
+ifstream fin;
+ofstream fout;
+
+vs P, B;
+int n;
+
+int bitcnt(i64 msk)
+{
+	int cnt = 0;
+	while (msk) ++cnt, msk &= msk-1;
+	return cnt;
+}
+
+vector<int> r;
+bool found;
+
+void rec(int k, int mach)
+{
+	if (k == n) return;
+	bool ch = false;
+	FOR(i, n)
+	{
+		if (mach & (1 << i)) continue;
+		if (B[r[k]][i] == '0') continue;
+		rec(k+1, mach^(1<<i));
+		ch = true;
+	}
+	found = found && ch;
+}
+
+void solve_case(int TN)
+{
+	fin >> n;
+	P.resize(n);
+	FOR(i, n) fin >> P[i];
+
+	int ans = 16;
+
+	FOR(msk, 1 << (n*n))
+	{
+		bool ok = true;
+		B = P;
+		FOR(i, n)
+		{
+			FOR(j, n)
+			{
+				if (msk & (1 << (i*n+j)))
+				{
+					if (B[i][j] == '1')
+					{
+						ok = false;
+						break;
+					}
+					B[i][j] = '1';
+				}
+			}
+			if (!ok) break;
+		}
+		if (!ok) continue;
+		found = true;
+		r.resize(n);
+		FOR(i, n) r[i] = i;
+		do 
+		{
+			rec(0, 0);
+		} while(next_permutation(ALL(r)));
+		int bc = bitcnt(msk);
+		if (found && bc < ans)
+			ans = bc;
+	}
+
+	fout << "Case #" << TN << ": " << ans << endl;
+	cout << "Case #" << TN << ": " << ans << endl;
+}
+
+int main()
+{
+	fin.open("D.in"); 
+	fout.open("D.out");
+
+	int T; 
+	fin >> T;
+	FOR(tt, T)
+	{
+		solve_case(tt+1);
+	}
+
+	return 0;	
+}

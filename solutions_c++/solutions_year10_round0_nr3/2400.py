@@ -1,0 +1,256 @@
+#include <iostream>
+#include<fstream>
+#include <string>
+#include <stdio.h>
+#include <vector>
+#include <set>
+#include <map>
+#include<math.h>
+#include<sstream>
+#include <algorithm>
+using namespace std;
+int ans[50] = {0};
+void Add(long num)
+{
+	int i;
+	for (i = 0;i <50;i++)
+	{
+		num+=ans[i];
+		ans[i]=num%10;
+		num=num/10;
+	}
+}
+int main()
+{
+	long t,r,k,n, i,j,ij,s,p,q,h;
+	long a[1005],b[1005],c[1005],d[1005];
+	ofstream fo("G:\\CSmallAnsb.txt",ios_base::out);
+	scanf("%d",&t);
+	for (i = 0; i<t; i++)
+	{
+		for (j=0;j<50;j++)
+			ans[j]=0;
+		fo<<"Case #"<<i+1<<": ";
+		scanf("%d",&r);
+		scanf("%d",&k);
+		scanf("%d",&n);
+
+		for (j=0;j<n;j++)
+		{
+			scanf("%d",&a[j]);
+			b[j]=-1;
+			c[j]=-1;
+			d[j]=0;
+		}
+
+		
+		s=0;p=0;q=-1;
+		while(r-->0)
+		{
+			q=p;h=0;
+			while(1)
+			{
+				h+=a[p];
+				if (h > k)
+					break;
+				s+=a[p];
+				p = (p+1)%n;
+				if (p==q)
+					break;
+			}
+		}
+
+		fo<<s<<endl;
+		/*
+		for (j=0;j<n;j++)
+		{
+			h= a[j]; ij=(j+1)%n;
+			while(1)
+			{
+				if (ij == j)
+					break;
+				if (h+a[ij]>k)
+					break;
+				h=h+a[ij];
+				ij=(ij+1)%n;
+			}
+			b[j]=ij;
+			c[j]=h;
+		}
+
+		s=0;p=0;
+		while(d[s]==0)
+		{
+			Add(c[s]);
+			p++;
+			d[s]=1;
+			s=b[s];
+		}
+		q=r/p;
+
+		ij=0;
+		for (j=0;j<50;j++)
+		{
+			ij = ans[j]*q +ij;
+			ans[j] = ij%10;
+			ij = ij/10;
+		}
+
+		r=r%p;
+		while(r-->0)
+		{
+			Add(c[s]);
+			s=b[s];
+		}
+
+		j=49;
+		while(ans[j]==0 && j>=0)
+			j--;
+
+		while(j>=0)
+		{
+			fo<<ans[j];
+			j--;
+		}
+		fo<<endl;
+		*/
+	}
+	
+	return 0;
+
+}
+/*int main()
+{
+	long t,n,k,m;
+	ofstream fo("G:\\ASmallAns.txt",ios_base::out);
+
+	scanf("%d",&t);
+	for (int i = 0; i<t; i++)
+	{
+		fo<<"Case #"<<i+1<<": ";
+		scanf("%d",&n);
+		scanf("%d",&k);
+		m = n*2-1;
+		if (m>=k && (m-k)%2==0)
+			fo<<"ON"<<endl;
+		else
+			fo<<"OFF"<<endl;	
+	}
+
+
+	return 0;
+}
+*/
+/*int a[3000];
+int main()
+{
+	int i,j,n,m,c,k,h;
+	
+	ofstream fo("G:\\ASmallAns.txt",ios_base::out);
+
+	scanf("%d",&n);
+	k = 1;
+	while(n-->0)
+	{
+		scanf("%d",&c);
+		scanf("%d",&m);
+		for (i = 0; i<m; i++)
+			scanf("%d",&a[i]);
+
+		h =0;
+		fo<<"Case #"<<k<<": ";
+		for (i = 0 ; i < m;i++)
+		{
+			for (j = i+1; j<m ;j++)
+				if (a[i]+a[j] == c)
+				{
+					fo<<i+1<<" "<<j+1<<endl;
+					//printf("Case #%d: %d %d\n",k,i,j);
+					h=1;
+					break;
+				}
+			if (h == 1)
+				break;
+
+		}
+		if (h == 0)
+			fo<<endl;
+		k++;
+	}
+	return 0;
+}
+
+/*char szdis[5005][16];
+char str[1000];
+char temp[16][30];
+int tn[16];
+int len,dis,num;
+long find()
+{
+	int i,j,ij,ok;
+	long k=0;
+	for (i=0;i<dis;i++)
+	{
+		ok=0;
+		for (j=0;j<len;j++)
+		{
+			ok=1;
+			for (ij=0;ij<tn[j];ij++)
+				if (szdis[i][j]==temp[j][ij])
+				{
+					ok=0;
+					break;
+				}
+			if (ok==1)
+				break;
+
+		}
+		if (ok==0)
+			k++;
+	}
+	return k;
+}
+int main()
+{
+	ofstream fo("G:\\ASmallAns.txt",ios_base::out);
+	int i,j,k,n;
+	scanf("%d%d%d",&len,&dis,&num);
+	for (i=0;i<dis;i++)
+		scanf("%s",&szdis[i]);
+	for (n=1; n<=num;n++)
+	{
+		scanf("%s",&str);
+		k=0;
+		memset(tn,0,sizeof(tn));
+		i=0;
+		int l = strlen(str);
+		for (j=0;j<l; j++)
+		{
+			if (str[j]=='(')
+			{
+				j++;
+				while(str[j]!=')')
+				{
+					temp[i][tn[i]]=str[j];
+					j++;
+					tn[i]++;
+				}
+			}
+			else
+			{
+				temp[i][tn[i]]=str[j];
+				tn[i]++;				
+			}			
+			i++;
+		}
+		fo<<"Case #"<<n<<": "<<find()<<endl;
+		//printf("Case #%d: %ld\n",n,find());
+	}
+
+	fo.close();
+	cin>>i;
+
+
+	return 0;
+}
+*/

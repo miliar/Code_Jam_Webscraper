@@ -1,0 +1,69 @@
+#include<bits/stdc++.h>
+#define ALL(X)       X.begin(),X.end()
+#define FOR(I,A,B)   for(int (I) = (A); (I) <= (B); (I)++)
+#define FORW(I,A,B)  for(int (I) = (A); (I) < (B);  (I)++)
+#define FORD(I,A,B)  for(int (I) = (A); (I) >= (B); (I)--)
+#define CLEAR(X)     memset(X,0,sizeof(X))
+#define SIZE(X)      int(X.size())
+#define CONTAIN(A,X) (A.find(X) != A.end())
+#define PB           push_back
+#define MP           make_pair
+#define X            first
+#define Y            second
+using namespace std;
+typedef signed long long slong;
+typedef long double ldouble;
+const slong Infinity = 1000000100;
+const ldouble Epsilon = 1e-9;
+template<typename T, typename U> ostream& operator << (ostream& os, const pair<T,U>&p) { return os << "(" << p.X << "," << p.Y << ")"; }
+template<typename T> ostream& operator << (ostream &os, const vector<T>& V) { os << "["; FORW(i,0,SIZE(V)) os << V[i] << ((i==SIZE(V)-1) ? "" : ","); return os << "]"; }
+template<typename T> ostream& operator << (ostream &os, const set<T>& S) {os << "("; for(T i: S) os << i << (i==*S.rbegin()?"":","); return os << ")"; }
+template<typename T, typename U> ostream& operator << (ostream &os, const map<T, U>& M){os << "{"; for(pair<T,U> i: M) os << i << (i.X==M.rbegin()->X?"":","); return os << "}"; }
+template<typename T, typename F> T lbound(T p, T q, F f) { while(p < q) { T r = p+(q-p)/2; if(f(r)) q = r; else p = r+1; } return p; }
+template<typename T, typename F> T lboundl(T p, T q, F f) { FOR(i,1,70) { T r = (p+q)/2; if(f(r)) q = r; else p = r; } return p; }
+
+const int MAXN = 1000100;
+int N, K;
+int A[MAXN];
+
+void read_data()
+{
+	scanf("%d %d", &N, &K);
+	FOR(i,1,N) scanf("%d", A+i);
+}
+
+void solve()
+{
+	int result = 0;
+	int i = 1;
+	int j = N;
+	sort(A+1,A+N+1);
+	while(i <= j)
+	{
+		if(A[i]+A[j] <= K) 
+		{
+			++result;
+			++i;
+			--j;
+		}
+		else
+		{
+			++result;
+			--j;
+		}
+	}	
+	printf("%d\n", result);
+}
+
+int main() 
+{
+	int z;
+	scanf("%d", &z);
+	FOR(_,1,z)
+	{
+		printf("Case #%d: ", _);
+		read_data();
+		solve();
+	}
+	return 0;
+}

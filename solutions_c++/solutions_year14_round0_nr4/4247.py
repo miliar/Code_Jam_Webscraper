@@ -1,0 +1,74 @@
+#include<stdio.h>
+int main()
+{
+	int t,l,i,j,n,m,s=0,k,d=0,w;
+	float nm[10000],kn[10000],a1[10000],a2[10000],a,b;
+	freopen("D-large.in","rt",stdin);
+	freopen("Dlarge.out","wt",stdout);
+	scanf("%d",&t);
+	for(l=0;l<t;l++)
+	{
+		scanf("%d",&n);
+		for(i=0;i<n;i++)
+			scanf("%f",&nm[i]);
+		for(i=0;i<n;i++)
+			scanf("%f",&kn[i]);
+		m=n;
+		w=n;
+		for(i=0;i<n;i++)
+		{
+			for(j=i+1;j<n;j++)
+			{
+				if(kn[i]>kn[j])
+				{
+					a=kn[i];
+					kn[i]=kn[j];
+					kn[j]=a;
+				}
+				if(nm[i]>nm[j])
+				{
+					b=nm[i];
+					nm[i]=nm[j];
+					nm[j]=b;
+				}
+			}
+		}
+		for(i=0;i<n;i++)
+		{
+			a1[i]=nm[i];
+			a2[i]=kn[i];
+		}
+		for(i=0;i<n;i++)
+		{
+			for(j=0;j<w;j++)
+			{
+				if(a1[i]>a2[j])
+				{
+					for(k=j;k+1<=w;k++)
+						a2[k]=a2[k+1];
+					d++;
+					w--;
+					break;
+				}
+			}
+		}
+		for(i=0;i<n;i++)
+		{
+			for(j=0;j<m;j++)
+			{
+				if(kn[j]>nm[i])
+				{
+					s++;
+					for(k=j;k+1<m;k++)
+						kn[k]=kn[k+1];
+					m--;
+					break;
+				}
+			}
+		}
+		printf("case #%d: %d %d\n",l+1,d,n-s);
+		s=0;
+		d=0;
+	}
+	return 0;
+}

@@ -1,0 +1,80 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+using ll=long long;
+using vi=vector<int>;
+using vl=vector<long long>;
+using pii=pair<int,int>;
+using pll=pair<long long,long long>;
+#define ITR(i,c) for(auto i=begin(c);i!=end(c);++i)
+#define FORE(x,c) for(auto &x:c)
+#define REPF(i,a,n) for(int i=a,i##len=(int)(n);i<i##len;++i)
+#define REP(i,n) REPF(i,0,n)
+#define REPR(i,n) for(int i=(int)(n);i>=0;--i)
+#define REPW(i,n) for(i=0;i<(int)(n);++i)
+#define ALL(c) begin(c),end(c)
+#define RALL(c) rbegin(c),rend(c)   // c++14
+#define SZ(c) ((int)c.size())
+#define EXIST(c,x) (c.find(x)!=end(c))
+#define OUTOFRANGE(y,x,h,w) (y<0||x<0||y>=h||x>=w)
+#define dump(...)
+const int DX[9]={0,1,0,-1,1,1,-1,-1,0},DY[9]={-1,0,1,0,-1,1,1,-1,0};
+#define INF (1001001001)
+#define INFLL (1001001001001001001ll)
+template<class T> ostream& operator << (ostream &os,const vector<T> &v) {
+    ITR(i,v) os << *i << (i==end(v)-1 ? "" : "\n"); return os; }
+template<class T> istream& operator >> (istream &is,vector<T> &v) {
+    ITR(i,v) is >> * i; return is; }
+template<class T> istream& operator >> (istream &is, pair<T,T> &p) {
+        is >> p.first >> p.second; return is; }
+template<class T>bool chmax(T &a,const T &b){if(a<b){a=b;return 1;}return 0;}
+template<class T>bool chmin(T &a,const T &b){if(b<a){a=b;return 1;}return 0;}
+//------------------------------------------------------------------------------
+struct before_main_function {
+    before_main_function() {
+        #ifdef int
+            #undef INF
+            #define INF INFLL
+            #define stoi stoll
+        #endif
+        cin.tie(0);ios::sync_with_stdio(false);
+        cout<<setprecision(15)<<fixed;
+    }
+} before_main_function;
+//------------------------------------------------------------------------------
+
+signed main() {
+    int T;
+    cin>>T;
+    REP(t,T) {
+        int N,D;
+        cin>>D>>N;
+        vector<int> K(N),S(N);
+        vector<double> x(N);
+        REP(i,N) {
+            cin>>K[i]>>S[i];
+        }
+
+        double ans=INF;
+        double l=0,r=1e9;
+        REP(loop,100) {
+            double m=(l+r)/2;
+            x[N-1]=K[N-1]+m*S[N-1];
+            REPR(i,N-2) {
+                x[i]=min(K[i]+S[i]*m,x[i+1]);
+            }
+            if(x[0]<D) {
+                // NG
+                l=m;
+            }
+            else {
+                // OK
+                chmin(ans,m);
+                r=m;
+            }
+        }
+        cout<<"Case #"<<t+1<<": "<<(double)D/ans<<endl;
+    }
+
+    return 0;
+}
