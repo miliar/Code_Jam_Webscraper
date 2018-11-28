@@ -1,1 +1,0 @@
-for case in range(1,int(raw_input())+1):	a,b = map(int,raw_input().split())	pairs = 0	set = []	for i in range(a,b+1):		k = str(i)		for j in range(1,len(k)):			k = k[-1]+k[:-1]			if(i<int(k)<=b):				j = str(i)+str(k)				if j not in set:					pairs+=1					set.append(j)	print "Case #"+str(case)+": "+str(pairs)
