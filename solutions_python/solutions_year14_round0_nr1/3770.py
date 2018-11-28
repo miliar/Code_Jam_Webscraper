@@ -1,0 +1,2 @@
+import sys
+print "\n".join(["Case #%d: %s"%(i,s.pop()if len(s)==1 else("Bad magician!" if len(s) > 1 else"Volunteer cheated!")) for i,s in(lambda l:[(i/10+1,set(l[i+1:i+5][int(l[i])-1].split()).intersection(set(l[i+6:i+10][int(l[i+5])-1].split())))for i in range(0,len(l),10)])(sys.stdin.readlines()[1:])])

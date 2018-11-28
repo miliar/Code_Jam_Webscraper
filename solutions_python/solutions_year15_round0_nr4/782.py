@@ -1,0 +1,11 @@
+T = int(input())
+for TT in range(T):
+	x,r,c=input().split(' ')
+	x=int(x)
+	r=int(r)
+	c=int(c)
+	print("Case #%d: "%(TT+1,),end='')
+	if x==1:print("GABRIEL")
+	elif x<7 and (r*c)%x==0 and int((x+1)/2)<=min(r,c) and x<min(r,c)+2 and max(r,c)>=x and r+c-1>x:print("GABRIEL")
+	elif r*c==2 and x<=2:print("GABRIEL")
+	else:print("RICHARD")
