@@ -1,1 +1,0 @@
-tc = int(input())for c in range(tc):    C,F,X = map(float, input().split())    R = 2.0    T = 0    while X/R > X/(R+F) + C/R:        T = T + C/R        R = R + F     T =T +  X/R    print('Case #', end="")    print(c+1,end="")    print(": ", end="")    print(T)

@@ -1,1 +1,0 @@
-Note: I haven't looked into how to write to an output file yet (whoops!) so I am currently copy/pasting results from the console into results.txt. You can verify that I'm not fudging the results in any way by just checking the console output.
